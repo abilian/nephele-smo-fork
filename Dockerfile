@@ -1,8 +1,10 @@
-FROM python:3.11-alpine
+FROM python:3.11
+
+RUN curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
 WORKDIR /app
 
-RUN adduser -D python
+RUN adduser python
 RUN chown -R python:python /app
 
 COPY requirements.txt /app
@@ -14,4 +16,4 @@ EXPOSE 5000
 
 COPY src/ .
 
-CMD ["flask", "run", "--host", "0.0.0.0"]
+CMD ["flask", "run", "--host", "0.0.0.0", "--debug"]

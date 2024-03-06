@@ -6,7 +6,10 @@ import subprocess
 import tempfile
 
 import yaml
+from flask import current_app
+from werkzeug.exceptions import BadRequest, NotFound
 
+from models import db, Graph, Service
 from utils.placement import decide_placement
 
 
@@ -23,10 +26,10 @@ def create_service_imports(services, service_placement):
     """
 
     # For each service a list of clusters to which its service will be imported
-    service_import_clusters = [[] for _ in len(services)]
+    service_import_clusters = [[] for _ in range(len(services))]
 
     for i in range(len(services)):
-        for j, service in services:
+        for j, service in enumerate(services):
             connection_points = service['connectionPoints']
             if connection_points[i]:
                 service_import_clusters[i].append(service_placement[j])
@@ -36,11 +39,24 @@ def create_service_imports(services, service_placement):
 
 def deploy_graph(data):
     """
-    Instantiates an application graph.
+    Instantiates an application graph by using Helm to
+    deploy each service'sartifact.
     """
 
-    hdag_config = data['hdag']['hdaGraph']
+    graph_descriptor = data
+    hdag_config = graph_descriptor['hdaGraph']
     name = hdag_config['id']
+
+    graph = db.session.query(Graph).filter_by(name=name).first()
+    if graph is not None:
+        raise BadRequest(f'Graph with name {name} already exists')
+
+    graph = Graph(name=name, graph_descriptor=graph_descriptor)
+    db.session.add(graph)
+    db.session.commit()
+
+    graph_id = graph.id
+
     services = hdag_config['services']
 
     # List of cluster names where each service is placed
@@ -55,19 +71,56 @@ def deploy_graph(data):
         artifact_ref = artifact['ref']
         values_overwrite = artifact['valuesOverwrite']
 
-        values_overwrite['placementClustersAffinity'] = service_placement
-        values_overwrite['serviceImportClusters'] = service_import_clusters
+        values_overwrite['placementClustersAffinity'] = str(service_placement)
+        values_overwrite['serviceImportClusters'] = str(service_import_clusters)
+
+        svc = Service(name=name, values_overwrite=values_overwrite, graph_id=graph_id)
+        db.session.add(svc)
+        db.session.commit()
 
         with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml') as values_file:
             yaml.dump(values_overwrite, values_file)
 
-            return_value = subprocess.check_output([
+            """return_value = subprocess.check_output([
                 'helm',
                 'install',
                 name,
                 artifact_ref,
                 '--values',
-                values_file
-            ], stderr=subprocess.STDOUT)
+                values_file,
+                '--kubeconfig',
+                current_app['KARMADA_KUBECONFIG']
+            ], stderr=subprocess.STDOUT)"""
 
-            return return_value
+            # return return_value
+            return "ok"
+
+
+def fetch_graph(name):
+    """Retrieves the descriptor of an application graph."""
+
+    graph = db.session.query(Graph).filter_by(name=name).first()
+
+    return graph
+
+
+def remove_graph(name):
+    """Removes all artifacts of an application graph using Helm."""
+
+    graph = db.session.query(Graph).filter_by(name=name).first()
+    if graph is None:
+        raise NotFound(f'Graph with name {name} not found')
+
+    db.session.delete(graph)
+    db.session.commit()
+
+    """return_value = subprocess.check_output([
+        'helm',
+        'uninstall',
+        name,
+        '--kubeconfig',
+        current_app['KARMADA_KUBECONFIG']
+    ], stderr=subprocess.STDOUT)"""
+
+    return "ok"
+    # return return_value

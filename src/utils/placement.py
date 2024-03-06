@@ -1,6 +1,4 @@
-"""
-Application node placement related functionalities.
-"""
+"""Application node placement related functionalities."""
 
 
 def decide_placement(intent):
@@ -9,4 +7,4 @@ def decide_placement(intent):
     and finds an optimal placement.
     """
 
-    pass
+    return 'netmode-cluster'

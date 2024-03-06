@@ -1,6 +1,4 @@
-"""
-Flask app configurations.
-"""
+"""Flask app configurations."""
 
 import os
 
@@ -16,6 +14,9 @@ class Config:
         os.getenv('DB_PASSWORD', 'password'),
         os.getenv('DB_HOST', 'localhost'),
         os.getenv('DB_NAME', 'smo')
+    )
+    KARMADA_KUBECONFIG_PATH = '/kube/{}'.format(
+        os.getenv('KARMADA_KUBECONFIG', 'karmada-apiserver.config')
     )
 
 

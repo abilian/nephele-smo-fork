@@ -1,6 +1,4 @@
-"""
-Main Flask app entrypoint.
-"""
+"""Main Flask app entrypoint."""
 
 import os
 
@@ -8,7 +6,7 @@ from flask import Flask
 
 from config import configs
 from errors import errors, error_handlers
-from models.models import db
+from models import db
 from routes.graph import graph
 
 env = os.environ.get('FLASK_ENV', 'development')
@@ -27,6 +25,10 @@ def create_app(app_name='smo'):
     app.register_error_handler(
         errors.SubprocessError,
         error_handlers.handle_subprocess_error
+    )
+    app.register_error_handler(
+        errors.YamlReadError,
+        error_handlers.handle_yaml_read_error
     )
 
     db.init_app(app)

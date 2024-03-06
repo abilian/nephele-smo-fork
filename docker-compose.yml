@@ -2,6 +2,11 @@ services:
   smo:
     container_name: smo
     build: .
+    volumes:
+      - type: bind
+        source: ~/.kube/
+        target: /kube
+        read_only: true
     ports:
       - 8000:5000
     links:

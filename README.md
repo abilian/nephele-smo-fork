@@ -7,15 +7,24 @@ Use docker compose:
 ```
 docker-compose up
 ```
-The API is available at port 8000.
+The SMO API is available at port 8000.
 
 ## File structure
-The folder structure of the codebase is as follows:
+The directory structure of the codebase is as follows:
 ```
-/src
-├── errors  					     # custom errors and handlers
-├── models						     # db models
-├── routes						     # app blueprints
-├── services				         # business logic for the routes
-├── utils					         # misc
+src/
+├── errors
+├── models
+├── routes
+├── services
+├── utils
+├── app.py
+└── config.py
 ```
+- `errors`: custom errors and handlers
+- `models`: db models
+- `routes`: app blueprints
+- `services`: business logic for the routes
+- `utils`: misc
+- `app.py`: the Flask application
+- `config.py`: the Flask application configuration files
