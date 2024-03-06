@@ -1,8 +1,6 @@
-"""
-Application graph service node table.
-"""
+"""Application graph service node table."""
 
-from models.models import db
+from models import db
 from sqlalchemy.dialects.postgresql import JSONB
 
 
@@ -21,3 +19,8 @@ class Service(db.Model):
     values_overwrite = db.Column(JSONB)
 
     graph = db.relationship('Graph', back_populates='services')
+    graph_id = db.Column(
+        db.Integer,
+        db.ForeignKey('graph.id'),
+        nullable=False
+    )

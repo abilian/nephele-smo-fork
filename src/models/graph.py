@@ -1,8 +1,6 @@
-"""
-Application graph table.
-"""
+"""Application graph table."""
 
-from models.models import db
+from models import db
 from sqlalchemy.dialects.postgresql import JSONB
 
 
@@ -18,7 +16,10 @@ class Graph(db.Model):
         unique=True,
         nullable=False
     )
+    graph_descriptor = db.Column(JSONB)
 
-    services = db.relationship('Service', back_populates='graph')
-
-    values_overwrite = db.Column(JSONB)
+    services = db.relationship(
+        'Service',
+        back_populates='graph',
+        cascade='all,delete'
+    )

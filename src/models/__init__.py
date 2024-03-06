@@ -1,6 +1,4 @@
-"""
-DB models declaration.
-"""
+"""DB models declaration."""
 
 from flask_sqlalchemy import SQLAlchemy
 
