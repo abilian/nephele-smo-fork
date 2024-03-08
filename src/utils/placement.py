@@ -1,10 +1,13 @@
 """Application node placement related functionalities."""
 
 
-def decide_placement(intent):
+def decide_placement(name, intent):
     """
     Function that takes into account placement constraints
     and finds an optimal placement.
     """
 
-    return 'netmode-cluster'
+    if name == 'vo1':
+        return ['netmode-cluster']
+    else:
+        return ['netmode-cluster2']

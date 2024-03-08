@@ -15,7 +15,7 @@ class Config:
         os.getenv('DB_HOST', 'localhost'),
         os.getenv('DB_NAME', 'smo')
     )
-    KARMADA_KUBECONFIG_PATH = '/kube/{}'.format(
+    KARMADA_KUBECONFIG = '/kube/{}'.format(
         os.getenv('KARMADA_KUBECONFIG', 'karmada-apiserver.config')
     )
 

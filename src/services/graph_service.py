@@ -32,7 +32,7 @@ def create_service_imports(services, service_placement):
         for j, service in enumerate(services):
             connection_points = service['connectionPoints']
             if connection_points[i]:
-                service_import_clusters[i].append(service_placement[j])
+                service_import_clusters[i].extend(service_placement[j])
 
     return service_import_clusters
 
@@ -61,39 +61,47 @@ def deploy_graph(data):
 
     # List of cluster names where each service is placed
     service_placement = [
-        decide_placement(service['deployment']['intent']) for service in services
+        decide_placement(service['name'], service['deployment']['intent']) for service in services
     ]
     service_import_clusters = create_service_imports(services, service_placement)
 
-    for service in services:
-        name = service['id']
+    for idx, service in enumerate(services):
+        id = service['id']
+        name = service['name']
         artifact = service['artifact']
         artifact_ref = artifact['ref']
         values_overwrite = artifact['valuesOverwrite']
 
-        values_overwrite['placementClustersAffinity'] = str(service_placement)
-        values_overwrite['serviceImportClusters'] = str(service_import_clusters)
+        if 'voChartOverwrite' not in values_overwrite:
+            values_overwrite['voChartOverwrite'] = {}
+        vo_chart_overwrite = values_overwrite['voChartOverwrite']
 
-        svc = Service(name=name, values_overwrite=values_overwrite, graph_id=graph_id)
+        vo_chart_overwrite['clustersAffinity'] = service_placement[idx]
+        vo_chart_overwrite['serviceImportClusters'] = service_import_clusters[idx]
+
+        svc = Service(id=id, name=name, values_overwrite=values_overwrite, graph_id=graph_id)
         db.session.add(svc)
         db.session.commit()
 
         with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml') as values_file:
             yaml.dump(values_overwrite, values_file)
 
-            """return_value = subprocess.check_output([
-                'helm',
-                'install',
-                name,
-                artifact_ref,
-                '--values',
-                values_file,
-                '--kubeconfig',
-                current_app['KARMADA_KUBECONFIG']
-            ], stderr=subprocess.STDOUT)"""
+            try:
+                return_value = subprocess.check_output([
+                    'helm',
+                    'install',
+                    name,
+                    artifact_ref,
+                    '--values',
+                    values_file.name,
+                    '--kubeconfig',
+                    current_app.config['KARMADA_KUBECONFIG'],
+                    '--plain-http'
+                ], stderr=subprocess.STDOUT)
+            except subprocess.CalledProcessError as e:
+                print(e.output)
 
-            # return return_value
-            return "ok"
+    return 'Graph deployment successful'
 
 
 def fetch_graph(name):
@@ -111,16 +119,20 @@ def remove_graph(name):
     if graph is None:
         raise NotFound(f'Graph with name {name} not found')
 
+    services = graph.services
+    for service in services:
+        try:
+            return_value = subprocess.check_output([
+                'helm',
+                'uninstall',
+                service.name,
+                '--kubeconfig',
+                current_app.config['KARMADA_KUBECONFIG']
+            ], stderr=subprocess.STDOUT)
+        except subprocess.CalledProcessError as e:
+            print(e.output)
+
     db.session.delete(graph)
     db.session.commit()
 
-    """return_value = subprocess.check_output([
-        'helm',
-        'uninstall',
-        name,
-        '--kubeconfig',
-        current_app['KARMADA_KUBECONFIG']
-    ], stderr=subprocess.STDOUT)"""
-
-    return "ok"
-    # return return_value
+    return 'Remove successful'

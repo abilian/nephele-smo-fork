@@ -12,7 +12,8 @@ RUN pip install -r requirements.txt
 
 USER python
 
-EXPOSE 5000
+ENV FLASK_RUN_PORT=8000
+EXPOSE 8000
 
 COPY src/ .
 
