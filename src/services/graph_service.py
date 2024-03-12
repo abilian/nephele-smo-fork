@@ -95,10 +95,10 @@ def deploy_graph(data):
                     '--values',
                     values_file.name,
                     '--kubeconfig',
-                    current_app.config['KARMADA_KUBECONFIG'],
-                    '--plain-http'
+                    current_app.config['KARMADA_KUBECONFIG']
                 ], stderr=subprocess.STDOUT)
             except subprocess.CalledProcessError as e:
+                raise Exception(e.output)
                 print(e.output)
 
     return 'Graph deployment successful'
@@ -130,6 +130,7 @@ def remove_graph(name):
                 current_app.config['KARMADA_KUBECONFIG']
             ], stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
+            raise Exception(e.output)
             print(e.output)
 
     db.session.delete(graph)

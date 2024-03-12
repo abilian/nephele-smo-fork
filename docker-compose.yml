@@ -5,7 +5,11 @@ services:
     volumes:
       - type: bind
         source: ~/.kube/
-        target: /kube
+        target: /home/python/.kube
+        read_only: true
+      - type: bind
+        source: ~/.docker/
+        target: /home/python/.docker
         read_only: true
     depends_on:
       postgres:
