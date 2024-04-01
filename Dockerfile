@@ -17,4 +17,6 @@ EXPOSE 8000
 
 COPY src/ .
 
+COPY hdarctl /bin/
+
 CMD ["flask", "run", "--host", "0.0.0.0", "--debug"]
