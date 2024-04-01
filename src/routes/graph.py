@@ -27,7 +27,8 @@ def deploy(project):
     request_data = request.json
     if 'artifact' in request_data:
         artifact_ref = request_data['artifact']
-        graph_descriptor = get_descriptor_from_artifact(project, artifact_ref)
+        descriptor = get_descriptor_from_artifact(project, artifact_ref)
+        graph_descriptor = descriptor['hdaGraph']
     else:
         graph_descriptor = request_data['descriptor']
     deploy_graph(project, graph_descriptor)
