@@ -2,9 +2,9 @@
 
 from flask import Blueprint, request
 
-from services.graph_service import deploy_graph_artifact, fetch_graph, \
+from services.graph_service import deploy_graph, fetch_graph, \
     fetch_project_graphs, remove_graph, start_graph, stop_graph, \
-    trigger_placement
+    trigger_placement, get_descriptor_from_artifact
 
 graph = Blueprint('graph', __name__)
 
@@ -18,11 +18,19 @@ def get_all_graphs(project):
 
 @graph.route('/graph/project/<project>', methods=['POST'])
 def deploy(project):
-    """Handles the graph deployment."""
+    """
+    Handles the graph deployment. The input can either be an artifact
+    URL that gets unpacked, read and deployed or it can directly
+    be a desciptor file in JSON format.
+    """
 
     request_data = request.json
-    artifact_ref = request_data['artifact']
-    deploy_graph_artifact(project, artifact_ref)
+    if 'artifact' in request_data:
+        artifact_ref = request_data['artifact']
+        graph_descriptor = get_descriptor_from_artifact(project, artifact_ref)
+    else:
+        graph_descriptor = request_data['descriptor']
+    deploy_graph(project, graph_descriptor)
 
     return 'Graph deployment successful\n', 200
 

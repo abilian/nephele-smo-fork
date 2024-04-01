@@ -35,7 +35,7 @@ def fetch_project_graphs(project):
     return project_graphs
 
 
-def deploy_graph_artifact(project, artifact_ref):
+def deploy_graph(project, graph_descriptor):
     """
     Instantiates an application graph by using Helm to
     deploy each service's artifact.
@@ -43,8 +43,7 @@ def deploy_graph_artifact(project, artifact_ref):
 
     global graph_placement
 
-    graph_descriptor = get_descriptor_from_artifact(project, artifact_ref)
-    hdag_config = graph_descriptor['hdaGraph']
+    hdag_config = graph_descriptor
     name = hdag_config['id']
 
     graph = db.session.query(Graph).filter_by(name=name).first()
