@@ -1,11 +1,13 @@
 """Main Flask app entrypoint."""
 
 import os
+import subprocess
 
+import yaml
 from flask import Flask
 
 from config import configs
-from errors import errors, error_handlers
+from errors import error_handlers
 from models import db
 from routes.graph import graph
 
@@ -23,11 +25,11 @@ def create_app(app_name='smo'):
     app.register_blueprint(graph)
 
     app.register_error_handler(
-        errors.SubprocessError,
+        subprocess.CalledProcessError,
         error_handlers.handle_subprocess_error
     )
     app.register_error_handler(
-        errors.YamlReadError,
+        yaml.YAMLError,
         error_handlers.handle_yaml_read_error
     )
 

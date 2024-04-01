@@ -1,21 +1,19 @@
 """Flask error handlers."""
 
-from flask import jsonify
-
 
 def handle_subprocess_error(e):
     response = {
-        'error': e.description,
-        'message': e.message
+        'error': 'Subprocess error',
+        'message': e.output
     }
 
-    return jsonify(response), e.code
+    return response, 500
 
 
 def handle_yaml_read_error(e):
     response = {
-        'error': e.description,
-        'message': e.message
+        'error': 'Yaml read error',
+        'message': str(e)
     }
 
-    return jsonify(response), e.code
+    return response, 500
