@@ -54,11 +54,11 @@ BETA = {
 }
 DECISION_INTERVAL = 30
 PROMETHEUS_HOST = 'http://host.docker.internal:30347'
-GRAPH_GRAFANA = 'http://10.0.2.114:30150/d/edgr2834xi2v4f/brussels-demo?orgId=1'
+GRAPH_GRAFANA = 'http://10.0.2.114:30150/d/edgr2834xi2v4f/image-detection-graph?from=now-5m&to=now&orgId=1&var-service=All'
 SERVICES_GRAFANA = {
-    'image-compression-vo': 'http://10.0.2.114:30150/d/bdh4oxli71l34b/image-compression-vo?orgId=1',
-    'noise-reduction': 'http://10.0.2.114:30150/d/bdh4ozx4tnw8wd/noise-reduction?orgId=1',
-    'image-detection': 'http://10.0.2.114:30150/d/bdh4p0uz3n3eob/image-detection?orgId=1'
+    'image-compression-vo': 'http://10.0.2.114:30150/d/bdh4oxli71l34b/image-compression-vo?orgId=1&from=now-5m&to=now',
+    'noise-reduction': 'http://10.0.2.114:30150/d/bdh4ozx4tnw8wd/noise-reduction?orgId=1&from=now-5m&to=now',
+    'image-detection': 'http://10.0.2.114:30150/d/bdh4p0uz3n3eob/image-detection?orgId=1&from=now-5m&to=now'
 }
 RESOURCES = {
     'image-compression-vo': {
