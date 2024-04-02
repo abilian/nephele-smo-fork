@@ -134,7 +134,7 @@ def trigger_placement(name):
         ACCELERATION_LIST, current_replicas, graph_placement,
         initial_placement=False
     )
-    descriptor_services = graph.graph_descriptor['hdaGraph']['services']
+    descriptor_services = graph.graph_descriptor['services']
     graph_placement = placement
     service_placement = convert_placement(placement, descriptor_services, CLUSTERS)
     cluster_placement = swap_placement(service_placement)
@@ -164,7 +164,8 @@ def start_graph(name):
         helm_install_artifact(
             service.name,
             service.artifact_ref,
-            service.values_overwrite
+            service.values_overwrite,
+            'install'
         )
         service.status = 'Deployed'
     db.session.commit()

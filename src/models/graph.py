@@ -28,7 +28,7 @@ class Graph(db.Model):
             'status': self.status,
             'project': self.project,
             'grafana': self.grafana,
-            'descriptor': self.graph_descriptor,
+            'hdaGraph': self.graph_descriptor,
         }
 
         instance_dict['services'] = [
