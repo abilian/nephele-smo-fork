@@ -1,0 +1,13 @@
+summary: Stop graph
+description: Stop a running graph
+parameters:
+  - name: name
+    in: path
+    description: Graph that will be stopped
+    required: True
+    type: string
+responses:
+  200:
+    description: Successful graph stop
+  404:
+    description: Graph with given name not found

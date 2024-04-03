@@ -1,0 +1,13 @@
+summary: Run placement algorithm for graph
+description: Trigger the placement algorithm for a graph
+parameters:
+  - name: name
+    in: path
+    description: Graph for which the placement algorithm will be run
+    required: True
+    type: string
+responses:
+  200:
+    description: Successful triggering of placement algorithm
+  404:
+    description: Graph with given name not found

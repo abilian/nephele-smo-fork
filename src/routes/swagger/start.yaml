@@ -1,0 +1,13 @@
+summary: Start graph
+description: Start a stopped graph
+parameters:
+  - name: name
+    in: path
+    description: Graph that will be started
+    required: True
+    type: string
+responses:
+  200:
+    description: Successful graph start
+  404:
+    description: Graph with given name not found

@@ -1,0 +1,13 @@
+summary: Delete graph
+description: Remove a running graph
+parameters:
+  - name: name
+    in: path
+    description: Graph that will be deleted
+    required: True
+    type: string
+responses:
+  200:
+    description: Successful graph deletion
+  404:
+    description: Graph with given name not found

@@ -1,5 +1,7 @@
 """Application graph Blueprints."""
 
+import yaml
+from flasgger import swag_from
 from flask import Blueprint, request
 
 from services.graph_service import deploy_graph, fetch_graph, \
@@ -10,6 +12,7 @@ graph = Blueprint('graph', __name__)
 
 
 @graph.route('/graph/project/<project>', methods=['GET'])
+@swag_from('swagger/get_all_graphs.yaml')
 def get_all_graphs(project):
     """Fetches all graphs under a project."""
 
@@ -17,6 +20,7 @@ def get_all_graphs(project):
 
 
 @graph.route('/graph/project/<project>', methods=['POST'])
+@swag_from('swagger/deploy.yaml')
 def deploy(project):
     """
     Handles the graph deployment. The input can either be an artifact
@@ -24,19 +28,20 @@ def deploy(project):
     be a desciptor file in JSON format.
     """
 
-    request_data = request.json
-    if 'artifact' in request_data:
+    request_data = request.get_json()
+    if isinstance(request_data, dict) and 'artifact' in request_data:
         artifact_ref = request_data['artifact']
         descriptor = get_descriptor_from_artifact(project, artifact_ref)
-        graph_descriptor = descriptor['hdaGraph']
     else:
-        graph_descriptor = request_data['descriptor']
+        descriptor = yaml.safe_load(request_data)
+    graph_descriptor = descriptor['hdaGraph']
     deploy_graph(project, graph_descriptor)
 
     return 'Graph deployment successful\n', 200
 
 
 @graph.route('/graph/<name>', methods=['GET'])
+@swag_from('swagger/get_graph.yaml')
 def get_graph(name):
     """Retrieves an application graph descriptor."""
 
@@ -49,6 +54,7 @@ def get_graph(name):
 
 
 @graph.route('/graph/<name>/placement', methods=['GET'])
+@swag_from('swagger/placement.yaml')
 def placement(name):
     """Runs the placement algorithm on the graph."""
 
@@ -58,6 +64,7 @@ def placement(name):
 
 
 @graph.route('/graph/<name>/start', methods=['GET'])
+@swag_from('swagger/start.yaml')
 def start(name):
     """Starts a stopped graph."""
 
@@ -67,6 +74,7 @@ def start(name):
 
 
 @graph.route('/graph/<name>/stop', methods=['GET'])
+@swag_from('swagger/stop.yaml')
 def stop(name):
     """Uninstalls graphs artifacts without erasing from the database."""
 
@@ -76,6 +84,7 @@ def stop(name):
 
 
 @graph.route('/graph/<name>', methods=['DELETE'])
+@swag_from('swagger/remove.yaml')
 def remove(name):
     """Handles the graph removal."""
 

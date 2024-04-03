@@ -1,0 +1,13 @@
+summary: Get graph
+description: Fetch a specific graph
+parameters:
+  - name: name
+    in: path
+    description: Graph that will be fetched
+    required: True
+    type: string
+responses:
+  200:
+    description: The requested graph
+  404:
+    description: Graph with given name not found

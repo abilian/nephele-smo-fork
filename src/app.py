@@ -5,6 +5,7 @@ import subprocess
 
 import yaml
 from flask import Flask
+from flasgger import APISpec, Swagger
 
 from config import configs
 from errors import error_handlers
@@ -19,7 +20,15 @@ def create_app(app_name='smo'):
     Function that returns a configured Flask app.
     """
 
-    app = Flask(app_name)
+    ROOT_PATH = os.path.dirname(__file__)
+    app = Flask(app_name, root_path=ROOT_PATH)
+
+    app.config['SWAGGER'] = {
+        'title': 'SMO-API',
+        'uiversion': 3,
+    }
+    Swagger(app)
+
     app.config.from_object(configs[env])
 
     app.register_blueprint(graph)

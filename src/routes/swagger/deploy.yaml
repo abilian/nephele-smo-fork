@@ -1,0 +1,17 @@
+summary: Deploy descriptor
+description: Deploy a graph descriptor
+parameters:
+  - name: project
+    in: path
+    description: Project whose graphs will be fetched
+    required: True
+    type: string
+  - name:
+    in: body
+    description: Graph descriptor YAML or JSON body with artifact
+    required: True
+responses:
+  200:
+    description: A list of all applciation graphs under a project
+  400:
+    description: Graph with that name has already been deployed

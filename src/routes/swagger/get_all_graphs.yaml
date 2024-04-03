@@ -1,0 +1,11 @@
+summary: Get project graphs
+description: Fetch all graphs under a project
+parameters:
+  - name: project
+    in: path
+    description: Project whose graphs will be fetched
+    required: True
+    type: string
+responses:
+  200:
+    description: A list of all applciation graphs under a project
