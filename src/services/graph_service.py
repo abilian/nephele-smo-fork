@@ -75,9 +75,9 @@ def deploy_graph(project, graph_descriptor):
     for service in services:
         name = service['id']
         artifact = service['artifact']
-        artifact_ref = artifact['ref']
-        implementer = artifact['spec']['implementer']
-        artifact_type = artifact['spec']['type']
+        artifact_ref = artifact['ociImage']
+        implementer = artifact['ociConfig']['implementer']
+        artifact_type = artifact['ociConfig']['type']
         values_overwrite = artifact['valuesOverwrite']
         placement_dict = values_overwrite
 
@@ -97,6 +97,7 @@ def deploy_graph(project, graph_descriptor):
             cluster_affinity=service_placement[name],
             artifact_ref=artifact_ref,
             artifact_type=artifact_type,
+            artifact_implementer=implementer,
             resources=RESOURCES[name],
             grafana=SERVICES_GRAFANA[name]
         )
@@ -141,9 +142,16 @@ def trigger_placement(name):
     import_clusters = create_service_imports(descriptor_services, service_placement)
 
     for service in graph.services:
-        values_overwrite = service.values_overwrite
-        values_overwrite['clustersAffinity'] = [service_placement[service.name]]
-        values_overwrite['serviceImportClusters'] = import_clusters[service.name]
+        # Updating JSONB fields requires new dictionary creation
+        values_overwrite = dict(service.values_overwrite)
+        placement_dict = values_overwrite
+        if service.artifact_implementer == 'WOT':
+            if 'voChartOverwrite' not in values_overwrite:
+                values_overwrite['voChartOverwrite'] = {}
+            placement_dict = values_overwrite['voChartOverwrite']
+        placement_dict['clustersAffinity'] = [service_placement[service.name]]
+        placement_dict['serviceImportClusters'] = import_clusters[service.name]
+        service.values_overwrite = values_overwrite
         db.session.commit()
 
         helm_install_artifact(service.name, service.artifact_ref, values_overwrite, 'upgrade')
@@ -215,7 +223,7 @@ def create_service_imports(services, service_placement):
     }
 
     for service in services:
-        connection_points = service['connectionPoints']
+        connection_points = service['deployment']['intent']['connectionPoints']
         for other_service in services:
             if other_service['id'] in connection_points:
                 service_import_clusters[other_service['id']].extend(

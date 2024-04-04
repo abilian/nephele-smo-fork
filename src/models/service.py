@@ -14,6 +14,7 @@ class Service(db.Model):
     cluster_affinity = db.Column(db.String(255))
     artifact_ref = db.Column(db.String(255))
     artifact_type = db.Column(db.String(255))
+    artifact_implementer = db.Column(db.String(255))
     resources = db.Column(JSONB)
     values_overwrite = db.Column(JSONB)
 
@@ -35,7 +36,8 @@ class Service(db.Model):
             'resources': self.resources,
             'values_overwrite': self.values_overwrite,
             'artifact_ref': self.artifact_ref,
-            'artifact_type': self.artifact_type
+            'artifact_type': self.artifact_type,
+            'artifact_implementer': self.artifact_implementer
         }
 
         return instance_dict
