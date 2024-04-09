@@ -32,6 +32,11 @@ REPLICAS = {
     'image-detection': 1
 }
 REPLICAS_LIST = [value for value in REPLICAS.values()]
+INITIAL_PLACEMENT = [
+    [1, 0],
+    [1, 0],
+    [1, 0]
+]
 graph_placement = [
     [1, 0],
     [1, 0],

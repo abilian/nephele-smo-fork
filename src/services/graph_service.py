@@ -16,7 +16,7 @@ from utils.scaling import scaling_loop
 
 # TODO: replace constant values
 from utils.constant import CLUSTERS, CLUSTER_CAPACITY, CLUSTER_ACCELERATION, \
-    ACCELERATION, graph_placement, ALPHA, BETA, \
+    ACCELERATION, graph_placement, INITIAL_PLACEMENT, ALPHA, BETA, \
     MAXIMUM_REPLICAS, DECISION_INTERVAL, PROMETHEUS_HOST, GRAPH_GRAFANA, \
     CPU_LIMITS_LIST, ACCELERATION_LIST, REPLICAS_LIST, CLUSTER_CAPACITY_LIST, \
     CLUSTER_ACCELERATION_LIST, RESOURCES, SERVICES_GRAFANA, SERVICES
@@ -64,7 +64,7 @@ def deploy_graph(project, graph_descriptor):
 
     placement = decide_placement(
         CLUSTER_CAPACITY_LIST, CLUSTER_ACCELERATION_LIST, CPU_LIMITS_LIST,
-        ACCELERATION_LIST, REPLICAS_LIST, graph_placement,
+        ACCELERATION_LIST, REPLICAS_LIST, INITIAL_PLACEMENT,
         initial_placement=True
     )
     graph_placement = placement
@@ -149,12 +149,13 @@ def trigger_placement(name):
             if 'voChartOverwrite' not in values_overwrite:
                 values_overwrite['voChartOverwrite'] = {}
             placement_dict = values_overwrite['voChartOverwrite']
-        placement_dict['clustersAffinity'] = [service_placement[service.name]]
-        placement_dict['serviceImportClusters'] = import_clusters[service.name]
-        service.values_overwrite = values_overwrite
-        db.session.commit()
+        if placement_dict['clustersAffinity'][0] != service_placement[service.name]:
+            placement_dict['clustersAffinity'] = [service_placement[service.name]]
+            placement_dict['serviceImportClusters'] = import_clusters[service.name]
+            service.values_overwrite = values_overwrite
+            db.session.commit()
 
-        helm_install_artifact(service.name, service.artifact_ref, values_overwrite, 'upgrade')
+            helm_install_artifact(service.name, service.artifact_ref, values_overwrite, 'upgrade')
 
     spawn_scaling_processes(name, cluster_placement)
 
