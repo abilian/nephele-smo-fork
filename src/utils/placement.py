@@ -4,11 +4,8 @@ from gurobipy import GRB, Model, quicksum
 
 
 def swap_placement(service_dict):
-    """
-    Takes a dictionary that maps a service to its cluster
-    and returns a dictionary that maps a cluster to the list of
-    services deployed there.
-    """
+    """Takes a dictionary that maps a service to its cluster and returns a
+    dictionary that maps a cluster to the list of services deployed there."""
 
     cluster_dict = {}
     for key, value in service_dict.items():
@@ -17,9 +14,9 @@ def swap_placement(service_dict):
 
 
 def convert_placement(placement, services, clusters):
-    """
-    Convert placement from list of lists to dictionary mapping a
-    service with the name of its cluster.
+    """Convert placement from list of lists to dictionary mapping a service
+    with the name of its cluster.
+
     E.g. Input
             placement:[[1, 0], [1, 0]]
             services: [{'id': 'service1'}, {'id': 'service2'}]
@@ -31,16 +28,20 @@ def convert_placement(placement, services, clusters):
     for service_index, cluster_list in enumerate(placement):
         # Get the index of the element that has a value of 1
         cluster_index = cluster_list.index(1)
-        service_name = services[service_index]['id']
+        service_name = services[service_index]["id"]
         service_placement[service_name] = clusters[cluster_index]
 
     return service_placement
 
 
 def decide_placement(
-        cluster_capacities, cluster_acceleration, cpu_limits,
-        acceleration, replicas, current_placement,
-        initial_placement=False
+    cluster_capacities,
+    cluster_acceleration,
+    cpu_limits,
+    acceleration,
+    replicas,
+    current_placement,
+    initial_placement=False,
 ):
     """
     Parameters
@@ -74,9 +75,11 @@ def decide_placement(
 
     # Assume you have the previous placement as described before
     y = {
-        f's{app_node_index}': {
-            cluster: current_placement[app_node_index][cluster_index] for cluster_index, cluster in enumerate(E)
-        } for app_node_index in range(num_nodes)
+        f"s{app_node_index}": {
+            cluster: current_placement[app_node_index][cluster_index]
+            for cluster_index, cluster in enumerate(E)
+        }
+        for app_node_index in range(num_nodes)
     }
 
     # Define decision variables
@@ -91,12 +94,12 @@ def decide_placement(
 
     # Define objective function
     w_dep = 1  # Deployment cost weight
-    w_re = 1   # Re-optimization cost weight
+    w_re = 1  # Re-optimization cost weight
 
     model.setObjective(
-        quicksum(w_dep * x[s, e] for s in S for e in E) +
-        quicksum(w_re * y[s][e] * (y[s][e] - x[s, e]) for s in S for e in E),
-        GRB.MINIMIZE
+        quicksum(w_dep * x[s, e] for s in S for e in E)
+        + quicksum(w_re * y[s][e] * (y[s][e] - x[s, e]) for s in S for e in E),
+        GRB.MINIMIZE,
     )
 
     # Define constraints
@@ -106,29 +109,32 @@ def decide_placement(
     change_placement_value = 0 if initial_placement else -1
     # Define the additional constraints
     model.addConstr(
-        quicksum(y[s][e]*(x[s, e]-y[s][e]) for s in S[1:] for e in E) <= change_placement_value,
-        name="constraint_additional_less_than"
+        quicksum(y[s][e] * (x[s, e] - y[s][e]) for s in S[1:] for e in E)
+        <= change_placement_value,
+        name="constraint_additional_less_than",
     )
 
     for e in E:
         model.addConstr(
-            quicksum(x[s, e] * cpu_limits[S.index(s)] * replicas[S.index(s)]
-                     for s in S[1:]) <= cluster_capacities[E.index(e)],
-            name=f"constraint2_{e}"
+            quicksum(
+                x[s, e] * cpu_limits[S.index(s)] * replicas[S.index(s)] for s in S[1:]
+            )
+            <= cluster_capacities[E.index(e)],
+            name=f"constraint2_{e}",
         )
 
     for e in E:
         for s in S[1:]:
             model.addConstr(
                 x[s, e] * acceleration[S.index(s)] <= cluster_acceleration[E.index(e)],
-                name=f"constraint4_{s}_{e}"
+                name=f"constraint4_{s}_{e}",
             )
 
     for i in range(1, num_nodes):
-        model.addConstr(quicksum(x[S[i], e] * x[S[i-1], e] for e in E) >= d[i-1])
+        model.addConstr(quicksum(x[S[i], e] * x[S[i - 1], e] for e in E) >= d[i - 1])
 
     # Add constraint for fixed placement of s0
-    model.addConstr(x['s0', 'E1'] == 1, name="constraint_s0_placement")
+    model.addConstr(x["s0", "E1"] == 1, name="constraint_s0_placement")
 
     model.optimize()
 

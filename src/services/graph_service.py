@@ -9,25 +9,25 @@ import yaml
 from flask import current_app
 from werkzeug.exceptions import BadRequest, NotFound
 
+from models import Graph, Service, db
+# TODO: replace constant values
+from utils.constant import (ACCELERATION, ACCELERATION_LIST, ALPHA, BETA,
+                            CLUSTER_ACCELERATION, CLUSTER_ACCELERATION_LIST,
+                            CLUSTER_CAPACITY, CLUSTER_CAPACITY_LIST, CLUSTERS,
+                            CPU_LIMITS_LIST, DECISION_INTERVAL, GRAPH_GRAFANA,
+                            INITIAL_PLACEMENT, MAXIMUM_REPLICAS,
+                            PROMETHEUS_HOST, REPLICAS_LIST, RESOURCES,
+                            SERVICES, SERVICES_GRAFANA, graph_placement)
 from utils.kube_helper import KubeHelper
-from models import db, Graph, Service
 from utils.placement import convert_placement, decide_placement, swap_placement
 from utils.scaling import scaling_loop
-
-# TODO: replace constant values
-from utils.constant import CLUSTERS, CLUSTER_CAPACITY, CLUSTER_ACCELERATION, \
-    ACCELERATION, graph_placement, INITIAL_PLACEMENT, ALPHA, BETA, \
-    MAXIMUM_REPLICAS, DECISION_INTERVAL, PROMETHEUS_HOST, GRAPH_GRAFANA, \
-    CPU_LIMITS_LIST, ACCELERATION_LIST, REPLICAS_LIST, CLUSTER_CAPACITY_LIST, \
-    CLUSTER_ACCELERATION_LIST, RESOURCES, SERVICES_GRAFANA, SERVICES
-
 
 background_scaling_threads = [None, None]
 stop_events = [threading.Event(), threading.Event()]
 
 
 def fetch_project_graphs(project):
-    """Retrieves all the descriptors of a project"""
+    """Retrieves all the descriptors of a project."""
 
     graphs = db.session.query(Graph).filter_by(project=project).all()
     project_graphs = [graph.to_dict() for graph in graphs]
@@ -36,36 +36,38 @@ def fetch_project_graphs(project):
 
 
 def deploy_graph(project, graph_descriptor):
-    """
-    Instantiates an application graph by using Helm to
-    deploy each service's artifact.
-    """
+    """Instantiates an application graph by using Helm to deploy each service's
+    artifact."""
 
     global graph_placement
 
     hdag_config = graph_descriptor
-    name = hdag_config['id']
+    name = hdag_config["id"]
 
     graph = db.session.query(Graph).filter_by(name=name).first()
     if graph is not None:
-        raise BadRequest(f'Graph with name {name} already exists')
+        raise BadRequest(f"Graph with name {name} already exists")
 
     graph = Graph(
         name=name,
         graph_descriptor=graph_descriptor,
         project=project,
-        status='Running',
-        grafana=GRAPH_GRAFANA
+        status="Running",
+        grafana=GRAPH_GRAFANA,
     )
     db.session.add(graph)
     db.session.commit()
 
-    services = hdag_config['services']
+    services = hdag_config["services"]
 
     placement = decide_placement(
-        CLUSTER_CAPACITY_LIST, CLUSTER_ACCELERATION_LIST, CPU_LIMITS_LIST,
-        ACCELERATION_LIST, REPLICAS_LIST, INITIAL_PLACEMENT,
-        initial_placement=True
+        CLUSTER_CAPACITY_LIST,
+        CLUSTER_ACCELERATION_LIST,
+        CPU_LIMITS_LIST,
+        ACCELERATION_LIST,
+        REPLICAS_LIST,
+        INITIAL_PLACEMENT,
+        initial_placement=True,
     )
     graph_placement = placement
     service_placement = convert_placement(placement, services, CLUSTERS)
@@ -73,38 +75,38 @@ def deploy_graph(project, graph_descriptor):
     import_clusters = create_service_imports(services, service_placement)
 
     for service in services:
-        name = service['id']
-        artifact = service['artifact']
-        artifact_ref = artifact['ociImage']
-        implementer = artifact['ociConfig']['implementer']
-        artifact_type = artifact['ociConfig']['type']
-        values_overwrite = artifact['valuesOverwrite']
+        name = service["id"]
+        artifact = service["artifact"]
+        artifact_ref = artifact["ociImage"]
+        implementer = artifact["ociConfig"]["implementer"]
+        artifact_type = artifact["ociConfig"]["type"]
+        values_overwrite = artifact["valuesOverwrite"]
         placement_dict = values_overwrite
 
-        if implementer == 'WOT':
-            if 'voChartOverwrite' not in values_overwrite:
-                values_overwrite['voChartOverwrite'] = {}
-            placement_dict = values_overwrite['voChartOverwrite']
+        if implementer == "WOT":
+            if "voChartOverwrite" not in values_overwrite:
+                values_overwrite["voChartOverwrite"] = {}
+            placement_dict = values_overwrite["voChartOverwrite"]
 
-        placement_dict['clustersAffinity'] = [service_placement[name]]
-        placement_dict['serviceImportClusters'] = import_clusters[name]
+        placement_dict["clustersAffinity"] = [service_placement[name]]
+        placement_dict["serviceImportClusters"] = import_clusters[name]
 
         svc = Service(
             name=name,
             values_overwrite=values_overwrite,
             graph_id=graph.id,
-            status='Deployed',
+            status="Deployed",
             cluster_affinity=service_placement[name],
             artifact_ref=artifact_ref,
             artifact_type=artifact_type,
             artifact_implementer=implementer,
             resources=RESOURCES[name],
-            grafana=SERVICES_GRAFANA[name]
+            grafana=SERVICES_GRAFANA[name],
         )
         db.session.add(svc)
         db.session.commit()
 
-        helm_install_artifact(name, artifact_ref, values_overwrite, 'install')
+        helm_install_artifact(name, artifact_ref, values_overwrite, "install")
 
     spawn_scaling_processes(graph.name, cluster_placement)
 
@@ -124,18 +126,22 @@ def trigger_placement(name):
 
     graph = db.session.query(Graph).filter_by(name=name).first()
     if graph is None:
-        raise NotFound(f'Graph with name {name} not found')
+        raise NotFound(f"Graph with name {name} not found")
 
     for stop_event in stop_events:
         stop_event.set()
-    kube_helper = KubeHelper(current_app.config['KARMADA_KUBECONFIG'])
+    kube_helper = KubeHelper(current_app.config["KARMADA_KUBECONFIG"])
     current_replicas = [kube_helper.get_replicas(service) for service in SERVICES]
     placement = decide_placement(
-        CLUSTER_CAPACITY_LIST, CLUSTER_ACCELERATION_LIST, CPU_LIMITS_LIST,
-        ACCELERATION_LIST, current_replicas, graph_placement,
-        initial_placement=False
+        CLUSTER_CAPACITY_LIST,
+        CLUSTER_ACCELERATION_LIST,
+        CPU_LIMITS_LIST,
+        ACCELERATION_LIST,
+        current_replicas,
+        graph_placement,
+        initial_placement=False,
     )
-    descriptor_services = graph.graph_descriptor['services']
+    descriptor_services = graph.graph_descriptor["services"]
     graph_placement = placement
     service_placement = convert_placement(placement, descriptor_services, CLUSTERS)
     cluster_placement = swap_placement(service_placement)
@@ -145,38 +151,37 @@ def trigger_placement(name):
         # Updating JSONB fields requires new dictionary creation
         values_overwrite = dict(service.values_overwrite)
         placement_dict = values_overwrite
-        if service.artifact_implementer == 'WOT':
-            if 'voChartOverwrite' not in values_overwrite:
-                values_overwrite['voChartOverwrite'] = {}
-            placement_dict = values_overwrite['voChartOverwrite']
-        if placement_dict['clustersAffinity'][0] != service_placement[service.name]:
-            placement_dict['clustersAffinity'] = [service_placement[service.name]]
-            placement_dict['serviceImportClusters'] = import_clusters[service.name]
+        if service.artifact_implementer == "WOT":
+            if "voChartOverwrite" not in values_overwrite:
+                values_overwrite["voChartOverwrite"] = {}
+            placement_dict = values_overwrite["voChartOverwrite"]
+        if placement_dict["clustersAffinity"][0] != service_placement[service.name]:
+            placement_dict["clustersAffinity"] = [service_placement[service.name]]
+            placement_dict["serviceImportClusters"] = import_clusters[service.name]
             service.values_overwrite = values_overwrite
             db.session.commit()
 
-            helm_install_artifact(service.name, service.artifact_ref, values_overwrite, 'upgrade')
+            helm_install_artifact(
+                service.name, service.artifact_ref, values_overwrite, "upgrade"
+            )
 
     spawn_scaling_processes(name, cluster_placement)
 
 
 def start_graph(name):
-    """Starts a stopped graph"""
+    """Starts a stopped graph."""
 
     graph = db.session.query(Graph).filter_by(name=name).first()
     if graph is None:
-        raise NotFound(f'Graph with name {name} not found')
-    if graph.status == 'Running':
-        raise BadRequest(f'Graph with name {name} is already running')
-    graph.status = 'Running'
+        raise NotFound(f"Graph with name {name} not found")
+    if graph.status == "Running":
+        raise BadRequest(f"Graph with name {name} is already running")
+    graph.status = "Running"
     for service in graph.services:
         helm_install_artifact(
-            service.name,
-            service.artifact_ref,
-            service.values_overwrite,
-            'install'
+            service.name, service.artifact_ref, service.values_overwrite, "install"
         )
-        service.status = 'Deployed'
+        service.status = "Deployed"
     db.session.commit()
 
 
@@ -185,15 +190,15 @@ def stop_graph(name):
 
     graph = db.session.query(Graph).filter_by(name=name).first()
     if graph is None:
-        raise NotFound(f'Graph with name {name} not found')
-    if graph.status == 'Stopped':
-        raise BadRequest(f'Graph with name {name} is already stopped')
+        raise NotFound(f"Graph with name {name} not found")
+    if graph.status == "Stopped":
+        raise BadRequest(f"Graph with name {name} is already stopped")
 
     helm_uninstall_graph(graph.services)
 
-    graph.status = 'Stopped'
+    graph.status = "Stopped"
     for service in graph.services:
-        service.status = 'Not deployed'
+        service.status = "Not deployed"
     db.session.commit()
 
 
@@ -202,7 +207,7 @@ def remove_graph(name):
 
     graph = db.session.query(Graph).filter_by(name=name).first()
     if graph is None:
-        raise NotFound(f'Graph with name {name} not found')
+        raise NotFound(f"Graph with name {name} not found")
 
     helm_uninstall_graph(graph.services)
 
@@ -211,49 +216,37 @@ def remove_graph(name):
 
 
 def create_service_imports(services, service_placement):
-    """
-    Checks to which other services each service connects to and
-    returns a dictionary whose keys are the service names and
-    the values are a list of cluster names to which the service
-    needs to be imported.
-    """
+    """Checks to which other services each service connects to and returns a
+    dictionary whose keys are the service names and the values are a list of
+    cluster names to which the service needs to be imported."""
 
     # For each service a list of clusters to which its service will be imported
-    service_import_clusters = {
-        service['id']: [] for service in services
-    }
+    service_import_clusters = {service["id"]: [] for service in services}
 
     for service in services:
-        connection_points = service['deployment']['intent']['connectionPoints']
+        connection_points = service["deployment"]["intent"]["connectionPoints"]
         for other_service in services:
-            if other_service['id'] in connection_points:
-                service_import_clusters[other_service['id']].extend(
-                    [service_placement[service['id']]]
+            if other_service["id"] in connection_points:
+                service_import_clusters[other_service["id"]].extend(
+                    [service_placement[service["id"]]]
                 )
 
     return service_import_clusters
 
 
 def get_descriptor_from_artifact(project, artifact_ref):
-    """
-    Calls the hdarctl cli to pull an artifact and deploys
-    the descriptor inside after untaring the artifact.
-    """
+    """Calls the hdarctl cli to pull an artifact and deploys the descriptor
+    inside after untaring the artifact."""
 
     with tempfile.TemporaryDirectory() as dirpath:
-        subprocess.run([
-            'hdarctl',
-            'pull',
-            artifact_ref,
-            '--untar',
-            '--destination',
-            dirpath
-        ])
+        subprocess.run(
+            ["hdarctl", "pull", artifact_ref, "--untar", "--destination", dirpath]
+        )
 
-        for (root, dirs, files) in walk(dirpath):
+        for root, dirs, files in walk(dirpath):
             for file in files:
-                if file.endswith('.yaml') or file.endswith('.yml'):
-                    with open(path.join(root, file), 'r') as yaml_file:
+                if file.endswith(".yaml") or file.endswith(".yml"):
+                    with open(path.join(root, file), "r") as yaml_file:
                         data = yaml.safe_load(yaml_file)
                         return data
 
@@ -261,21 +254,21 @@ def get_descriptor_from_artifact(project, artifact_ref):
 def helm_install_artifact(name, artifact_ref, values_overwrite, command):
     """Executes helm command (install/upgrade) for artifact."""
 
-    with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml') as values_file:
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".yaml") as values_file:
         yaml.dump(values_overwrite, values_file)
 
         subprocess_arguments = [
-            'helm',
+            "helm",
             command,
             name,
             artifact_ref,
-            '--values',
+            "--values",
             values_file.name,
-            '--kubeconfig',
-            current_app.config['KARMADA_KUBECONFIG']
+            "--kubeconfig",
+            current_app.config["KARMADA_KUBECONFIG"],
         ]
-        if command == 'upgrade':
-            subprocess_arguments.append('--reuse-values')
+        if command == "upgrade":
+            subprocess_arguments.append("--reuse-values")
         subprocess.run(subprocess_arguments)
 
 
@@ -283,19 +276,22 @@ def helm_uninstall_graph(services):
     """Uninstalls all service artifacts."""
 
     for service in services:
-        subprocess.run([
-            'helm',
-            'uninstall',
-            service.name,
-            '--kubeconfig',
-            current_app.config['KARMADA_KUBECONFIG']
-        ])
+        subprocess.run(
+            [
+                "helm",
+                "uninstall",
+                service.name,
+                "--kubeconfig",
+                current_app.config["KARMADA_KUBECONFIG"],
+            ]
+        )
     for stop_event in stop_events:
         stop_event.set()
 
 
 def spawn_scaling_processes(graph_name, cluster_placement):
-    """Spawns background threads that periodically run the scaling algorithm."""
+    """Spawns background threads that periodically run the scaling
+    algorithm."""
 
     for cluster_index, cluster in enumerate(CLUSTERS):
         if cluster not in cluster_placement.keys():
@@ -320,10 +316,10 @@ def spawn_scaling_processes(graph_name, cluster_placement):
                 maximum_replicas,
                 managed_services,
                 DECISION_INTERVAL,
-                current_app.config['KARMADA_KUBECONFIG'],
+                current_app.config["KARMADA_KUBECONFIG"],
                 PROMETHEUS_HOST,
-                stop_events[cluster_index]
-            )
+                stop_events[cluster_index],
+            ),
         )
         background_scaling_threads[cluster_index].daemon = True
         background_scaling_threads[cluster_index].start()
