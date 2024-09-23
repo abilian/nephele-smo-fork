@@ -1,4 +1,4 @@
-from devtools import debug
+from __future__ import annotations
 
 from utils import constant as c
 from utils.placement import convert_placement, decide_placement, swap_placement

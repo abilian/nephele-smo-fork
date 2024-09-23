@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from app import create_app
 
 
@@ -15,4 +17,4 @@ class TestConfig:
 
 
 def test_app():
-    app = create_app(config=TestConfig)
+    create_app(config=TestConfig)

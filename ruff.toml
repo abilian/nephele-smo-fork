@@ -1,0 +1,78 @@
+preview = true
+target-version = "py310"
+
+exclude = [
+    "apps",
+    "scripts",
+    "tasks.py",
+    "docs",
+    "packages/hop3-lib/src/hop3_lib/actors",
+    "packages/hop3-lib/src/hop3_lib/bus",
+    "packages/hop3-cli/src/hop3_cli/commands",
+]
+
+lint.select = [
+    "ALL",
+]
+
+lint.extend-ignore = [
+    # Never
+    "PD", # We're not using Pandas
+
+    # Later (or never)
+    "ANN", # flake8-annotations
+    "ARG", # flake8-unused-arguments
+    "BLE", # flake8-blind-except
+    "D", # pydocstyle
+    "ERA", # eradicate
+    "FIX", # flake8-fixme
+    "PTH", # flake8-use-pathlib
+    "S", # flake8-bandit
+    "T20", # flake8-print
+    "TD", # flake8-todos
+    "DOC", # pydocstyle
+
+    # False positive, don't remove
+    "A005", # Module ... is shadowing a Python builtin module
+    "COM812", # Missing trailing comma
+    "ISC001", # (The following rules may cause conflicts when used with the formatter)
+    "PGH003", # Use specific rule codes when ignoring type issues
+    "PLC0415", # `import` should be at the top-level of a file
+    "PLR0913", # Too many arguments
+    "PLR6301", # Method could be a function
+    "PLW1514", # `pathlib.Path(...).write_text` without explicit `encoding` argument
+    "RET504", # Unnecessary assignment before `return` statement
+    "RET505", # Unnecessary `else` after `return` statement"
+    "S101", # Use of `assert` detected
+    "SIM102", # Use a single `if` statement instead of nested `if` statements
+    "SIM108", # Use ternary operator
+
+    # Fix these
+    "CPY001", # Copyright missing
+    "E501", # Line too long
+    "B904", # Use raise ... from ...
+    "B909", # Mutation to loop iterable during iteration
+    "RUF035", # Unsafe use of Markup
+    "RUF039", # First argument to `re.search()` is not raw string
+]
+
+
+[lint.mccabe]
+# TODO: Set max-complexity = 10
+max-complexity = 12
+
+[lint.isort]
+combine-as-imports = true
+required-imports = ["from __future__ import annotations"]
+
+[lint.per-file-ignores]
+"**/src/**/*.py" = [
+    "PT", # Pytest warnings in source code are probably false positives
+
+]
+"**/tests/**/*.py" = [
+    "INP001", # implicit namespace package
+]
+"**/noxfile.py" = [
+    "INP001", # implicit namespace package
+]
