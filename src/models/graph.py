@@ -1,5 +1,7 @@
 """Application graph table."""
 
+from __future__ import annotations
+
 from sqlalchemy.dialects.postgresql import JSONB
 
 from models import db

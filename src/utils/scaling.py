@@ -1,5 +1,7 @@
 """Replica scaling algorithm."""
 
+from __future__ import annotations
+
 import time
 
 import requests
@@ -123,9 +125,7 @@ def decide_replicas(
     # Define decision variables
     r_current = {}
     r_prev = {}
-    abs_diff = (
-        {}
-    )  # to define the scaling (transformation) cost with absolute of difference
+    abs_diff = {}  # to define the scaling (transformation) cost with absolute of difference
 
     for s in range(num_nodes):
         r_current[s] = model.addVar(vtype=GRB.INTEGER, name=f"r_{s}_current")

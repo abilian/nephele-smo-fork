@@ -1,5 +1,7 @@
 """Kubernetes helper class and utility functions."""
 
+from __future__ import annotations
+
 from kubernetes import client, config
 
 

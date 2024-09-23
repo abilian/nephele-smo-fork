@@ -3,6 +3,8 @@
 To be replaced int the future.
 """
 
+from __future__ import annotations
+
 SERVICES = ["image-compression-vo", "noise-reduction", "image-detection"]
 CLUSTERS = ["netmode-cluster", "netmode-cluster2"]
 CLUSTER_CAPACITY = {"netmode-cluster": 4, "netmode-cluster2": 6}

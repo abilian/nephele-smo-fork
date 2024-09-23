@@ -1,5 +1,7 @@
 """Application graph deployment business logic."""
 
+from __future__ import annotations
+
 import subprocess
 import tempfile
 import threading
@@ -10,14 +12,30 @@ from flask import current_app
 from werkzeug.exceptions import BadRequest, NotFound
 
 from models import Graph, Service, db
+
 # TODO: replace constant values
-from utils.constant import (ACCELERATION, ACCELERATION_LIST, ALPHA, BETA,
-                            CLUSTER_ACCELERATION, CLUSTER_ACCELERATION_LIST,
-                            CLUSTER_CAPACITY, CLUSTER_CAPACITY_LIST, CLUSTERS,
-                            CPU_LIMITS_LIST, DECISION_INTERVAL, GRAPH_GRAFANA,
-                            INITIAL_PLACEMENT, MAXIMUM_REPLICAS,
-                            PROMETHEUS_HOST, REPLICAS_LIST, RESOURCES,
-                            SERVICES, SERVICES_GRAFANA, graph_placement)
+from utils.constant import (
+    ACCELERATION,
+    ACCELERATION_LIST,
+    ALPHA,
+    BETA,
+    CLUSTER_ACCELERATION,
+    CLUSTER_ACCELERATION_LIST,
+    CLUSTER_CAPACITY,
+    CLUSTER_CAPACITY_LIST,
+    CLUSTERS,
+    CPU_LIMITS_LIST,
+    DECISION_INTERVAL,
+    GRAPH_GRAFANA,
+    INITIAL_PLACEMENT,
+    MAXIMUM_REPLICAS,
+    PROMETHEUS_HOST,
+    REPLICAS_LIST,
+    RESOURCES,
+    SERVICES,
+    SERVICES_GRAFANA,
+    graph_placement,
+)
 from utils.kube_helper import KubeHelper
 from utils.placement import convert_placement, decide_placement, swap_placement
 from utils.scaling import scaling_loop
@@ -227,9 +245,9 @@ def create_service_imports(services, service_placement):
         connection_points = service["deployment"]["intent"]["connectionPoints"]
         for other_service in services:
             if other_service["id"] in connection_points:
-                service_import_clusters[other_service["id"]].extend(
-                    [service_placement[service["id"]]]
-                )
+                service_import_clusters[other_service["id"]].extend([
+                    service_placement[service["id"]]
+                ])
 
     return service_import_clusters
 
@@ -239,9 +257,14 @@ def get_descriptor_from_artifact(project, artifact_ref):
     inside after untaring the artifact."""
 
     with tempfile.TemporaryDirectory() as dirpath:
-        subprocess.run(
-            ["hdarctl", "pull", artifact_ref, "--untar", "--destination", dirpath]
-        )
+        subprocess.run([
+            "hdarctl",
+            "pull",
+            artifact_ref,
+            "--untar",
+            "--destination",
+            dirpath,
+        ])
 
         for root, dirs, files in walk(dirpath):
             for file in files:
@@ -276,15 +299,13 @@ def helm_uninstall_graph(services):
     """Uninstalls all service artifacts."""
 
     for service in services:
-        subprocess.run(
-            [
-                "helm",
-                "uninstall",
-                service.name,
-                "--kubeconfig",
-                current_app.config["KARMADA_KUBECONFIG"],
-            ]
-        )
+        subprocess.run([
+            "helm",
+            "uninstall",
+            service.name,
+            "--kubeconfig",
+            current_app.config["KARMADA_KUBECONFIG"],
+        ])
     for stop_event in stop_events:
         stop_event.set()
 

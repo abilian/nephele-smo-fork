@@ -1,5 +1,7 @@
 """Flask error handlers."""
 
+from __future__ import annotations
+
 
 def handle_subprocess_error(e):
     response = {"error": "Subprocess error", "message": e.output}

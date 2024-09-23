@@ -1,5 +1,7 @@
 """Application node placement related functionalities."""
 
+from __future__ import annotations
+
 from gurobipy import GRB, Model, quicksum
 
 
