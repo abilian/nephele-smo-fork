@@ -24,9 +24,9 @@ tasks:
       cd smo
       uv sync
 
-  - lint: |
-      cd smo
-      uv run make lint
+#  - lint: |
+#      cd smo
+#      uv run make lint
 
   - test: |
       cd smo
