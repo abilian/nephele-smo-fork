@@ -1,13 +1,19 @@
+### Secrets and local config
+.envrc
+.python-version
+
 ### Flask ###
 instance/*
 !instance/.gitignore
 .webassets-cache
+
 
 ### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
 
 # C extensions
 *.so
