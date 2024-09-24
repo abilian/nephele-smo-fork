@@ -35,6 +35,7 @@ lint.extend-ignore = [
     # False positive, don't remove
     "A005", # Module ... is shadowing a Python builtin module
     "COM812", # Missing trailing comma
+    "INP001", # Implicit namespace package. Add an `__init__.py`.
     "ISC001", # (The following rules may cause conflicts when used with the formatter)
     "PGH003", # Use specific rule codes when ignoring type issues
     "PLC0415", # `import` should be at the top-level of a file
@@ -54,6 +55,29 @@ lint.extend-ignore = [
     "B909", # Mutation to loop iterable during iteration
     "RUF035", # Unsafe use of Markup
     "RUF039", # First argument to `re.search()` is not raw string
+
+    # Fix
+    "B007", # Loop control variable `dirs` not used within loop body
+    "C416", # Unnecessary `list` comprehension (rewrite using `list()`)
+    "E402", # Module level import not at top of file
+    "EM102", # Exception must not use an f-string literal, assign to variable first
+    "F401", # [*] `flasgger.APISpec` imported but unused
+    "FBT002", # Boolean default positional argument in function definition
+    "I001", # [*] Import block is un-sorted or un-formatted
+    "N806", # Variable should be lowercase
+    "PIE810", # Call `endswith` once with a `tuple`
+    "PLC0414", # Import alias does not rename original package
+    "PLR0914", # Too many local variables
+    "PLR0917", # Too many positional arguments
+    "PLW0603", # Using the global statement to update `graph_placement` is discouraged
+    "PLW1510", # [*] `subprocess.run` without explicit `check` argument
+    "RET503", # Missing explicit `return` at the end of function able to return non-`None` value
+    "SIM118", # Use `key not in dict` instead of `key not in dict.keys()`
+    "SIM300", # [*] Yoda condition detected
+    "TRY003", # Avoid specifying long messages outside the exception class
+    "UP015", # [*] Unnecessary open mode parameters
+    "UP030", # Use implicit references for positional format fields
+    "UP032", # [*] Use f-string instead of `format` call
 ]
 
 
