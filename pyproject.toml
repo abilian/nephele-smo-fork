@@ -8,22 +8,25 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
-    "flasgger>=0.9.7.1",
     "flask>=3.1.0",
+    "werkzeug>=3.1.3",
+    "flasgger>=0.9.7.1",
+    # Persistence
+    "sqlalchemy>=2.0.36",
     "flask-sqlalchemy>=3.1.1",
-    # "google-auth>=2.36.0",
+    "psycopg2-binary>=2.9.10",
+    # Other libraries
     "gurobipy>=12.0.0",
     "kubernetes>=31.0.0",
-    "psycopg2-binary>=2.9.10",
-    # "pyasn1>=0.6.1",
-    # "python-dateutil>=2.9.0.post0",
     "python-dotenv>=1.0.1",
     "pyyaml>=6.0.2",
+    "requests>=2.32.3",
+    # Unneeded?
+    # "google-auth>=2.36.0",
+    # "pyasn1>=0.6.1",
+    # "python-dateutil>=2.9.0.post0",
     # "rsa>=4.9",
     # "websocket-client>=1.8.0",
-    "requests>=2.32.3",
-    "sqlalchemy>=2.0.36",
-    "werkzeug>=3.1.3",
 ]
 
 [project.scripts]
