@@ -1,0 +1,2 @@
+# This may seem useless, but it's currently the easiest way to deploy the app to Heroku.
+.
