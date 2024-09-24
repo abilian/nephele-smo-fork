@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from app import create_app
+from smo.app import create_app
 
 
 class TestConfig:

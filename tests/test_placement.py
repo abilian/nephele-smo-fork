@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from utils import constant as c
-from utils.placement import convert_placement, decide_placement, swap_placement
+from smo.utils import constant as c
+from smo.utils.placement import (convert_placement, decide_placement,
+                                 swap_placement)
 
 
 def test_convert_placement():

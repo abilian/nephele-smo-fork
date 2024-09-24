@@ -6,5 +6,5 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-from models.graph import Graph
-from models.service import Service
+from smo.models.graph import Graph as Graph
+from smo.models.service import Service as Service

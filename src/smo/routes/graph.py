@@ -6,16 +6,11 @@ import yaml
 from flasgger import swag_from
 from flask import Blueprint, request
 
-from services.graph_service import (
-    deploy_graph,
-    fetch_graph,
-    fetch_project_graphs,
-    get_descriptor_from_artifact,
-    remove_graph,
-    start_graph,
-    stop_graph,
-    trigger_placement,
-)
+from smo.services.graph_service import (deploy_graph, fetch_graph,
+                                        fetch_project_graphs,
+                                        get_descriptor_from_artifact,
+                                        remove_graph, start_graph, stop_graph,
+                                        trigger_placement)
 
 graph = Blueprint("graph", __name__)
 

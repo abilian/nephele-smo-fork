@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from sqlalchemy.dialects.postgresql import JSONB
 
-from models import db
+from smo.models import db
 
 
 class Service(db.Model):

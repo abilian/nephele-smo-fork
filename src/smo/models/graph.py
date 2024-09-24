@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from sqlalchemy.dialects.postgresql import JSONB
 
-from models import db
+from smo.models import db
 
 
 class Graph(db.Model):
@@ -28,8 +28,7 @@ class Graph(db.Model):
             "project": self.project,
             "grafana": self.grafana,
             "hdaGraph": self.graph_descriptor,
+            "services": [service.to_dict() for service in self.services],
         }
-
-        instance_dict["services"] = [service.to_dict() for service in self.services]
 
         return instance_dict

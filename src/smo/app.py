@@ -9,10 +9,10 @@ import yaml
 from flasgger import APISpec, Swagger
 from flask import Flask
 
-from config import configs
-from errors import error_handlers
-from models import db
-from routes.graph import graph
+from .config import configs
+from .errors import error_handlers
+from .models import db
+from .routes.graph import graph
 
 env = os.environ.get("FLASK_ENV", "development")
 
