@@ -3,7 +3,7 @@
 
 PKG:=smo
 
-all: lint
+all: test lint
 
 #
 # Setup
@@ -59,29 +59,29 @@ test-e2e:
 ## Run tests with coverage
 test-with-coverage:
 	@echo "--> Running Python tests"
-	pytest --cov=${PKG} --cov-report term-missing
+	uv run pytest --cov=${PKG} --cov-report term-missing
 	@echo ""
 
 ## Run tests with typeguard
 test-with-typeguard:
 	@echo "--> Running Python tests with typeguard"
-	pytest --typeguard-packages=${PKG}
+	uv run pytest --typeguard-packages=${PKG}
 	@echo ""
 
 ## Run tests with beartype
 test-with-beartype:
 	@echo "--> Running Python tests with beartype"
-	pytest --beartype-packages=${PKG}
+	uv run pytest --beartype-packages=${PKG}
 	@echo ""
 
 ## Lint / check typing
 lint:
 	# adt check
-	ruff check
-	flake8 src tests
+	uv run ruff check
+	uv run flake8 src tests
 	# mypy src
 	# pyright src
-	deptry src
+	uv run deptry src
 
 #
 # Formatting
@@ -89,8 +89,9 @@ lint:
 
 ## Format / beautify code
 format:
-	docformatter -i -r src
-	adt format
+	uv run docformatter -i -r src
+	uv run adt format
+	uv run markdown-toc -i README.md
 
 
 #
@@ -99,7 +100,7 @@ format:
 
 ## Display this help
 help:
-	adt help-make
+	uv run adt help-make
 
 ## Cleanup repository
 clean:

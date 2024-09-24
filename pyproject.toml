@@ -38,11 +38,17 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
+    # Basic tools
     "abilian-devtools>=0.7.4",
-    "beartype>=0.19.0",
+    # Testing addons
     "coverage>=7.6.7",
+    # Formatting addons
     "docformatter>=1.7.5",
+    # Runtime type checking
     "typeguard>=4.4.1",
+    "beartype>=0.19.0",
+    "pytest-beartype>=0.2.0",
+    # Type hints
     "types-pyyaml>=6.0.12.20240917",
     "types-requests>=2.32.0.20241016",
 ]
