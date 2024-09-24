@@ -1,0 +1,40 @@
+# Copyright (c) 2023-2024, Abilian SAS
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+image: debian/stable
+
+packages:
+  # Build tools
+  - software-properties-common
+  - build-essential
+  - make
+  - gcc
+  - g++
+  # Python (this is Python 3.11)
+  - python3-dev
+  - python3-pip
+  - python3-wheel
+  # Libraries
+  - libpq-dev
+  - libffi-dev
+  - libsqlite3-dev
+  - libbz2-dev
+
+tasks:
+  - setup: |
+      sudo pip install --break-system-packages -U uv nox
+      cd smo
+      uv sync
+
+  - lint: |
+      cd smo
+      uv run make lint
+
+  - test: |
+      cd smo
+      uv run make test
+
+  - nox: |
+      cd smo
+      uv run nox -e pytest-3.11

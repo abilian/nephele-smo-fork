@@ -1,0 +1,38 @@
+# Copyright (c) 2023-2024, Abilian SAS
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+image: rockylinux/latest
+
+packages:
+  # Python
+  - python3.11
+  - python3.11-pip
+  - python3.11-devel
+  - python3.12
+  - python3.12-pip
+  - python3.12-devel
+  # Build tools
+  - make
+  - gcc
+  # Libraries
+  - libpq-devel
+
+tasks:
+  - setup: |
+      sudo pip3.12 install -U uv nox
+      cd smo
+      uv sync
+
+  - lint: |
+      cd smo
+      uv run make lint
+
+  - test: |
+      cd smo
+      uv run make test
+
+  - nox: |
+      cd smo
+      uv run nox -e pytest-3.12
+      uv run nox -e pytest-3.11
