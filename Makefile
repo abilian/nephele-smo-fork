@@ -1,6 +1,7 @@
 .PHONY: all develop test lint clean doc format
 .PHONY: clean clean-build clean-pyc clean-test coverage dist docs install lint lint/flake8
 
+PKG:=smo
 
 all: lint
 
@@ -11,15 +12,23 @@ all: lint
 ## Install development dependencies and pre-commit hook (env must be already activated)
 develop: install-deps activate-pre-commit configure-git
 
+## Install dependencies
 install-deps:
 	@echo "--> Installing dependencies"
-	pip install -U pip setuptools wheel
-	poetry install
+	uv sync
 
+## Update dependencies
+update-deps:
+	@echo "--> Updating dependencies"
+	uv sync -U
+	uv pip list --outdated
+
+## Activate pre-commit hook
 activate-pre-commit:
 	@echo "--> Activating pre-commit hook"
 	pre-commit install
 
+## Configure git with autosetuprebase (rebase by default)
 configure-git:
 	@echo "--> Configuring git"
 	git config branch.autosetuprebase always
@@ -32,17 +41,42 @@ configure-git:
 ## Run python tests
 test:
 	@echo "--> Running Python tests"
-	pytest -x -p no:randomly
+	uv run pytest
 	@echo ""
 
+## Run python tests in random order
 test-randomly:
 	@echo "--> Running Python tests in random order"
-	pytest
+	uv run pytest --random-order
+	@echo ""
+
+## Run end-to-end tests (not implemented yet)
+test-e2e:
+	@echo "--> Running e2e tests"
+	@echo "TODO: not implemented yet"
+	@echo ""
+
+## Run tests with coverage
+test-with-coverage:
+	@echo "--> Running Python tests"
+	pytest --cov=${PKG} --cov-report term-missing
+	@echo ""
+
+## Run tests with typeguard
+test-with-typeguard:
+	@echo "--> Running Python tests with typeguard"
+	pytest --typeguard-packages=${PKG}
+	@echo ""
+
 
 ## Lint / check typing
 lint:
-	adt check
-
+	# adt check
+	ruff check
+	flake8 src tests
+	# mypy src
+	# pyright src
+	deptry src
 
 #
 # Formatting
@@ -57,20 +91,10 @@ format:
 #
 # Everything else
 #
+
+## Display this help
 help:
 	adt help-make
-
-install:
-	poetry install
-
-doc: doc-html doc-pdf
-
-doc-html:
-	sphinx-build -W -b html docs/ docs/_build/html
-
-doc-pdf:
-	sphinx-build -W -b latex docs/ docs/_build/latex
-	make -C docs/_build/latex all-pdf
 
 ## Cleanup repository
 clean:
@@ -81,8 +105,7 @@ clean:
 		.pytest_cache .pytest .DS_Store  docs/_build docs/cache docs/tmp \
 		dist build pip-wheel-metadata junit-*.xml htmlcov coverage.xml
 
-## Cleanup harder
+## Cleanup harder (you will need to re-install virtualenv and dependencies after this)
 tidy: clean
-	rm -rf .nox
-	rm -rf node_modules
+	rm -rf .nox .venv
 	rm -rf instance
