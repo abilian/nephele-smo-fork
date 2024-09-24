@@ -135,6 +135,7 @@ def trigger_placement(name):
 
     for stop_event in stop_events:
         stop_event.set()
+
     kube_helper = KubeHelper(current_app.config["KARMADA_KUBECONFIG"])
     current_replicas = [kube_helper.get_replicas(service) for service in SERVICES]
     placement = decide_placement(
@@ -156,10 +157,12 @@ def trigger_placement(name):
         # Updating JSON fields requires new dictionary creation
         values_overwrite = dict(service.values_overwrite)
         placement_dict = values_overwrite
+
         if service.artifact_implementer == "WOT":
             if "voChartOverwrite" not in values_overwrite:
                 values_overwrite["voChartOverwrite"] = {}
             placement_dict = values_overwrite["voChartOverwrite"]
+
         if placement_dict["clustersAffinity"][0] != service_placement[service.name]:
             placement_dict["clustersAffinity"] = [service_placement[service.name]]
             placement_dict["serviceImportClusters"] = import_clusters[service.name]
@@ -181,12 +184,14 @@ def start_graph(name):
         raise NotFound(f"Graph with name {name} not found")
     if graph.status == "Running":
         raise BadRequest(f"Graph with name {name} is already running")
+
     graph.status = "Running"
     for service in graph.services:
         helm_install_artifact(
             service.name, service.artifact_ref, service.values_overwrite, "install"
         )
         service.status = "Deployed"
+
     db.session.commit()
 
 
@@ -269,7 +274,7 @@ def helm_install_artifact(name, artifact_ref, values_overwrite, command):
     with tempfile.NamedTemporaryFile(mode="w", suffix=".yaml") as values_file:
         yaml.dump(values_overwrite, values_file)
 
-        subprocess_arguments = [
+        cmd = [
             "helm",
             command,
             name,
@@ -280,23 +285,24 @@ def helm_install_artifact(name, artifact_ref, values_overwrite, command):
             current_app.config["KARMADA_KUBECONFIG"],
         ]
         if command == "upgrade":
-            subprocess_arguments.append("--reuse-values")
-        subprocess.run(subprocess_arguments)
+            cmd.append("--reuse-values")
+
+        subprocess.run(cmd, check=True)
 
 
 def helm_uninstall_graph(services):
     """Uninstalls all service artifacts."""
 
     for service in services:
-        subprocess.run(
-            [
-                "helm",
-                "uninstall",
-                service.name,
-                "--kubeconfig",
-                current_app.config["KARMADA_KUBECONFIG"],
-            ]
-        )
+        cmd = [
+            "helm",
+            "uninstall",
+            service.name,
+            "--kubeconfig",
+            current_app.config["KARMADA_KUBECONFIG"],
+        ]
+        subprocess.run(cmd)
+
     for stop_event in stop_events:
         stop_event.set()
 
