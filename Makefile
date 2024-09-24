@@ -68,6 +68,11 @@ test-with-typeguard:
 	pytest --typeguard-packages=${PKG}
 	@echo ""
 
+## Run tests with beartype
+test-with-beartype:
+	@echo "--> Running Python tests with beartype"
+	pytest --beartype-packages=${PKG}
+	@echo ""
 
 ## Lint / check typing
 lint:
