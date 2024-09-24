@@ -35,20 +35,15 @@ smo = "smo:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
-#packages = ["src/smo"]
-
-#[tool.hatch.build.targets.wheel]
-#packages = ["src/smo"]
-
 
 [dependency-groups]
 dev = [
     "abilian-devtools>=0.7.4",
     "coverage>=7.6.7",
     "docformatter>=1.7.5",
+    "types-pyyaml>=6.0.12.20240917",
+    "types-requests>=2.32.0.20241016",
 ]
-
-# -----------------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------
 
@@ -69,55 +64,16 @@ testpaths = ["tests", "src"]
 paths = ["src/"]
 import_paths = ["."]
 
-
 # -----------------------------------------------------------------------------
 
 [tool.deptry.per_rule_ignores]
 # X defined as a dependency but not used in the codebase
 DEP002 = [
-    #    # Used (implicitely) by Flask-Login (I think)
-    #    'zxcvbn',
-    #    'bcrypt',
-    #    'argon2-cffi',
-    #    # Used (implicitely) by Flask (I think)
-    #    'python-dotenv',
     # Used (implicitely) by SQLA
     'psycopg2-binary',
-    #    "asyncpg",
-    #    #
-    #    'python-iso639',
-    #    # Web server
-    #    'gunicorn',
-    #    'honcho',
-    #    # Used by dramatic (?)
-    #    'redis',
-    #    # Used as a script
-    #    'shot-scraper',
-    #    # Used during install
-    #    'nodeenv',
-    #    # ???
-    #    'case-convert',
-    #    'defusedxml',
-    #    # Not used (yet?)
-    #    'phonenumbers',
-    #    'jinja2-fragments',
-    #    'pluggy',
-    #    # Can be removed (I think)
-    #    'dramatiq-pg',
-    #    # Used by the WTForms
-    #    'email-validator',
-    #    'dnspython',
-    #    # Used by a script
-    #    'buildstr',
-    #    # Used by hyperdx
-    #    'hyperdx-opentelemetry',
-    #    # Used in production
-    #    'sentry-sdk',
-    #    # Used by odsparsator
-    #    'odfdo',
 ]
 # X imported but declared as a dev dependency
-#DEP004 = ['hypothesis', 'openpyxl', "flask_debugtoolbar"]
+#DEP004 = []
 
 # -----------------------------------------------------------------------------
 
