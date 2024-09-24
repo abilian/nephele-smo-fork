@@ -1717,21 +1717,17 @@ name = "smo"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
-    { name = "attrs" },
-    { name = "cachetools" },
     { name = "flasgger" },
     { name = "flask" },
     { name = "flask-sqlalchemy" },
-    { name = "google-auth" },
     { name = "gurobipy" },
     { name = "kubernetes" },
     { name = "psycopg2-binary" },
-    { name = "pyasn1" },
-    { name = "python-dateutil" },
     { name = "python-dotenv" },
     { name = "pyyaml" },
-    { name = "rsa" },
-    { name = "websocket-client" },
+    { name = "requests" },
+    { name = "sqlalchemy" },
+    { name = "werkzeug" },
 ]
 
 [package.dev-dependencies]
@@ -1743,21 +1739,17 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "attrs", specifier = ">=24.2.0" },
-    { name = "cachetools", specifier = ">=5.5.0" },
     { name = "flasgger", specifier = ">=0.9.7.1" },
     { name = "flask", specifier = ">=3.1.0" },
     { name = "flask-sqlalchemy", specifier = ">=3.1.1" },
-    { name = "google-auth", specifier = ">=2.36.0" },
     { name = "gurobipy", specifier = ">=12.0.0" },
     { name = "kubernetes", specifier = ">=31.0.0" },
     { name = "psycopg2-binary", specifier = ">=2.9.10" },
-    { name = "pyasn1", specifier = ">=0.6.1" },
-    { name = "python-dateutil", specifier = ">=2.9.0.post0" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "pyyaml", specifier = ">=6.0.2" },
-    { name = "rsa", specifier = ">=4.9" },
-    { name = "websocket-client", specifier = ">=1.8.0" },
+    { name = "requests", specifier = ">=2.32.3" },
+    { name = "sqlalchemy", specifier = ">=2.0.36" },
+    { name = "werkzeug", specifier = ">=3.1.3" },
 ]
 
 [package.metadata.requires-dev]

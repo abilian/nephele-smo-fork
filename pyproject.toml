@@ -8,21 +8,22 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
-    "attrs>=24.2.0",
-    "cachetools>=5.5.0",
     "flasgger>=0.9.7.1",
     "flask>=3.1.0",
     "flask-sqlalchemy>=3.1.1",
-    "google-auth>=2.36.0",
+    # "google-auth>=2.36.0",
     "gurobipy>=12.0.0",
     "kubernetes>=31.0.0",
     "psycopg2-binary>=2.9.10",
-    "pyasn1>=0.6.1",
-    "python-dateutil>=2.9.0.post0",
+    # "pyasn1>=0.6.1",
+    # "python-dateutil>=2.9.0.post0",
     "python-dotenv>=1.0.1",
     "pyyaml>=6.0.2",
-    "rsa>=4.9",
-    "websocket-client>=1.8.0",
+    # "rsa>=4.9",
+    # "websocket-client>=1.8.0",
+    "requests>=2.32.3",
+    "sqlalchemy>=2.0.36",
+    "werkzeug>=3.1.3",
 ]
 
 [project.scripts]
@@ -43,3 +44,129 @@ dev = [
     "coverage>=7.6.7",
     "docformatter>=1.7.5",
 ]
+
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+
+[tool.pytest]
+python_files = "test_*.py *_test.py tests.py"
+
+[tool.pytest.ini_options]
+addopts = "--disable-warnings --disable-pytest-warnings --ignore=src/app/sandbox/ --tb=short --doctest-modules"
+filterwarnings = [
+    'ignore:.*contextfunction.*:DeprecationWarning',
+    'ignore:.*Unmanaged.*:sqlalchemy.exc.SAWarning',
+]
+testpaths = ["tests", "src"]
+
+# -----------------------------------------------------------------------------
+
+[tool.pyanalyze]
+paths = ["src/"]
+import_paths = ["."]
+
+
+# -----------------------------------------------------------------------------
+
+[tool.deptry.per_rule_ignores]
+# X defined as a dependency but not used in the codebase
+DEP002 = [
+    #    # Used (implicitely) by Flask-Login (I think)
+    #    'zxcvbn',
+    #    'bcrypt',
+    #    'argon2-cffi',
+    #    # Used (implicitely) by Flask (I think)
+    #    'python-dotenv',
+    # Used (implicitely) by SQLA
+    'psycopg2-binary',
+    #    "asyncpg",
+    #    #
+    #    'python-iso639',
+    #    # Web server
+    #    'gunicorn',
+    #    'honcho',
+    #    # Used by dramatic (?)
+    #    'redis',
+    #    # Used as a script
+    #    'shot-scraper',
+    #    # Used during install
+    #    'nodeenv',
+    #    # ???
+    #    'case-convert',
+    #    'defusedxml',
+    #    # Not used (yet?)
+    #    'phonenumbers',
+    #    'jinja2-fragments',
+    #    'pluggy',
+    #    # Can be removed (I think)
+    #    'dramatiq-pg',
+    #    # Used by the WTForms
+    #    'email-validator',
+    #    'dnspython',
+    #    # Used by a script
+    #    'buildstr',
+    #    # Used by hyperdx
+    #    'hyperdx-opentelemetry',
+    #    # Used in production
+    #    'sentry-sdk',
+    #    # Used by odsparsator
+    #    'odfdo',
+]
+# X imported but declared as a dev dependency
+#DEP004 = ['hypothesis', 'openpyxl', "flask_debugtoolbar"]
+
+# -----------------------------------------------------------------------------
+
+[tool.pyright]
+exclude = [
+    '.nox',
+    'tests',
+    'sandbox',
+    'doc',
+    'scripts',
+    'tmp',
+]
+include = ["src"]
+
+# False positives
+reportPrivateImportUsage = false
+reportFunctionMemberAccess = false
+
+# Enable later
+reportGeneralTypeIssues = false
+reportIncompatibleMethodOverride = false
+reportIncompatibleVariableOverride = false
+
+# -----------------------------------------------------------------------------
+
+[tool.bandit]
+skips = [
+    "B404", # blacklist
+    "B603", # subprocess_without_shell_equals_true
+    "B101", # assert_used
+    # FIXME later
+    "B311", # blacklist
+]
+
+exclude_dirs = [
+    "tests",
+]
+
+# -----------------------------------------------------------------------------
+
+[tool.coverage.run]
+# Not needed
+# omit = ["tests/*.py", "**/test*.py", "**/*test.py"]
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = [
+    'pragma: no cover',
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "if typing.TYPE_CHECKING:",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
+
