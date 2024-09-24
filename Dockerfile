@@ -7,16 +7,18 @@ WORKDIR /app
 RUN adduser python
 RUN chown -R python:python /app
 
-COPY requirements.txt /app
-RUN pip install -r requirements.txt
+COPY pyproject.toml /app
+COPY README.md .
+COPY wsgi.py .
+COPY src/ src/
+RUN pip install .
 
 USER python
 
 ENV FLASK_RUN_PORT=8000
 EXPOSE 8000
 
-COPY src/ .
-
-COPY hdarctl /bin/
+#COPY src/ .
+COPY bin/hdarctl /bin/
 
 CMD ["flask", "run", "--host", "0.0.0.0", "--debug"]
