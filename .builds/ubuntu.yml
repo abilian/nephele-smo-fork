@@ -27,9 +27,9 @@ tasks:
       cd smo
       uv sync
 
-#  - lint: |
-#      cd smo
-#      uv run make lint
+  - lint: |
+      cd smo
+      uv run make lint
 
   - test: |
       cd smo
@@ -38,3 +38,7 @@ tasks:
   - nox: |
       cd smo
       uv run nox -e pytest-3.12
+
+  - docker-build: |
+      cd smo
+      docker build -t smo .
