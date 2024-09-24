@@ -30,6 +30,7 @@ The current version of the SMO project is a **work in progress**, with several p
 
 - **Dependency Issue**: The current deployment mechanism relies on `hdarctl`, which is not universally compatible. We are exploring alternative solutions to address this dependency issue and ensure broader compatibility.
 - **Test Coverage**: While we have added a few basic unit tests, current coverage rate is only 48%, which is quite low. We are working to expand test coverage to include integration tests and end-to-end tests to validate the functionality of the application more comprehensively.
+- **Configuration Management**: Currently the configuraion is hardwired. We are enhancing the configuration management system to provide more flexibility and customization options for deployment environments.
 - **Error Handling and Logging**: We are enhancing error handling and logging mechanisms to improve the robustness and reliability of the application.
 - **Refactoring and Modernization**: We are refactoring the codebase to use modern Python features and best practices, including the adoption of a layered architecture, improved configuration management, and dependency injection mechanisms.
 - **Type Annotations**: We are adding type hints to all functions and methods to improve code readability and maintainability.
@@ -39,6 +40,8 @@ The current version of the SMO project is a **work in progress**, with several p
 - **CI/CD Pipeline**: We are enhancing the CI/CD pipeline to automate testing, linting, and formatting processes more efficiently.
 - **Deployment Options**: We are exploring deployment options on various platforms, including Hop3, Heroku, and Docker Swarm, to provide more flexibility and scalability.
 - **Contributions**: We welcome contributions from the community to help us address these issues and improve the SMO project further.
+- **License**: The original SMO repository is licensed under the MIT License. We are maintaining the same license for this fork to ensure compliance with the original project's licensing terms.
+- **Licensing Issues**: The project uses the Gurobi Optimizer which is a mathematical optimization software library for solving mixed-integer linear and quadratic optimization problems. This package comes with a trial license that allows to solve problems of limited size. We need to replace it with an open-source alternative to avoid licensing issues.
 
 
 ## Getting started
@@ -111,8 +114,8 @@ vagrant ssh
 - [ ] refact: use the modern (2.0) SQLAlchemy ORM API.
 - [ ] refact: Refactor using a layered architecture.
 - [ ] refact: Implement a proper configuration management.
-- [ ] refact:
 - [ ] refact: Implement a dependency injection mechanism.
+- [ ] refact: Replace the Gurobi Optimizer with an open-source alternative (or make the optimizer pluggable).
 - [ ] type: Add type hints to all functions and methods.
 - [ ] lint: Fix / suppress all linting issues (ruff, flake8).
 - [ ] lint: Resolve all type-checking issues (mypy, pyright, typeguard, beartype).
