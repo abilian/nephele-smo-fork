@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy import JSON
 
 from smo.models import db
 
@@ -18,8 +18,9 @@ class Service(db.Model):
     artifact_ref = db.Column(db.String(255))
     artifact_type = db.Column(db.String(255))
     artifact_implementer = db.Column(db.String(255))
-    resources = db.Column(JSONB)
-    values_overwrite = db.Column(JSONB)
+
+    resources = db.Column(JSON)
+    values_overwrite = db.Column(JSON)
 
     graph = db.relationship("Graph", back_populates="services")
     graph_id = db.Column(db.Integer, db.ForeignKey("graph.id"), nullable=False)

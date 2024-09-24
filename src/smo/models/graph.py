@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy import JSON
 
 from smo.models import db
 
@@ -15,7 +15,8 @@ class Graph(db.Model):
     status = db.Column(db.String(255))
     project = db.Column(db.String(255))
     grafana = db.Column(db.String(255))
-    graph_descriptor = db.Column(JSONB)
+
+    graph_descriptor = db.Column(JSON)
 
     services = db.relationship("Service", back_populates="graph", cascade="all,delete")
 

@@ -153,7 +153,7 @@ def trigger_placement(name):
     import_clusters = create_service_imports(descriptor_services, service_placement)
 
     for service in graph.services:
-        # Updating JSONB fields requires new dictionary creation
+        # Updating JSON fields requires new dictionary creation
         values_overwrite = dict(service.values_overwrite)
         placement_dict = values_overwrite
         if service.artifact_implementer == "WOT":
