@@ -4,6 +4,45 @@ This repository hosts the Synergetic Meta-Orchestrator consisting of a Flask RES
 
 This is a fork of the original SMO repository, which can be found [here](https://gitlab.eclipse.org/eclipse-research-labs/nephele-project/smo).
 
+Build status: [![builds.sr.ht status](https://builds.sr.ht/~sfermigier/smo.svg)](https://builds.sr.ht/~sfermigier/smo?)
+
+## TOC
+
+<!-- toc -->
+
+  * [Changes from the Original Repository](#changes-from-the-original-repository)
+  * [Current Status and Issues](#current-status-and-issues)
+  * [Getting started](#getting-started)
+    + [Prerequisites](#prerequisites)
+    + [Using Python](#using-python)
+    + [Using Docker](#using-docker)
+    + [Using docker-compose](#using-docker-compose)
+    + [Using Vagrant](#using-vagrant)
+  * [Changelog from the Original Repository](#changelog-from-the-original-repository)
+    + [DONE](#done)
+    + [TODO / Roadmap](#todo--roadmap)
+  * [Contributing](#contributing)
+    + [Setting up the development environment](#setting-up-the-development-environment)
+      - [Prerequisite: `uv`](#prerequisite-uv)
+      - [Setting up the environment](#setting-up-the-environment)
+    + [Tooling](#tooling)
+    + [Contribution Guidelines](#contribution-guidelines)
+    + [Code Style](#code-style)
+    + [Testing](#testing)
+      - [`pytest`](#pytest)
+    + [Documentation](#documentation)
+    + [Pull Request Process](#pull-request-process)
+    + [Code of Conduct](#code-of-conduct)
+  * [Deployment](#deployment)
+    + [On Hop3](#on-hop3)
+    + [On Heroku](#on-heroku)
+    + [On Docker Swarm](#on-docker-swarm)
+- [Original README](#original-readme)
+  * [Getting started](#getting-started-1)
+  * [File structure](#file-structure)
+
+<!-- tocstop -->
+
 ## Changes from the Original Repository
 
 This repository has undergone a few changes to enhance its functionality, maintainability and compatibility.
