@@ -141,7 +141,12 @@ vagrant ssh
 - [x] Add basic unit tests for functionality validation.
 - [x] Implement static analysis and enforce consistent formatting.
 - [x] Create a CI pipeline on SourceHut.
-- [x] Update documentation for usage and contribution guidelines.
+- [x] Update documentation for usage and contribution guidelines (README)
+- [x] Extend test capabilities to include runtime type-checking with tools like **Typeguard** and **Beartype**.
+- [x] Introduce a `Makefile` to streamline hypermodern Python development workflows (e.g., testing, linting, formatting).
+- [x] Add support for local development with **Vagrant**.
+- [x] Enable easy integration and deployment with **Heroku**.
+
 
 ### TODO / Roadmap
 
