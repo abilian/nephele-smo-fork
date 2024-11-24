@@ -12,6 +12,9 @@ Build status: [![builds.sr.ht status](https://builds.sr.ht/~sfermigier/smo.svg)]
 
   * [Changes from the Original Repository](#changes-from-the-original-repository)
   * [Current Status and Issues](#current-status-and-issues)
+  * [License](#license)
+    + [License Compliance](#license-compliance)
+    + [Third-Party Licenses](#third-party-licenses)
   * [Getting started](#getting-started)
     + [Prerequisites](#prerequisites)
     + [Using Python](#using-python)
@@ -30,6 +33,7 @@ Build status: [![builds.sr.ht status](https://builds.sr.ht/~sfermigier/smo.svg)]
     + [Code Style](#code-style)
     + [Testing](#testing)
       - [`pytest`](#pytest)
+      - [`nox`](#nox)
     + [Documentation](#documentation)
     + [Pull Request Process](#pull-request-process)
     + [Code of Conduct](#code-of-conduct)
@@ -59,7 +63,7 @@ This repository has undergone a few changes to enhance its functionality, mainta
 
 6**Code Quality Improvements**: Static analysis (ruff, flake8, mypy, pyright...) and formatting (ruff, black, isort...) tools have been implemented to ensure consistent coding standards, and some minor issues and warnings have been resolved.
 
-7**Testing Additions**: We have added basic unit tests to validate functionality and improve the reliability of the codebase.
+7**Testing Additions**: We have added basic unit tests to validate functionality and as such start to improve the reliability of the codebase and the confidence in the future refactorings and enhancements.
 
 8**Documentation Updates**: Additional documentation (this README) has been included to clarify the usage and contribution guidelines for the project.
 
