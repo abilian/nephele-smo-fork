@@ -17,6 +17,9 @@ packages:
   - gcc
   # Libraries
   - libpq-devel
+  # Docker and friends
+  - buildah
+
 
 tasks:
   - setup: |
@@ -36,3 +39,11 @@ tasks:
       cd smo
       uv run nox -e pytest-3.12
       uv run nox -e pytest-3.11
+
+  - buildah: |
+      cd smo
+      buildah build -t smo .
+
+  - docker-build: |
+      cd smo
+      sudo docker build -t smo .

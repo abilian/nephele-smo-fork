@@ -20,6 +20,9 @@ packages:
   - libffi-dev
   - libsqlite3-dev
   - libbz2-dev
+  # Docker and friends
+  - buildah
+  - docker-buildx
 
 tasks:
   - setup: |
@@ -39,6 +42,10 @@ tasks:
       cd smo
       uv run nox -e pytest-3.12
 
+  - buildah: |
+      cd smo
+      buildah build -t smo .
+
   - docker-build: |
       cd smo
-      docker build -t smo .
+      sudo docker build -t smo .
