@@ -193,7 +193,7 @@ vagrant ssh
 - [ ] lint: Resolve all type-checking issues (mypy, pyright, typeguard, beartype).
 - [ ] doc: Introduce a Changelog (and tools to manage it, like `towncryer` or similar).
 - [ ] doc: Create a proper documentation site using markdown-material
-- [ ] chore: Add a license compliance report.
+- [ ] chore: Add a license compliance report (and double-check REUSE config).
 
 ## Contributing
 
@@ -324,6 +324,16 @@ The `Makefile` provides shortcuts for common testing tasks:
 - `make test-with-beartype`: Run tests with beartype enabled.
 - `make lint`: Run linters and static analysis.
 
+#### `nox`
+
+We use `nox` to automate testing in multiple Python environments. To run tests with `nox`, use:
+
+```bash
+nox
+```
+
+(Run `nox -l` to list available session types.)
+
 ### Documentation
 
 All new features or changes should be documented. The documentation should include:
@@ -331,6 +341,7 @@ All new features or changes should be documented. The documentation should inclu
 - **Code Comments**: Explain non-trivial parts of the code.
 - **README Updates**: Update this file for any major changes in functionality or usage.
 - **Changelog**: Add a note in the upcoming changelog (to be implemented).
+- **API Documentation**: Update the API documentation if necessary (swagger files).
 
 ### Pull Request Process
 
