@@ -178,9 +178,9 @@ vagrant ssh
 ### TODO / Roadmap
 
 - [ ] fix: Work around the `hdarctl` dependency issue.
-- [ ] test: Add more unit tests in order to reach 100% coverage.
+- [ ] test: Add more unit tests in order to reach close to 100% coverage.
 - [ ] test: Add integration tests.
-- [ ] test: Add e2e tests (web tests).
+- [ ] test: Add e2e tests.
 - [ ] test: test Swagger API using [Schemathesis](https://github.com/schemathesis/schemathesis?tab=readme-ov-file) (and/or [Bravado](https://pypi.org/project/pytest-bravado/)). (Not Dredd - Dredd is dead, killed by Oracle)
 - [ ] feature: Improve error handling and logging.
 - [ ] refact: use the modern (2.0) SQLAlchemy ORM API.
@@ -191,8 +191,9 @@ vagrant ssh
 - [ ] type: Add type hints to all functions and methods.
 - [ ] lint: Fix / suppress all linting issues (ruff, flake8).
 - [ ] lint: Resolve all type-checking issues (mypy, pyright, typeguard, beartype).
-- [ ] doc: introduce a Changelog.
-- [ ] doc: create a proper documentation site using markdown-material
+- [ ] doc: Introduce a Changelog (and tools to manage it, like `towncryer` or similar).
+- [ ] doc: Create a proper documentation site using markdown-material
+- [ ] chore: Add a license compliance report.
 
 ## Contributing
 
