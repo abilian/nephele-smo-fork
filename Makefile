@@ -3,7 +3,11 @@
 
 PKG:=smo
 
-all: test lint
+all:
+	# Start with ruff because it's so fast
+	uv run ruff check
+	@make test 
+	@make lint
 
 #
 # Setup
