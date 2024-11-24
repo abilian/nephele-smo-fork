@@ -147,13 +147,13 @@ vagrant ssh
 - [x] Add support for local development with **Vagrant**.
 - [x] Enable easy integration and deployment with **Heroku**.
 
-
 ### TODO / Roadmap
 
 - [ ] fix: Work around the `hdarctl` dependency issue.
 - [ ] test: Add more unit tests in order to reach 100% coverage.
 - [ ] test: Add integration tests.
 - [ ] test: Add e2e tests (web tests).
+- [ ] test: test Swagger API using [Schemathesis](https://github.com/schemathesis/schemathesis?tab=readme-ov-file) (and/or [Bravado](https://pypi.org/project/pytest-bravado/)). (Not Dredd - Dredd is dead, killed by Oracle)
 - [ ] feature: Improve error handling and logging.
 - [ ] refact: use the modern (2.0) SQLAlchemy ORM API.
 - [ ] refact: Refactor using a layered architecture.
