@@ -17,8 +17,10 @@ packages:
   - gcc
   # Libraries
   - libpq-devel
-  # Docker and friends
+  # Docker and friends (NB: docker is not available on Rocky Linux)
   - buildah
+  # Dependencies for buildah
+  - passt-selinux
 
 
 tasks:
@@ -27,9 +29,9 @@ tasks:
       cd smo
       uv sync
 
-#  - lint: |
-#      cd smo
-#      uv run make lint
+  - lint: |
+      cd smo
+      uv run make lint
 
   - test: |
       cd smo
@@ -43,7 +45,3 @@ tasks:
   - buildah: |
       cd smo
       buildah build -t smo .
-
-  - docker-build: |
-      cd smo
-      sudo docker build -t smo .
