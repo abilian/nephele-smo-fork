@@ -327,15 +327,17 @@ For further details, see the `[CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)` file i
 ```bash
 hop create smo
 hop deploy smo
+# TODO: env vars
 ```
 
 ### On Heroku
 
 ```bash
 heroku create
-heroku addons:create heroku-postgresql:hobby-dev
+heroku addons:create heroku-postgresql:essential-0
 heroku config:set FLASK_APP=smo
 heroku config:set FLASK_ENV=production
+# TODO: set SQLALCHEMY_DATABASE_URI properly
 git push heroku main
 heroku run flask db upgrade
 ```
