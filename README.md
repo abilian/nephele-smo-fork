@@ -82,6 +82,34 @@ The current version of the SMO project is a **work in progress**, with several p
 - **License**: The original SMO repository is licensed under the MIT License. We are maintaining the same license for this fork to ensure compliance with the original project's licensing terms.
 - **Licensing Issues**: The project uses the Gurobi Optimizer which is a mathematical optimization software library for solving mixed-integer linear and quadratic optimization problems. This package comes with a trial license that allows to solve problems of limited size. We need to replace it with an open-source alternative to avoid licensing issues.
 
+## License
+
+The original SMO repository is licensed under the MIT License. We are maintaining the same license for this fork to ensure compliance with the original project's licensing terms.
+
+### License Compliance
+
+Here is the license compliance report (`reuse lint`) for this repository:
+
+```
+* Bad licenses: 0
+* Deprecated licenses: 0
+* Licenses without file extension: 0
+* Missing licenses: 0
+* Unused licenses: 0
+* Used licenses: BSD-3-Clause, CC-BY-4.0, MIT
+* Read errors: 0
+* Files with copyright information: 48 / 48
+* Files with license information: 48 / 48
+
+Congratulations! Your project is compliant with version 3.3 of the REUSE Specification :-)
+```
+
+### Third-Party Licenses
+
+Note that third party libraries used in this project may have different licenses. Please refer to the respective libraries' documentation for details. We will provide a more detailed assessment of third-party licenses in the future.
+
+This is especially relevant for the Gurobi Optimizer, which is a mathematical optimization software library for solving mixed-integer linear and quadratic optimization problems. This package comes with a trial license that allows to solve problems of limited size. As stated elswhere, we need to replace it with an open-source alternative to avoid licensing issues.
+
 
 ## Getting started
 
