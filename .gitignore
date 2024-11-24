@@ -2,6 +2,10 @@
 .envrc
 .python-version
 
+### Temp
+bin/hdarctl-*
+
+
 ### Flask ###
 instance/*
 !instance/.gitignore
