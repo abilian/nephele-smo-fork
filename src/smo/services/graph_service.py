@@ -209,6 +209,7 @@ def stop_graph(name):
     graph.status = "Stopped"
     for service in graph.services:
         service.status = "Not deployed"
+
     db.session.commit()
 
 
@@ -260,6 +261,7 @@ def get_descriptor_from_artifact(project, artifact_ref):
             ]
         )
 
+        # TODO: refact using pathlib
         for root, dirs, files in walk(dirpath):
             for file in files:
                 if file.endswith(".yaml") or file.endswith(".yml"):

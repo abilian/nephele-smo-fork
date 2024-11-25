@@ -76,10 +76,13 @@ def scaling_loop(
             maximum_replicas,
         )
         if new_replicas is None:
+            # TODO: don't hardcode the URL
             requests.get(f"http://localhost:8000/graph/{graph_name}/placement")
         else:
             for idx, replicas in enumerate(new_replicas):
                 kube_helper.scale_deployment(managed_services[idx], replicas)
+
+        # TODO: use logging
         print(new_replicas)
 
         previous_replicas = new_replicas
@@ -110,6 +113,7 @@ def decide_replicas(
     beta: Coefficient in the same equation as alpha mentioned above
     cluster_capacity: Cluster CPU capacity in cores
     cluster_acceleration: Acceleration enabled for cluster flag
+    maximum_replicas: Maximum number of replicas allowed for each service
 
     Return value
     ---
