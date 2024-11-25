@@ -185,19 +185,20 @@ vagrant ssh
 - [ ] test: Add more unit tests in order to reach close to 100% coverage.
 - [ ] test: Add integration tests.
 - [ ] test: Add e2e tests.
-- [ ] test: test Swagger API using [Schemathesis](https://github.com/schemathesis/schemathesis?tab=readme-ov-file) (and/or [Bravado](https://pypi.org/project/pytest-bravado/)). (but not Dredd - Dredd is dead, killed by Oracle)
+- [ ] test: test Swagger API using [Schemathesis](https://github.com/schemathesis/schemathesis?tab=readme-ov-file) (and/or [Bravado](https://pypi.org/project/pytest-bravado/)). (But not Dredd - Dredd is dead, killed by Oracle)
 - [ ] feature: Improve error handling and logging.
 - [ ] refact: use the modern (2.0) SQLAlchemy ORM API.
 - [ ] refact: Refactor using a layered architecture.
 - [ ] feature: Implement a proper configuration management.
 - [ ] feature: Implement a dependency injection mechanism.
 - [ ] feature: Implement an extension mechanism (e.g. `pluggy` or similar).
-- [ ] refact: Replace the Gurobi Optimizer with an open-source alternative (or make the optimizer pluggable).
+- [ ] refact: Replace the Gurobi Optimizer with an [open-source alternative](https://lab.abilian.com/Tech/Programming%20Techniques/Optimization/) (and/or make the optimizer pluggable).
 - [ ] type: Add type hints to all functions and methods.
 - [ ] lint: Fix / suppress all linting issues (ruff, flake8).
 - [ ] lint: Resolve all type-checking issues (mypy, pyright, typeguard, beartype).
 - [ ] doc: Introduce a Changelog (and tools to manage it, like `towncryer` or similar).
-- [ ] doc: Create a proper documentation site using markdown-material
+- [ ] doc: Create a proper documentation site using Portray or MkDocs (cf. <https://lab.abilian.com/Tech/Python/Tooling/Documentation/>)
+- [ ] doc: Describe python API using a formalized format (cf. <https://lab.abilian.com/Tech/Python/Tooling/Documenting%20a%20Python%20API/>)
 - [ ] chore: Add a license compliance report (and double-check REUSE config).
 
 ## Contributing
