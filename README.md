@@ -51,21 +51,21 @@ Build status: [![builds.sr.ht status](https://builds.sr.ht/~sfermigier/smo.svg)]
 
 This repository has undergone a few changes to enhance its functionality, maintainability and compatibility.
 
-1**Introduction of `pyproject.toml`**: This repository has been updated to reflect a [post-hypermodern Python development approach](https://rdrn.me/postmodern-python/). The adoption of a `pyproject.toml` file provides a standardized and centralized configuration for dependency management and tooling. This simplifies project setup, ensures compatibility with modern Python packaging standards, and consolidates configuration for tools such as linters, formatters, and test runners.
+1. **Introduction of `pyproject.toml`**: This repository has been updated to reflect a [post-hypermodern Python development approach](https://rdrn.me/postmodern-python/). The adoption of a `pyproject.toml` file provides a standardized and centralized configuration for dependency management and tooling. This simplifies project setup, ensures compatibility with modern Python packaging standards, and consolidates configuration for tools such as linters, formatters, and test runners.
 
-2**Project Refactoring**: The codebase has been reorganized to improve readability, remove unnecessary dependencies, and simplify the overall structure. This ensures a cleaner and more maintainable implementation.
+2. **Project Refactoring**: The codebase has been reorganized to improve readability, remove unnecessary dependencies, and simplify the overall structure. This ensures a cleaner and more maintainable implementation.
 
-3**Database Support**: Added support for SQLite, enabling more flexibility in deployment environments and simplifying testing and development setups.
+3. **Database Support**: Added support for SQLite, enabling more flexibility in deployment environments and simplifying testing and development setups.
 
-4**Namespace Introduction**: A dedicated namespace for the SMO has been introduced to better organize the project and facilitate integration with other components in the open-source cloud ecosystem (including [Hop3](https://github.com/abilian/hop3)).
+4. **Namespace Introduction**: A dedicated namespace for the SMO has been introduced to better organize the project and facilitate integration with other components in the open-source cloud ecosystem (including [Hop3](https://github.com/abilian/hop3)).
 
-5**Continuous Integration Enhancements**: We've created a CI pipeline to ensure smoother automated testing, formatting enforcement, and build processes.
+5. **Continuous Integration Enhancements**: We've created a CI pipeline to ensure smoother automated testing, formatting enforcement, and build processes.
 
-6**Code Quality Improvements**: Static analysis (ruff, flake8, mypy, pyright...) and formatting (ruff, black, isort...) tools have been implemented to ensure consistent coding standards, and some minor issues and warnings have been resolved.
+6. **Code Quality Improvements**: Static analysis (ruff, flake8, mypy, pyright...) and formatting (ruff, black, isort...) tools have been implemented to ensure consistent coding standards, and some minor issues and warnings have been resolved.
 
-7**Testing Additions**: We have added basic unit tests to validate functionality and as such start to improve the reliability of the codebase and the confidence in the future refactorings and enhancements.
+7. **Testing Additions**: We have added basic unit tests to validate functionality and as such start to improve the reliability of the codebase and the confidence in the future refactorings and enhancements.
 
-8**Documentation Updates**: Additional documentation (this README) has been included to clarify the usage and contribution guidelines for the project.
+8. **Documentation Updates**: Additional documentation (this README) has been included to clarify the usage and contribution guidelines for the project.
 
 ## Current Status and Issues
 
@@ -185,12 +185,13 @@ vagrant ssh
 - [ ] test: Add more unit tests in order to reach close to 100% coverage.
 - [ ] test: Add integration tests.
 - [ ] test: Add e2e tests.
-- [ ] test: test Swagger API using [Schemathesis](https://github.com/schemathesis/schemathesis?tab=readme-ov-file) (and/or [Bravado](https://pypi.org/project/pytest-bravado/)). (Not Dredd - Dredd is dead, killed by Oracle)
+- [ ] test: test Swagger API using [Schemathesis](https://github.com/schemathesis/schemathesis?tab=readme-ov-file) (and/or [Bravado](https://pypi.org/project/pytest-bravado/)). (but not Dredd - Dredd is dead, killed by Oracle)
 - [ ] feature: Improve error handling and logging.
 - [ ] refact: use the modern (2.0) SQLAlchemy ORM API.
 - [ ] refact: Refactor using a layered architecture.
-- [ ] refact: Implement a proper configuration management.
-- [ ] refact: Implement a dependency injection mechanism.
+- [ ] feature: Implement a proper configuration management.
+- [ ] feature: Implement a dependency injection mechanism.
+- [ ] feature: Implement an extension mechanism (e.g. `pluggy` or similar).
 - [ ] refact: Replace the Gurobi Optimizer with an open-source alternative (or make the optimizer pluggable).
 - [ ] type: Add type hints to all functions and methods.
 - [ ] lint: Fix / suppress all linting issues (ruff, flake8).
@@ -240,10 +241,10 @@ Besides the `uv` tool, we use the following tools to maintain the codebase:
 - **isort**: A Python utility / library to sort imports.
 - **flake8**: A Python tool that glues together pep8, pyflakes, mccabe, and third-party plugins to check the style and quality of some Python code.
 - **mypy**: An optional static type checker for Python.
-- **pyright**: A static type checker for Python that runs in the background.
+- **pyright**: Another optional static type checker for Python.
 - **pytest**: A framework that makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries.
 - **beartype**: A runtime type-checker for Python functions.
-- **typeguard**: Run-time type checking for Python functions.
+- **typeguard**: Another runtime type checking for Python functions.
 - **nox**: A flexible test automation tool that automates testing in multiple Python environments.
 
 We orchestrate these tools using `make`, the standard build tool on Unix-like systems, which provides shortcuts for common tasks based on these tools:
@@ -279,19 +280,23 @@ The full list of available commands can be viewed by running `make help`.
 
 ### Code Style
 
-We use **PEP 8** as the basis for our code style, with additional configurations provided by:
+We use **PEP 8** as the basis for our code style. In practice, most of the code formatting is handled by the following tools:
 
 - **Black**: Ensures consistent formatting.
-- **Ruff**: Handles linting and static analysis.
+- **Ruff**: Handles both formatting and static analysis.
 - **isort**: Organizes imports.
 
 To apply formatting and linting, simply run:
 
 ```bash
-ruff . --fix
 black .
 isort .
+ruff format
+# Use this last one carefully, as it introduces refctorings that should be reviewed:
+ruff . --fix
 ```
+
+(`ruff` last as it may conflict with some of the changes made by `black` and `isort`.)
 
 Or, better yet, use the provided `Makefile` shortcuts:
 
@@ -303,7 +308,6 @@ Tests are critical to maintaining the quality and reliability of the codebase. W
 
 - Add **unit tests** for new or modified functionalities.
 - Write **integration tests** for changes that affect multiple components.
-
 
 #### `pytest`
 
