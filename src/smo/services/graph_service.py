@@ -437,21 +437,19 @@ def helm_install_artifact(name, artifact_ref, values_overwrite, command):
         subprocess.run(cmd, check=True)
 
 
-def helm_uninstall_graph(services):
+def helm_uninstall_graph(services) -> None:
     """Uninstalls all service artifacts.
 
     Input:
     - services: A list of service objects, each containing a 'name' attribute
                 representing the name of the service to be uninstalled.
 
-    Returns:
-    - None
-
     Raises:
     - subprocess.CalledProcessError: If the 'helm uninstall' command fails.
     - KeyError: If 'KARMADA_KUBECONFIG' is not found in current_app.config.
     - AttributeError: If 'services' list items do not have a 'name' attribute.
     """
+    # TODO: raise a domain exception (GraphServiceException) instead of the built-in exceptions
 
     for service in services:
         # Construct the command to uninstall the service using helm
