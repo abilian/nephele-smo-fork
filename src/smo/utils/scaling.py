@@ -24,28 +24,53 @@ def scaling_loop(
     config_file_path,
     prometheus_host,
     stop_event,
-):
-    """Runs the scaling algorithm periodically."""
+) -> None:
+    """Runs the scaling algorithm periodically.
 
+    The function continuously monitors and adjusts the number of replicas for a
+    list of managed services based on request rates and predefined scaling parameters.
+
+    Input:
+    - graph_name: Name of the graph used for determining the scaling logic.
+    - acceleration: The acceleration factor for scaling decisions.
+    - alpha: A scaling parameter that influences decision making.
+    - beta: A scaling parameter that influences decision making.
+    - cluster_capacity: Maximum capacity of the cluster.
+    - cluster_acceleration: The acceleration factor for the cluster.
+    - maximum_replicas: The maximum number of replicas allowed for any service.
+    - managed_services: List of services that are managed by the scaling loop.
+    - decision_interval: The interval (in seconds) between scaling decisions.
+    - config_file_path: Path to the Kubernetes configuration file.
+    - prometheus_host: Host address of the Prometheus server.
+    - stop_event: An event to signal stopping of the scaling loop.
+    """
+
+    # Initialize helpers for Kubernetes and Prometheus
     kube_helper = KubeHelper(config_file_path)
     prometheus_helper = PrometheusHelper(prometheus_host, decision_interval)
+
+    # Ensure initial replica counts are available for all services
     while True:
         previous_replicas = [
             kube_helper.get_replicas(service) for service in managed_services
         ]
         if None in previous_replicas:
+            # Wait and retry if any replica count is unavailable
             time.sleep(5)
         else:
             break
 
+    # Retrieve current CPU limits for managed services
     previous_replicas = [
         kube_helper.get_replicas(service) for service in managed_services
     ]
     cpu_limits = [kube_helper.get_cpu_limit(service) for service in managed_services]
 
+    # Main scaling loop - runs until stop_event is set
     while not stop_event.is_set():
         request_rates = []
         for service in managed_services:
+            # Special handling for 'image-compression-vo' service
             if service == "image-compression-vo":
                 request_rates.append(
                     prometheus_helper.get_request_rate("noise-reduction")
@@ -64,6 +89,7 @@ def scaling_loop(
             maximum_replicas,
         )
 
+        # Determine new replicas based on decision criteria
         new_replicas = decide_replicas(
             request_rates,
             previous_replicas,
@@ -75,6 +101,7 @@ def scaling_loop(
             cluster_acceleration,
             maximum_replicas,
         )
+
         if new_replicas is None:
             # TODO: don't hardcode the URL
             requests.get(f"http://localhost:8000/graph/{graph_name}/placement")
@@ -85,7 +112,10 @@ def scaling_loop(
         # TODO: use logging
         print(new_replicas)
 
+        # Update previous replicas for the next iteration
         previous_replicas = new_replicas
+
+        # Pause before the next decision cycle
         time.sleep(decision_interval)
 
 
@@ -100,7 +130,9 @@ def decide_replicas(
     cluster_acceleration,
     maximum_replicas,
 ):
-    """
+    """Determines the optimal number of replicas for each service to handle
+    incoming request rates.
+
     Parameters
     ---
     request_rates: List of incoming rates of requests
@@ -109,15 +141,20 @@ def decide_replicas(
     acceleration: List of acceleration flags
     alpha: Coefficient of the equation y = a * x + b
            where x is the number of replicas and y is the
-           maximum number of request the service can handle
+           maximum number of requests the service can handle
     beta: Coefficient in the same equation as alpha mentioned above
     cluster_capacity: Cluster CPU capacity in cores
     cluster_acceleration: Acceleration enabled for cluster flag
     maximum_replicas: Maximum number of replicas allowed for each service
 
-    Return value
+    Returns
     ---
-    solution: List with replicas for each service
+    solution: List with replicas for each service, or None if no optimal solution is found.
+
+    Raises
+    ---
+    GurobiError: If there is an issue with the Gurobi optimization process.
+    ValueError: If the input lists are inconsistent in length.
     """
 
     # Define the number of application nodes
@@ -129,13 +166,12 @@ def decide_replicas(
     # Define decision variables
     r_current = {}
     r_prev = {}
-    abs_diff = (
-        {}
-    )  # to define the scaling (transformation) cost with absolute of difference
+    # to define the scaling (transformation) cost with absolute of difference
+    abs_diff = {}
 
     for s in range(num_nodes):
         r_current[s] = model.addVar(vtype=GRB.INTEGER, name=f"r_{s}_current")
-        r_prev[s] = previous_replicas[s]  # Set the previously deployed replicas
+        r_prev[s] = previous_replicas[s]
         abs_diff[s] = model.addVar(vtype=GRB.INTEGER, name=f"abs_diff_{s}")
 
     # Update model
@@ -158,9 +194,6 @@ def decide_replicas(
     # Max values for normalization
     max_util_cost = max(maximum_replicas[s] * cpu_limits[s] for s in range(num_nodes))
     max_trans_cost = maximum_replicas
-
-    # Penalty term: normalized percentage of over-provisioning
-    # penalty_term =  quicksum((r_current[s]*q[s] - request_rates[s] / q[s]) / (maximum_replicas*q[s] - request_rates[s] / q[s]) for s in range(num_nodes))
 
     # Objective function
     model.setObjective(

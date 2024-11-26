@@ -6,7 +6,17 @@ import requests
 
 
 class PrometheusHelper:
-    """Helper class to execute Prometheus queries."""
+    """Helper class to execute Prometheus queries.
+
+    This class provides methods to query a Prometheus server for specific metrics
+    related to service latency, request rate, and CPU utilization. It constructs
+    Prometheus query strings and processes the results.
+
+    Attributes:
+        prometheus_host: The URL or IP address of the Prometheus server.
+        time_window: The time duration for which metrics are queried.
+        time_unit: The unit of time for the time window (default is seconds "s").
+    """
 
     def __init__(self, prometheus_host, time_window, time_unit="s"):
         self.prometheus_host = prometheus_host
@@ -78,6 +88,7 @@ class PrometheusHelper:
             timeout=5,
         )
 
+        # Parse the JSON response and extract the result
         results = response.json()["data"]["result"]
         if len(results) > 0:
             return float(results[0]["value"][1])

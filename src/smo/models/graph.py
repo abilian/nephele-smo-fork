@@ -10,11 +10,33 @@ from smo.models import db
 
 
 class GraphStatus(Enum):
+    """Enumeration for the status of a graph process.
+
+    This class defines the possible statuses for a graph process that
+    can either be 'Started' or 'Stopped'.
+    """
+
     started = "Started"
     stopped = "Stopped"
 
 
 class Graph(db.Model):
+    """Represents a Graph in the database.
+
+    This class defines the schema for the `graph` table in the database, with columns for id, name,
+    status, project, grafana, and graph_descriptor. It also establishes a relationship with the
+    Service class through the `services` attribute.
+
+    Attributes:
+        id (int): Primary key of the graph.
+        name (str): Unique and non-nullable name of the graph.
+        status (str): Status of the graph, should ideally be an enum.
+        project (str): Associated project with the graph.
+        grafana (str): Grafana dashboard information linked with the graph.
+        graph_descriptor (JSON): Descriptor in JSON format for additional graph details.
+        services (list): List of Service objects related to this graph, with cascading delete.
+    """
+
     __tablename__ = "graph"
 
     id = db.Column(db.Integer, primary_key=True)

@@ -5,12 +5,24 @@ from __future__ import annotations
 from gurobipy import GRB, Model, quicksum
 
 
-def swap_placement(service_dict):
-    """Takes a dictionary that maps a service to its cluster and returns a
-    dictionary that maps a cluster to the list of services deployed there."""
+def swap_placement(service_dict: dict) -> dict:
+    """Converts a mapping of services to clusters into a mapping of clusters to
+    the list of services deployed there.
+
+    Args:
+        service_dict (dict): A dictionary where keys are services and values are clusters.
+
+    Returns:
+        dict: A dictionary where keys are clusters and values are lists of services.
+
+    Example:
+        >>> swap_placement({'service1': 'clusterA', 'service2': 'clusterB'})
+        {'clusterA': ['service1'], 'clusterB': ['service2']}
+    """
 
     cluster_dict = {}
     for key, value in service_dict.items():
+        # Add the service to the list of services for the cluster
         cluster_dict.setdefault(value, []).append(key)
     return cluster_dict
 
@@ -20,10 +32,22 @@ def convert_placement(placement, services, clusters):
     with the name of its cluster.
 
     E.g. Input
-            placement:[[1, 0], [1, 0]]
-            services: [{'id': 'service1'}, {'id': 'service2'}]
-            clusters ['cluster1', 'cluster2']
-         Output: {'service1': 'cluster1', 'service2': 'cluster1'}
+        placement:[[1, 0], [1, 0]]
+        services: [{'id': 'service1'}, {'id': 'service2'}]
+        clusters ['cluster1', 'cluster2']
+     Output: {'service1': 'cluster1', 'service2': 'cluster1'}
+
+    Input:
+        placement (list of list of int): A binary matrix where each row corresponds to a service
+            and each column corresponds to a cluster. A '1' indicates the service is placed on
+            the corresponding cluster.
+        services (list of dict): A list of dictionaries where each dictionary has a key 'id'
+            representing the service name.
+        clusters (list of str): A list of cluster names which correspond to the columns in the
+            placement matrix.
+
+    Returns:
+        dict: A dictionary mapping each service's name to its respective cluster name.
     """
 
     service_placement = {}
@@ -45,8 +69,9 @@ def decide_placement(
     current_placement,
     initial_placement=False,
 ):
-    """
-    Parameters
+    """Determines the optimal placement of services across multiple clusters.
+
+    Input:
     ---
     cluster_capacities: List of CPU capacity for each cluster
     cluster_acceleration: List of GPU acceleration feature for each cluster
@@ -54,13 +79,18 @@ def decide_placement(
     acceleration: List of GPU acceleration feature for each service
     replicas: List of number of replicas
     current_placement: List of current placement
-    initial_placement: If True doesn't attempt to change the input placement
+    initial_placement: If True, doesn't attempt to change the input placement
                        and can leave it the same. Else forces a change.
 
-    Return value
+    Returns:
     ---
-    placement: 2D List of placement. If the element at index [i][j] is 1
+    placement: 2D List of placement. If the element at index [i][j] is 1,
                it means that service i is placed at cluster j
+
+    Raises:
+    ---
+    GurobiError: If there is an issue with the Gurobi optimization model
+    ValueError: If input lists have inconsistent lengths
     """
 
     num_clusters = len(cluster_capacities)
@@ -98,6 +128,7 @@ def decide_placement(
     w_dep = 1  # Deployment cost weight
     w_re = 1  # Re-optimization cost weight
 
+    # Set objective to minimize the combined deployment and re-optimization costs
     model.setObjective(
         quicksum(w_dep * x[s, e] for s in S for e in E)
         + quicksum(w_re * y[s][e] * (y[s][e] - x[s, e]) for s in S for e in E),
@@ -109,7 +140,7 @@ def decide_placement(
         model.addConstr(quicksum(x[s, e] for e in E) == 1, name=f"constraint1_{s}")
 
     change_placement_value = 0 if initial_placement else -1
-    # Define the additional constraints
+    # Define the additional constraints for placement changes
     model.addConstr(
         quicksum(y[s][e] * (x[s, e] - y[s][e]) for s in S[1:] for e in E)
         <= change_placement_value,

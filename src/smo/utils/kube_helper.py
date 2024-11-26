@@ -6,7 +6,25 @@ from kubernetes import client, config
 
 
 class KubeHelper:
-    """Kubernetes helper class."""
+    """Kubernetes helper class.
+
+    This class provides utility methods to interact with a Kubernetes cluster,
+    specifically focusing on deployments within a specified namespace. It allows
+    retrieving and modifying deployment details such as replicas and CPU limits.
+
+    Input:
+    - config_file_path: Path to the Kubernetes configuration file.
+    - namespace: The namespace to operate within, default is "default".
+
+    Methods:
+    - get_desired_replicas(name): Retrieves the desired replica count for a specific deployment.
+    - get_replicas(name): Retrieves the current replica count for a specific deployment.
+    - get_cpu_limit(name): Retrieves the configured CPU limit for a specific deployment.
+    - scale_deployment(name, replicas): Scales a deployment to a specified number of replicas.
+
+    Raises:
+    - Exception: If an error occurs while trying to scale a deployment.
+    """
 
     def __init__(self, config_file_path, namespace="default"):
         self.namespace = namespace
@@ -37,9 +55,11 @@ class KubeHelper:
 
         response = self.v1_api_client.read_namespaced_deployment(name, self.namespace)
         cpu_lim = response.spec.template.spec.containers[0].resources.limits["cpu"]
+        # If CPU limit is specified in millicores, convert it to cores
         if "m" in cpu_lim:
             return float(cpu_lim.replace("m", "")) * 1e-3
         else:
+            # Convert CPU limit directly to float if in cores
             return float(cpu_lim)
 
     def scale_deployment(self, name, replicas):
