@@ -6,7 +6,7 @@ from enum import Enum
 
 from sqlalchemy import JSON
 
-from smo.models import db
+from smo.extensions import db
 
 
 class ServiceStatus(Enum):
@@ -64,11 +64,11 @@ class Service(db.Model):
 
     def deploy(self):
         """Deploys the service."""
-        # TODO: implement
+        self.status = "Deployed"
 
     def undeploy(self):
         """Undeploys the service."""
-        # TODO: implement
+        self.status = "Not deployed"
 
     def to_dict(self):
         """Returns a dictionary representation of the class."""

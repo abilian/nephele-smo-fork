@@ -6,16 +6,17 @@ from enum import Enum
 
 from sqlalchemy import JSON
 
-from smo.models import db
+from smo.extensions import db
 
 
 class GraphStatus(Enum):
     """Enumeration for the status of a graph process.
 
-    This class defines the possible statuses for a graph process that
-    can either be 'Started' or 'Stopped'.
+    This defines the possible statuses for a graph process that can
+    either be 'Started' or 'Stopped'.
     """
 
+    # TODO: not used yet.
     started = "Started"
     stopped = "Stopped"
 
@@ -23,7 +24,7 @@ class GraphStatus(Enum):
 class Graph(db.Model):
     """Represents a Graph in the database.
 
-    This class defines the schema for the `graph` table in the database, with columns for id, name,
+    This defines the schema for the `graph` table in the database, with columns for id, name,
     status, project, grafana, and graph_descriptor. It also establishes a relationship with the
     Service class through the `services` attribute.
 
@@ -51,15 +52,15 @@ class Graph(db.Model):
     services = db.relationship("Service", back_populates="graph", cascade="all,delete")
 
     def start(self):
-        """Starts the graph."""
-        # TODO: implement
+        """Start the graph."""
+        self.status = "Running"
 
     def stop(self):
-        """Stops the graph."""
-        # TODO: implement
+        """Stop the graph."""
+        self.status = "Stopped"
 
     def to_dict(self):
-        """Returns a dictionary representation of the class."""
+        """Return a dictionary representation of the class."""
 
         instance_dict = {
             "name": self.name,

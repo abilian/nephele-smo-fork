@@ -12,7 +12,8 @@ import yaml
 from flask import current_app
 from werkzeug.exceptions import BadRequest, NotFound
 
-from smo.models import Graph, Service, db
+from smo.extensions import db
+from smo.models import Graph, Service
 # TODO: replace constant values
 from smo.utils.constant import (ACCELERATION, ACCELERATION_LIST, ALPHA, BETA,
                                 CLUSTER_ACCELERATION,
@@ -35,7 +36,7 @@ background_scaling_threads = [None, None]
 stop_events = [threading.Event(), threading.Event()]
 
 
-def fetch_project_graphs(project):
+def fetch_project_graphs(project: str) -> list[dict]:
     """Retrieves all the descriptors of a project.
 
     Input:
@@ -53,7 +54,7 @@ def fetch_project_graphs(project):
     return project_graphs
 
 
-def deploy_graph(project, graph_descriptor):
+def deploy_graph(project: str, graph_descriptor) -> None:
     """Instantiates an application graph by using Helm to deploy each service's
     artifact.
 
@@ -147,7 +148,7 @@ def deploy_graph(project, graph_descriptor):
     spawn_scaling_processes(graph.name, cluster_placement)
 
 
-def fetch_graph(name):
+def fetch_graph(name: str) -> Graph:
     """Retrieves the descriptor of an application graph.
 
     Input:
@@ -161,7 +162,8 @@ def fetch_graph(name):
     # TODO: replace with a "get" method
     graph = db.session.query(Graph).filter_by(name=name).first()
 
-    return graph  # Return the first matching graph object, or None if no match is found
+    # Return the first matching graph object, or None if no match is found
+    return graph
 
 
 def trigger_placement(name: str) -> None:
@@ -243,18 +245,18 @@ def start_graph(name: str) -> None:
     """
 
     # Query the database to find the graph by name.
+    # TODO: use a get method instead of query
     graph = db.session.query(Graph).filter_by(name=name).first()
 
     # Raise an exception if the graph does not exist.
     if graph is None:
         raise NotFound(f"Graph with name {name} not found")
 
-    # Raise an exception if the graph is already running.
+    # The graph should not be already running.
     if graph.status == "Running":
         raise BadRequest(f"Graph with name {name} is already running")
 
-    # Set the graph's status to 'Running'.
-    graph.status = "Running"
+    graph.start()
 
     # Iterate through each service in the graph to deploy them.
     for service in graph.services:
@@ -262,9 +264,8 @@ def start_graph(name: str) -> None:
         helm_install_artifact(
             service.name, service.artifact_ref, service.values_overwrite, "install"
         )
-        service.status = "Deployed"
+        service.deploy()
 
-    # Commit the changes to the database.
     db.session.commit()
 
 
@@ -273,10 +274,6 @@ def stop_graph(name: str) -> None:
 
     Input:
     - name (str): The name of the graph to stop.
-
-    Raises:
-    - NotFound: If no graph with the specified name is found.
-    - BadRequest: If the graph with the specified name is already stopped.
     """
 
     graph: Graph = db.session.query(Graph).filter_by(name=name).first()
@@ -288,13 +285,10 @@ def stop_graph(name: str) -> None:
     # Uninstall all services associated with the graph using Helm
     helm_uninstall_graph(graph.services)
 
-    # Update the graph's status to 'Stopped'
     graph.status = "Stopped"
-    # Update each service's status to 'Not deployed'
     for service in graph.services:
-        service.status = "Not deployed"
+        service.undeploy()
 
-    # Commit the changes to the database
     db.session.commit()
 
 
