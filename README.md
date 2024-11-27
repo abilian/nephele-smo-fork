@@ -23,7 +23,8 @@ Build status: [![builds.sr.ht status](https://builds.sr.ht/~sfermigier/smo.svg)]
     + [Using Vagrant](#using-vagrant)
   * [Changelog from the Original Repository](#changelog-from-the-original-repository)
     + [DONE](#done)
-    + [TODO / Roadmap](#todo--roadmap)
+    + [Roadmap / Started](#roadmap--started)
+    + [Roadmap / TODO](#roadmap--todo)
   * [Contributing](#contributing)
     + [Setting up the development environment](#setting-up-the-development-environment)
       - [Prerequisite: `uv`](#prerequisite-uv)
@@ -98,6 +99,7 @@ The current version of the SMO project is a **work in progress**, with several p
 - **Configuration Management**: Currently the configuraion is hardwired. We are enhancing the configuration management system to provide more flexibility and customization options for deployment environments.
 - **Error Handling and Logging**: We are enhancing error handling and logging mechanisms to improve the robustness and reliability of the application.
 - **Refactoring and Modernization**: We are refactoring the codebase to use modern Python features and best practices, including the adoption of a layered architecture, improved configuration management, and dependency injection mechanisms.
+- **Migrations**: We have introduced Alembic for database migrations. We need to ensure that the migrations are properly managed and versioned to avoid data loss or corruption during updates.
 - **Type Annotations**: We are adding type hints to all functions and methods to improve code readability and maintainability.
 - **Linting and Formatting**: We are addressing all linting and type-checking issues to ensure consistent code quality and adherence to coding standards.
 - **Documentation Improvements**: We are updating the documentation to include a changelog, improve readability, and provide more comprehensive information on the project.
@@ -200,8 +202,14 @@ vagrant ssh
 - [x] Introduce a `Makefile` to streamline hypermodern Python development workflows (e.g., testing, linting, formatting).
 - [x] Add support for local development with **Vagrant**.
 - [x] Enable easy integration and deployment with **Heroku**.
+- [x] Implement a basic CLI for interacting with the SMO API.
 
-### TODO / Roadmap
+### Roadmap / Started
+
+- [ ] refact: Refactor using a layered architecture.
+- [ ] type: Add type hints to all functions and methods.
+
+### Roadmap / TODO
 
 - [ ] fix: Work around the `hdarctl` dependency issue.
 - [ ] test: Add more unit tests in order to reach close to 100% coverage.
@@ -210,18 +218,17 @@ vagrant ssh
 - [ ] test: test Swagger API using [Schemathesis](https://github.com/schemathesis/schemathesis?tab=readme-ov-file) (and/or [Bravado](https://pypi.org/project/pytest-bravado/)). (But not Dredd - Dredd is dead, killed by Oracle)
 - [ ] feature: Improve error handling and logging.
 - [ ] refact: use the modern (2.0) SQLAlchemy ORM API.
-- [ ] refact: Refactor using a layered architecture.
 - [ ] feature: Implement a proper configuration management.
 - [ ] feature: Implement a dependency injection mechanism.
 - [ ] feature: Implement an extension mechanism (e.g. `pluggy` or similar).
 - [ ] refact: Replace the Gurobi Optimizer with an [open-source alternative](https://lab.abilian.com/Tech/Programming%20Techniques/Optimization/) (and/or make the optimizer pluggable).
-- [ ] type: Add type hints to all functions and methods.
 - [ ] lint: Fix / suppress all linting issues (ruff, flake8).
 - [ ] lint: Resolve all type-checking issues (mypy, pyright, typeguard, beartype).
 - [ ] doc: Introduce a Changelog (and tools to manage it, like `towncryer` or similar).
 - [ ] doc: Create a proper documentation site using Portray or MkDocs (cf. <https://lab.abilian.com/Tech/Python/Tooling/Documentation/>)
 - [ ] doc: Describe python API using a formalized format (cf. <https://lab.abilian.com/Tech/Python/Tooling/Documenting%20a%20Python%20API/>)
 - [ ] chore: Add a license compliance report (and double-check REUSE config).
+- [ ] feat: Make a Web UI.
 
 ## Contributing
 
