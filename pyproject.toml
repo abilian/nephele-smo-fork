@@ -30,7 +30,7 @@ dependencies = [
 ]
 
 [project.scripts]
-smo = "smo:main"
+smo = "smo.cli:main"
 
 [build-system]
 requires = ["hatchling"]
