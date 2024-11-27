@@ -67,6 +67,28 @@ This repository has undergone a few changes to enhance its functionality, mainta
 
 8. **Documentation Updates**: Additional documentation (this README) has been included to clarify the usage and contribution guidelines for the project.
 
+9. **Added a CLI**: We have added a CLI to interact with the SMO API. The CLI provides a simplified interface for deploying, managing, and monitoring Hyper Distributed Application Graphs. (WIP - not fully implemented yet).
+```text
+usage: smo [-h] {deploy,get-graph,list-graphs,placement,remove,start,stop,plugins} ...
+
+SMO CLI - Simplified Modular Operations
+
+options:
+  -h, --help            show this help message and exit
+
+commands:
+  {deploy,get-graph,list-graphs,placement,remove,start,stop,plugins}
+                        Available commands
+    deploy              Deploy a graph descriptor
+    get-graph           Fetch a specific graph
+    list-graphs         Fetch all graphs under a project
+    placement           Trigger the placement algorithm for a graph
+    remove              Remove a running graph
+    start               Start a stopped graph
+    stop                Stop a running graph
+    plugins             List currently installed plugins
+```
+
 ## Current Status and Issues
 
 The current version of the SMO project is a **work in progress**, with several planned enhancements and improvements. The following are some of the key areas that we are actively working on:
