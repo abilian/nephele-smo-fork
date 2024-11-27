@@ -9,9 +9,10 @@ import yaml
 from flasgger import Swagger
 from flask import Flask
 
-from .config import configs
-from .errors import error_handlers
-from .extensions import db
+from smo.config import configs
+from smo.extensions import db
+
+from . import error_handlers
 from .routes.graph import graph
 
 env = os.environ.get("FLASK_ENV", "development")
@@ -45,11 +46,13 @@ def create_app(app_name="smo", *, config=None) -> Flask:
     Swagger(app)
 
     if config:
-        # Load configuration from the provided object, useful for tests
+        # Load configuration from the provided object,
+        # useful for tests
         app.config.from_object(config)
     else:
-        # Load configuration from default environment settings, useful for production or development
-        app.config.from_object(configs[env])
+        # Load configuration from default environment settings,
+        # useful for production or development
+        app.config.from_object(configs[env]())
 
     app.register_blueprint(graph)
 

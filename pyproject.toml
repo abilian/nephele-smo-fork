@@ -29,6 +29,7 @@ dependencies = [
     # "websocket-client>=1.8.0",
     # Temp
     "devtools>=0.12.2",
+    "alembic>=1.14.0",
 ]
 
 [project.scripts]
@@ -53,6 +54,7 @@ dev = [
     # Type hints
     "types-pyyaml>=6.0.12.20240917",
     "types-requests>=2.32.0.20241016",
+    "pytest-archon>=0.0.6",
 ]
 
 # -----------------------------------------------------------------------------
@@ -81,6 +83,7 @@ import_paths = ["."]
 DEP002 = [
     # Used (implicitely) by SQLA
     'psycopg2-binary',
+    'alembic',
 ]
 # X imported but declared as a dev dependency
 #DEP004 = []

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from smo.app import create_app
+from smo.flask.app import create_app
 
 
 class TestConfig:

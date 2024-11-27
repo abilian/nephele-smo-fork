@@ -25,12 +25,18 @@ class Config:
             the variable is not set.
     """
 
-    SQLALCHEMY_DATABASE_URI = "postgresql://{}:{}@{}:5432/{}".format(
-        os.getenv("DB_USER", "root"),
-        os.getenv("DB_PASSWORD", "password"),
-        os.getenv("DB_HOST", "localhost"),
-        os.getenv("DB_NAME", "smo"),
-    )
+    @property
+    def SQLALCHEMY_DATABASE_URI(self) -> str:  # noqa: N802
+        if "FLASK_SQLALCHEMY_DATABASE_URI" in os.environ:
+            return os.environ["FLASK_SQLALCHEMY_DATABASE_URI"]
+
+        return "postgresql://{}:{}@{}:5432/{}".format(
+            os.getenv("DB_USER", "root"),
+            os.getenv("DB_PASSWORD", "password"),
+            os.getenv("DB_HOST", "localhost"),
+            os.getenv("DB_NAME", "smo"),
+        )
+
     # Get the kubeconfig or default
     KARMADA_KUBECONFIG = "/home/python/.kube/{}".format(
         os.getenv("KARMADA_KUBECONFIG", "karmada-apiserver.config")
