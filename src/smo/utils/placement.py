@@ -31,10 +31,10 @@ def convert_placement(placement, services, clusters):
     """Convert placement from list of lists to dictionary mapping a service
     with the name of its cluster.
 
-    E.g. Input
-        placement:[[1, 0], [1, 0]]
+    E.g. With input:
+        placement: [[1, 0], [1, 0]]
         services: [{'id': 'service1'}, {'id': 'service2'}]
-        clusters ['cluster1', 'cluster2']
+        clusters: ['cluster1', 'cluster2']
      Output: {'service1': 'cluster1', 'service2': 'cluster1'}
 
     Input:

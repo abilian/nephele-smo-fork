@@ -6,6 +6,7 @@ import subprocess
 import tempfile
 import threading
 from os import path, walk
+from typing import TYPE_CHECKING
 
 import yaml
 from flask import current_app
@@ -26,6 +27,9 @@ from smo.utils.kube_helper import KubeHelper
 from smo.utils.placement import (convert_placement, decide_placement,
                                  swap_placement)
 from smo.utils.scaling import scaling_loop
+
+if TYPE_CHECKING:
+    from collections.abc import Iterable
 
 background_scaling_threads = [None, None]
 stop_events = [threading.Event(), threading.Event()]
@@ -275,7 +279,7 @@ def stop_graph(name: str) -> None:
     - BadRequest: If the graph with the specified name is already stopped.
     """
 
-    graph = db.session.query(Graph).filter_by(name=name).first()
+    graph: Graph = db.session.query(Graph).filter_by(name=name).first()
     if graph is None:
         raise NotFound(f"Graph with name {name} not found")
     if graph.status == "Stopped":
@@ -437,7 +441,7 @@ def helm_install_artifact(name, artifact_ref, values_overwrite, command):
         subprocess.run(cmd, check=True)
 
 
-def helm_uninstall_graph(services) -> None:
+def helm_uninstall_graph(services: Iterable[Service]) -> None:
     """Uninstalls all service artifacts.
 
     Input:
@@ -446,8 +450,6 @@ def helm_uninstall_graph(services) -> None:
 
     Raises:
     - subprocess.CalledProcessError: If the 'helm uninstall' command fails.
-    - KeyError: If 'KARMADA_KUBECONFIG' is not found in current_app.config.
-    - AttributeError: If 'services' list items do not have a 'name' attribute.
     """
     # TODO: raise a domain exception (GraphServiceException) instead of the built-in exceptions
 

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import argparse
 
 from smo.cli.commands import register_commands
@@ -26,9 +28,7 @@ def make_parser():
         description="SMO CLI - Simplified Modular Operations"
     )
     subparsers = parser.add_subparsers(
-        title="commands",
-        dest="command",
-        help="Available commands"
+        title="commands", dest="command", help="Available commands"
     )
 
     register_commands(subparsers)
@@ -40,13 +40,13 @@ def make_parser():
 def register_plugins_command(subparsers):
     # 'plugins' command
     plugins_parser = subparsers.add_parser(
-        "plugins",
-        help="List currently installed plugins"
+        "plugins", help="List currently installed plugins"
     )
     plugins_parser.add_argument(
-        "-v", "--verbose",
+        "-v",
+        "--verbose",
         action="store_true",
-        help="Display plugins in a verbose format"
+        help="Display plugins in a verbose format",
     )
 
 
@@ -63,7 +63,7 @@ def list_plugins(verbose=False):
             print(f"{plugin['name']}: {plugin['description']}")
     else:
         for plugin in plugins:
-            print(plugin['name'])
+            print(plugin["name"])
 
 
 if __name__ == "__main__":

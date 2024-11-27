@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pathlib import Path
 
 import yaml
@@ -19,7 +21,9 @@ def add_command(subparsers, command):
     if not name:
         name = class_name.replace("Command", "").lower()
     swagger_name = getattr(command, "swagger_name", name)
-    swagger_file = Path(__file__).parent.parent / "routes" / "swagger" / f"{swagger_name}.yaml"
+    swagger_file = (
+        Path(__file__).parent.parent / "routes" / "swagger" / f"{swagger_name}.yaml"
+    )
     swagger_data = yaml.safe_load(swagger_file.read_text())
     description = swagger_data["description"]
     parser = subparsers.add_parser(name, help=description)
