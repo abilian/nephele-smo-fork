@@ -5,6 +5,7 @@ from __future__ import annotations
 import time
 
 import requests
+from devtools import debug
 from gurobipy import GRB, Model, quicksum
 
 from .kube_helper import KubeHelper
@@ -77,7 +78,8 @@ def scaling_loop(
                 )
             else:
                 request_rates.append(prometheus_helper.get_request_rate(service))
-        print(
+
+        debug(
             request_rates,
             previous_replicas,
             cpu_limits,
@@ -110,7 +112,7 @@ def scaling_loop(
                 kube_helper.scale_deployment(managed_services[idx], replicas)
 
         # TODO: use logging
-        print(new_replicas)
+        debug(new_replicas)
 
         # Update previous replicas for the next iteration
         previous_replicas = new_replicas
@@ -129,7 +131,7 @@ def decide_replicas(
     cluster_capacity,
     cluster_acceleration,
     maximum_replicas,
-):
+) -> list[int] | None:
     """Determines the optimal number of replicas for each service to handle
     incoming request rates.
 

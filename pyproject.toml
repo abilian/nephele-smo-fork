@@ -27,6 +27,7 @@ dependencies = [
     # "python-dateutil>=2.9.0.post0",
     # "rsa>=4.9",
     # "websocket-client>=1.8.0",
+    "devtools>=0.12.2",
 ]
 
 [project.scripts]

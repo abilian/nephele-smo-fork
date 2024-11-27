@@ -1983,6 +1983,7 @@ name = "smo"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "devtools" },
     { name = "flasgger" },
     { name = "flask" },
     { name = "flask-sqlalchemy" },
@@ -2010,6 +2011,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "devtools", specifier = ">=0.12.2" },
     { name = "flasgger", specifier = ">=0.9.7.1" },
     { name = "flask", specifier = ">=3.1.0" },
     { name = "flask-sqlalchemy", specifier = ">=3.1.1" },
