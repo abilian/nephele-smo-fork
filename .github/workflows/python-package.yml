@@ -27,11 +27,16 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        python -m pip install uv nox
         python -m pip install .
         python -m pip install abilian-devtools
+        uv sync
     - name: Lint
       run: |
         make lint
     - name: Test with pytest
       run: |
         make test
+    - name: Test with nox
+      run: |
+        nox
