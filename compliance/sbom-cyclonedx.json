@@ -842,7 +842,7 @@
       "type": "application",
       "version": "0.1.0"
     },
-    "timestamp": "2024-11-28T07:52:19.322671+00:00",
+    "timestamp": "2024-11-28T08:03:50.402773+00:00",
     "tools": [
       {
         "externalReferences": [
@@ -924,7 +924,7 @@
       }
     ]
   },
-  "serialNumber": "urn:uuid:ee109fb2-9025-497e-9829-22d58f6c6852",
+  "serialNumber": "urn:uuid:270c9c6a-2ea9-4d7f-822f-7b320f06bf60",
   "version": 1,
   "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
   "bomFormat": "CycloneDX",
