@@ -15,16 +15,11 @@ class KubeHelper:
     Input:
     - config_file_path: Path to the Kubernetes configuration file.
     - namespace: The namespace to operate within, default is "default".
-
-    Methods:
-    - get_desired_replicas(name): Retrieves the desired replica count for a specific deployment.
-    - get_replicas(name): Retrieves the current replica count for a specific deployment.
-    - get_cpu_limit(name): Retrieves the configured CPU limit for a specific deployment.
-    - scale_deployment(name, replicas): Scales a deployment to a specified number of replicas.
-
-    Raises:
-    - Exception: If an error occurs while trying to scale a deployment.
     """
+
+    namespace: str
+    config_file_path: str
+    client: client.AppsV1Api
 
     def __init__(self, config_file_path, namespace="default"):
         self.namespace = namespace
@@ -32,28 +27,26 @@ class KubeHelper:
 
         config.load_kube_config(config_file=self.config_file_path)
 
-        self.v1_api_client = client.AppsV1Api()
+        self.client = client.AppsV1Api()
 
     def get_desired_replicas(self, name):
-        """Returns the desired number of replicas for the specified
+        """Return the desired number of replicas for the specified
         deployment."""
 
-        response = self.v1_api_client.read_namespaced_deployment_scale(
-            name, self.namespace
-        )
+        response = self.client.read_namespaced_deployment_scale(name, self.namespace)
         return response.spec.replicas
 
     def get_replicas(self, name):
-        """Returns the current number of replicas for the specified
+        """Return the current number of replicas for the specified
         deployment."""
 
-        response = self.v1_api_client.read_namespaced_deployment(name, self.namespace)
+        response = self.client.read_namespaced_deployment(name, self.namespace)
         return response.status.available_replicas
 
     def get_cpu_limit(self, name):
         """Returns the current CPU limit for the specific deployment."""
 
-        response = self.v1_api_client.read_namespaced_deployment(name, self.namespace)
+        response = self.client.read_namespaced_deployment(name, self.namespace)
         cpu_lim = response.spec.template.spec.containers[0].resources.limits["cpu"]
         # If CPU limit is specified in millicores, convert it to cores
         if "m" in cpu_lim:
@@ -66,10 +59,11 @@ class KubeHelper:
         """Scales the given application to the desired number of replicas."""
 
         try:
-            self.v1_api_client.patch_namespaced_deployment_scale(
+            self.client.patch_namespaced_deployment_scale(
                 name=name,
                 namespace=self.namespace,
                 body={"spec": {"replicas": replicas}},
             )
         except Exception as exception:
             print(str(exception))
+            raise

@@ -389,7 +389,7 @@ def get_descriptor_from_artifact(project, artifact_ref):
             for file in files:
                 if file.endswith(".yaml") or file.endswith(".yml"):
                     # Open and parse the first YAML file found
-                    with open(path.join(root, file), "r") as yaml_file:
+                    with open(path.join(root, file)) as yaml_file:
                         data = yaml.safe_load(yaml_file)
                         return data
 
