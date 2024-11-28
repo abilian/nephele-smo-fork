@@ -6,6 +6,7 @@ cachetools==5.5.0
 certifi==2024.8.30
 charset-normalizer==3.4.0
 click==8.1.7
+defusedxml==0.7.1
 devtools==0.12.2
 durationpy==0.9
 executing==2.1.0
@@ -20,6 +21,8 @@ jinja2==3.1.4
 jsonschema==4.23.0
 jsonschema-specifications==2024.10.1
 kubernetes==31.0.0
+lib4package==0.2.0
+lib4sbom==0.7.5
 mako==1.3.6
 markupsafe==3.0.2
 mistune==3.0.2
@@ -31,12 +34,17 @@ pyasn1-modules==0.4.1
 pygments==2.18.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
+python-magic==0.4.27
 pyyaml==6.0.2
 referencing==0.35.1
 requests==2.32.3
 requests-oauthlib==2.0.0
 rpds-py==0.21.0
 rsa==4.9
+sbom2dot==0.3.1
+sbom4files==0.4.4
+sbom4python==0.11.3
+semantic-version==2.10.0
 six==1.16.0
 smo==0.1.0
 sqlalchemy==2.0.36

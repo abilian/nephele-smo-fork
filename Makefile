@@ -31,12 +31,22 @@ update-deps:
 ## Generate SBOM
 generate-sbom:
 	@echo "--> Generating SBOM"
-	uv sync --no-dev
+	uv sync -q --no-dev
 	uv pip list --format=freeze > compliance/requirements-prod.txt
-	uv sync
+	uv sync -q
+	# CycloneDX
 	uv run cyclonedx-py requirements \
 		--pyproject pyproject.toml -o compliance/sbom-cyclonedx.json \
 		compliance/requirements-prod.txt
+	# Add license information
+	uv run lbom \
+		--input_file compliance/sbom-cyclonedx.json \
+		> compliance/sbom-lbom.json
+	mv compliance/sbom-lbom.json compliance/sbom-cyclonedx.json
+	# SPDX
+	sbom4python -r compliance/requirements-prod.txt \
+		--sbom spdx --format json \
+		-o compliance/sbom-spdx.json
 
 ## Activate pre-commit hook
 activate-pre-commit:

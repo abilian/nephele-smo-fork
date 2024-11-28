@@ -1,0 +1,1881 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "spdxVersion": "SPDX-2.3",
+  "creationInfo": {
+    "comment": "This document has been automatically generated.",
+    "creators": [
+      "Tool: sbom4python-0.11.3"
+    ],
+    "created": "2024-11-28T09:31:18Z",
+    "licenseListVersion": "3.22"
+  },
+  "name": "Python-compliance/requirements-prod.txt",
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdocs/Python-compliance/requirements-prod.txt-95fffcd6-ed24-471d-9a77-f0d87b611240",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-1-alembic",
+      "name": "alembic",
+      "versionInfo": "1.14.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: SQLAlchemy",
+      "downloadLocation": "https://pypi.org/project/alembic/1.14.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://alembic.sqlalchemy.org",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "A database migration tool for SQLAlchemy.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/alembic@1.14.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:sqlalchemy:alembic:1.14.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-2-asttokens",
+      "name": "asttokens",
+      "versionInfo": "2.4.1",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Grist Labs",
+      "downloadLocation": "https://pypi.org/project/asttokens/2.4.1/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/gristlabs/asttokens",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "asttokens declares Apache 2.0 which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Annotate AST trees with source code positions",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/asttokens@2.4.1"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:grist_labs:asttokens:2.4.1:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-3-attrs",
+      "name": "attrs",
+      "versionInfo": "24.2.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: The attrs Cabal",
+      "downloadLocation": "https://pypi.org/project/attrs/24.2.0/#files",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6771a04893780166e4b7826b63599f43ac30d00a"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "attrs declares MIT License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Classes Without Boilerplate",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/attrs@24.2.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:the_attrs_cabal:attrs:24.2.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-4-blinker",
+      "name": "blinker",
+      "versionInfo": "1.9.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Pallets Ecosystem (contact@palletsprojects.com)",
+      "downloadLocation": "https://pypi.org/project/blinker/1.9.0/#files",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "blinker declares MIT License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Fast, simple object-to-object and broadcast signaling",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/blinker@1.9.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:pallets_ecosystem:blinker:1.9.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-5-cachetools",
+      "name": "cachetools",
+      "versionInfo": "5.5.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Thomas Kemmer",
+      "downloadLocation": "https://pypi.org/project/cachetools/5.5.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/tkem/cachetools/",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "Extensible memoizing collections and decorators",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/cachetools@5.5.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:thomas_kemmer:cachetools:5.5.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-6-certifi",
+      "name": "certifi",
+      "versionInfo": "2024.8.30",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Certifi",
+      "downloadLocation": "https://pypi.org/project/certifi/2024.8.30/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/certifi/python-certifi",
+      "licenseConcluded": "MPL-2.0",
+      "licenseDeclared": "MPL-2.0",
+      "copyrightText": "NOASSERTION",
+      "summary": "Python package for providing Mozilla's CA Bundle.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/certifi@2024.8.30"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:certifi:certifi:2024.8.30:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-7-charset-normalizer",
+      "name": "charset-normalizer",
+      "versionInfo": "3.4.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: TAHRI Ahmed R.",
+      "downloadLocation": "https://pypi.org/project/charset-normalizer/3.4.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/Ousret/charset_normalizer",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/charset-normalizer@3.4.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:tahri_ahmed_r.:charset-normalizer:3.4.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-8-click",
+      "name": "click",
+      "versionInfo": "8.1.7",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Pallets (contact@palletsprojects.com)",
+      "downloadLocation": "https://pypi.org/project/click/8.1.7/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://palletsprojects.com/p/click/",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "874ca2bc1c30d93a4ac6e36a15ed685eafe89097"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "NOASSERTION",
+      "summary": "Composable command line interface toolkit",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/click@8.1.7"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:pallets:click:8.1.7:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-9-defusedxml",
+      "name": "defusedxml",
+      "versionInfo": "0.7.1",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Christian Heimes",
+      "downloadLocation": "https://pypi.org/project/defusedxml/0.7.1/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/tiran/defusedxml",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ebff1b493751e2f0775314bdd4188d64f07ea184"
+        }
+      ],
+      "licenseConcluded": "PSF-2.0",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "defusedxml declares PSFL which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "XML bomb protection for Python stdlib modules",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/defusedxml@0.7.1"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:christian_heimes:defusedxml:0.7.1:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-10-devtools",
+      "name": "devtools",
+      "versionInfo": "0.12.2",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Samuel Colvin",
+      "downloadLocation": "https://pypi.org/project/devtools/0.12.2/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/samuelcolvin/python-devtools",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ec406ffdd841f65b132e81f3d715321d3cfb5efa"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "devtools declares The MIT License (MIT) Copyright (c) 2017 to present Samuel Colvin Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Python's missing debug print command, and more.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/devtools@0.12.2"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:samuel_colvin:devtools:0.12.2:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-11-durationpy",
+      "name": "durationpy",
+      "versionInfo": "0.9",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Ilia Choly",
+      "downloadLocation": "https://pypi.org/project/durationpy/0.9/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/icholy/durationpy",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f851922a570cc88c7ff017f5f7aa06447ee286bb"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "Module for converting between datetime.timedelta and Go's Duration strings.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/durationpy@0.9"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:ilia_choly:durationpy:0.9:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-12-executing",
+      "name": "executing",
+      "versionInfo": "2.1.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Alex Hall",
+      "downloadLocation": "https://pypi.org/project/executing/2.1.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/alexmojaki/executing",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "Get the currently executing AST node of a frame, and other information",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/executing@2.1.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:alex_hall:executing:2.1.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-13-flasgger",
+      "name": "flasgger",
+      "versionInfo": "0.9.7.1",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Flasgger (flasgger@flasgger.org)",
+      "downloadLocation": "https://pypi.org/project/flasgger/0.9.7.1/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/flasgger/flasgger/",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "03a87bde7948fa6ef7b2f574f903bdfb631e53e2"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "Extract swagger specs from your flask project",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/flasgger@0.9.7.1"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:flasgger:flasgger:0.9.7.1:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-14-flask",
+      "name": "flask",
+      "versionInfo": "3.1.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Pallets (contact@palletsprojects.com)",
+      "downloadLocation": "https://pypi.org/project/flask/3.1.0/#files",
+      "filesAnalyzed": false,
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "flask declares BSD License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "A simple framework for building complex web applications.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/flask@3.1.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:pallets:flask:3.1.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-15-flask-sqlalchemy",
+      "name": "flask-sqlalchemy",
+      "versionInfo": "3.1.1",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Pallets Ecosystem (contact@palletsprojects.com)",
+      "downloadLocation": "https://pypi.org/project/flask-sqlalchemy/3.1.1/#files",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b9821789edfafbf7d29d0df7da2b167168dd89cd"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "flask-sqlalchemy declares BSD License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Add SQLAlchemy support to your Flask application.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/flask-sqlalchemy@3.1.1"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:pallets_ecosystem:flask-sqlalchemy:3.1.1:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-16-google-auth",
+      "name": "google-auth",
+      "versionInfo": "2.36.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Google APIs",
+      "downloadLocation": "https://pypi.org/project/google-auth/2.36.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/googleapis/google-auth-library-python",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "3fae8f8368d4651cd11d4af3d80f687eab033175"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "google-auth declares Apache 2.0 which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Google Authentication Library",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/google-auth@2.36.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:google_apis:google-auth:2.36.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-17-gurobipy",
+      "name": "gurobipy",
+      "versionInfo": "12.0.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "NOASSERTION",
+      "downloadLocation": "https://pypi.org/project/gurobipy/12.0.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://www.gurobi.com",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "gurobipy declares Proprietary which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Python interface to Gurobi",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/gurobipy@12.0.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-18-idna",
+      "name": "idna",
+      "versionInfo": "3.10",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Kim Davies",
+      "downloadLocation": "https://pypi.org/project/idna/3.10/#files",
+      "filesAnalyzed": false,
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "idna declares BSD License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Internationalized Domain Names in Applications (IDNA)",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/idna@3.10"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:kim_davies:idna:3.10:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-19-itsdangerous",
+      "name": "itsdangerous",
+      "versionInfo": "2.2.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Pallets (contact@palletsprojects.com)",
+      "downloadLocation": "https://pypi.org/project/itsdangerous/2.2.0/#files",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "096c8d42545d3b68ea21a4f890fb2b2d8979c0bd"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "itsdangerous declares BSD License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Safely pass data to untrusted environments and back.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/itsdangerous@2.2.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:pallets:itsdangerous:2.2.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-20-jinja2",
+      "name": "jinja2",
+      "versionInfo": "3.1.4",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Pallets (contact@palletsprojects.com)",
+      "downloadLocation": "https://pypi.org/project/jinja2/3.1.4/#files",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "dd4a8b5466d8790540c181590b14db4d4d889d57"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "jinja2 declares BSD License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "A very fast and expressive template engine.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/jinja2@3.1.4"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:pallets:jinja2:3.1.4:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-21-jsonschema",
+      "name": "jsonschema",
+      "versionInfo": "4.23.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Organization: Python + JSON Schema",
+      "downloadLocation": "https://pypi.org/project/jsonschema/4.23.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/python-jsonschema/jsonschema",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "An implementation of JSON Schema validation for Python",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/jsonschema@4.23.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:python_\\+_json_schema:jsonschema:4.23.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-22-jsonschema-specifications",
+      "name": "jsonschema-specifications",
+      "versionInfo": "2024.10.1",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Organization: Python + JSON Schema",
+      "downloadLocation": "https://pypi.org/project/jsonschema-specifications/2024.10.1/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/python-jsonschema/jsonschema-specifications",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "09f6f17a46ecf03e314df0e6fa14d57db210a549"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "jsonschema-specifications declares MIT License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "The JSON Schema meta-schemas and vocabularies, exposed as a Registry",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/jsonschema-specifications@2024.10.1"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:python_\\+_json_schema:jsonschema-specifications:2024.10.1:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-23-kubernetes",
+      "name": "kubernetes",
+      "versionInfo": "31.0.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Kubernetes Clients",
+      "downloadLocation": "https://pypi.org/project/kubernetes/31.0.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/kubernetes-client/python",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "bc8c6913f95fba5575f56dd60f01f3e4090cd9b4"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "kubernetes declares Apache License Version 2.0 which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Kubernetes python client",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/kubernetes@31.0.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:kubernetes_clients:kubernetes:31.0.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-24-lib4package",
+      "name": "lib4package",
+      "versionInfo": "0.2.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: anthonyharrison",
+      "downloadLocation": "https://pypi.org/project/lib4package/0.2.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/anthonyharrison/lib4package",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f8803087245c5d2283cec0a8c5b63f186910ea75"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "summary": "Utility for handling package metadata to include in Software Bill of Materials (SBOMs)",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/lib4package@0.2.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:anthonyharrison:lib4package:0.2.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-25-lib4sbom",
+      "name": "lib4sbom",
+      "versionInfo": "0.7.5",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: anthonyharrison",
+      "downloadLocation": "https://pypi.org/project/lib4sbom/0.7.5/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/anthonyharrison/lib4sbom",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "summary": "Software Bill of Material (SBOM) generator and consumer library",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/lib4sbom@0.7.5"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:anthonyharrison:lib4sbom:0.7.5:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-26-mako",
+      "name": "mako",
+      "versionInfo": "1.3.6",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: SQLAlchemy",
+      "downloadLocation": "https://pypi.org/project/mako/1.3.6/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://www.makotemplates.org/",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "A super-fast templating language that borrows the best ideas from the existing templating languages.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/mako@1.3.6"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:sqlalchemy:mako:1.3.6:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-27-markupsafe",
+      "name": "markupsafe",
+      "versionInfo": "3.0.2",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Pallets (contact@palletsprojects.com)",
+      "downloadLocation": "https://pypi.org/project/markupsafe/3.0.2/#files",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "28ace20b140d15c083e1cbc163ee6b7778ba098c"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "markupsafe declares Copyright 2010 Pallets Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Safely add untrusted strings to HTML/XML markup.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/markupsafe@3.0.2"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:pallets:markupsafe:3.0.2:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-28-mistune",
+      "name": "mistune",
+      "versionInfo": "3.0.2",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Hsiaoming Yang",
+      "downloadLocation": "https://pypi.org/project/mistune/3.0.2/#files",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f997c86335d8a5d8435aac08b66ed3cba9381b51"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "NOASSERTION",
+      "summary": "A sane and fast Markdown parser with useful plugins and renderers",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/mistune@3.0.2"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:hsiaoming_yang:mistune:3.0.2:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-29-oauthlib",
+      "name": "oauthlib",
+      "versionInfo": "3.2.2",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: OAuthlib",
+      "downloadLocation": "https://pypi.org/project/oauthlib/3.2.2/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/oauthlib/oauthlib",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e6c33e41a8ce6dadff387cdc4613a55b63d1827e"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "oauthlib declares BSD which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "A generic, spec-compliant, thorough implementation of the OAuth request-signing logic",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/oauthlib@3.2.2"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:oauthlib:oauthlib:3.2.2:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-30-packaging",
+      "name": "packaging",
+      "versionInfo": "24.2",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Organization: Python Packaging Authority (info@pypa.io)",
+      "downloadLocation": "https://pypi.org/project/packaging/24.2/#files",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d8e3b31b734926ebbcaff654279f6855a73e052f"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "packaging declares Apache Software License,BSD License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Core utilities for Python packages",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/packaging@24.2"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:python_packaging_authority:packaging:24.2:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-31-psycopg2-binary",
+      "name": "psycopg2-binary",
+      "versionInfo": "2.9.10",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: The Psycopg Team",
+      "downloadLocation": "https://pypi.org/project/psycopg2-binary/2.9.10/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://psycopg.org/",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "psycopg2-binary declares LGPL with exceptions which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "psycopg2 - Python-PostgreSQL Database Adapter",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/psycopg2-binary@2.9.10"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:the_psycopg_team:psycopg2-binary:2.9.10:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-32-pyasn1",
+      "name": "pyasn1",
+      "versionInfo": "0.6.1",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: maintenance organization",
+      "downloadLocation": "https://pypi.org/project/pyasn1/0.6.1/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/pyasn1/pyasn1",
+      "licenseConcluded": "BSD-2-Clause",
+      "licenseDeclared": "BSD-2-Clause",
+      "copyrightText": "NOASSERTION",
+      "summary": "Pure-Python implementation of ASN.1 types and DER/BER/CER codecs (X.208)",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pyasn1@0.6.1"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:maintenance_organization:pyasn1:0.6.1:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-33-pyasn1-modules",
+      "name": "pyasn1-modules",
+      "versionInfo": "0.4.1",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: maintenance organization",
+      "downloadLocation": "https://pypi.org/project/pyasn1-modules/0.4.1/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/pyasn1/pyasn1-modules",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "pyasn1-modules declares BSD which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "A collection of ASN.1-based protocols modules",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pyasn1-modules@0.4.1"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:maintenance_organization:pyasn1-modules:0.4.1:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-34-pygments",
+      "name": "pygments",
+      "versionInfo": "2.18.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: pygments",
+      "downloadLocation": "https://pypi.org/project/pygments/2.18.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://pygments.org",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d7d11f6e6d3aa97805215c1cc833ea5f0ef1fcbb"
+        }
+      ],
+      "licenseConcluded": "BSD-2-Clause",
+      "licenseDeclared": "BSD-2-Clause",
+      "copyrightText": "NOASSERTION",
+      "summary": "Pygments is a syntax highlighting package written in Python.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pygments@2.18.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:pygments:pygments:2.18.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-35-python-dateutil",
+      "name": "python-dateutil",
+      "versionInfo": "2.9.0.post0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: dateutil",
+      "downloadLocation": "https://pypi.org/project/python-dateutil/2.9.0.post0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/dateutil/dateutil",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "1ae807774053c071acc9e7d3d27778fba0a7773e"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "python-dateutil declares Dual License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Extensions to the standard Python datetime module",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/python-dateutil@2.9.0.post0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:dateutil:python-dateutil:2.9.0.post0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-36-python-dotenv",
+      "name": "python-dotenv",
+      "versionInfo": "1.0.1",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Saurabh Kumar",
+      "downloadLocation": "https://pypi.org/project/python-dotenv/1.0.1/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/theskumar/python-dotenv",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d6c0b9638349a7dd605d60ee555ff60421c1a594"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "NOASSERTION",
+      "summary": "Read key-value pairs from a .env file and set them as environment variables",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/python-dotenv@1.0.1"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:saurabh_kumar:python-dotenv:1.0.1:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-37-python-magic",
+      "name": "python-magic",
+      "versionInfo": "0.4.27",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Adam Hupp",
+      "downloadLocation": "https://pypi.org/project/python-magic/0.4.27/#files",
+      "filesAnalyzed": false,
+      "homepage": "http://github.com/ahupp/python-magic",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b443195104d89363b93a547584c1a12fce3b57ec"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "File type identification using libmagic",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/python-magic@0.4.27"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:adam_hupp:python-magic:0.4.27:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-38-pyyaml",
+      "name": "pyyaml",
+      "versionInfo": "6.0.2",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: The YAML Project",
+      "downloadLocation": "https://pypi.org/project/pyyaml/6.0.2/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://pyyaml.org/",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "YAML parser and emitter for Python",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pyyaml@6.0.2"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:the_yaml_project:pyyaml:6.0.2:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-39-referencing",
+      "name": "referencing",
+      "versionInfo": "0.35.1",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Organization: Python + JSON Schema",
+      "downloadLocation": "https://pypi.org/project/referencing/0.35.1/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/python-jsonschema/referencing",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "1863d4a5c18af1edd0f3b49caeb9fedfdaff9845"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "referencing declares MIT License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "JSON Referencing + Python",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/referencing@0.35.1"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:python_\\+_json_schema:referencing:0.35.1:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-40-requests",
+      "name": "requests",
+      "versionInfo": "2.32.3",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Python Software Foundation",
+      "downloadLocation": "https://pypi.org/project/requests/2.32.3/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://requests.readthedocs.io",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "0e322af87745eff34caffe4df68456ebc20d9068"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "summary": "Python HTTP for Humans.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/requests@2.32.3"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:python_software_foundation:requests:2.32.3:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-41-requests-oauthlib",
+      "name": "requests-oauthlib",
+      "versionInfo": "2.0.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: requests",
+      "downloadLocation": "https://pypi.org/project/requests-oauthlib/2.0.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/requests/requests-oauthlib",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "7af9125a4fb3a21fbff4b829449a090469cf32b4"
+        }
+      ],
+      "licenseConcluded": "ISC",
+      "licenseDeclared": "ISC",
+      "copyrightText": "NOASSERTION",
+      "summary": "OAuthlib authentication support for Requests.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/requests-oauthlib@2.0.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:requests:requests-oauthlib:2.0.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-42-rpds-py",
+      "name": "rpds-py",
+      "versionInfo": "0.21.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: py",
+      "downloadLocation": "https://pypi.org/project/rpds-py/0.21.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/crate-py/rpds",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "73581d8dfc56a24eac6ee32c83e6759b4506bb71"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "rpds-py declares MIT License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Python bindings to Rust's persistent data structures (rpds)",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/rpds-py@0.21.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:py:rpds-py:0.21.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-43-rsa",
+      "name": "rsa",
+      "versionInfo": "4.9",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Sybren A. Stuvel",
+      "downloadLocation": "https://pypi.org/project/rsa/4.9/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://stuvel.eu/rsa",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "c4dc7beb04bea05ed86adb2e4b7f780f173774b8"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "summary": "Pure-Python RSA implementation",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/rsa@4.9"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:sybren_a._stuvel:rsa:4.9:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-44-sbom2dot",
+      "name": "sbom2dot",
+      "versionInfo": "0.3.1",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: anthonyharrison",
+      "downloadLocation": "https://pypi.org/project/sbom2dot/0.3.1/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/anthonyharrison/sbom2dot",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "summary": "Create a dependency graph of the components within a SBOM",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/sbom2dot@0.3.1"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:anthonyharrison:sbom2dot:0.3.1:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-45-sbom4files",
+      "name": "sbom4files",
+      "versionInfo": "0.4.4",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: anthonyharrison",
+      "downloadLocation": "https://pypi.org/project/sbom4files/0.4.4/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/anthonyharrison/sbom4files",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "summary": "SBOM generator for files in a directory",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/sbom4files@0.4.4"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:anthonyharrison:sbom4files:0.4.4:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-46-sbom4python",
+      "name": "sbom4python",
+      "versionInfo": "0.11.3",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: anthonyharrison",
+      "downloadLocation": "https://pypi.org/project/sbom4python/0.11.3/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/anthonyharrison/sbom4python",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "summary": "SBOM generator for Python modules",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/sbom4python@0.11.3"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:anthonyharrison:sbom4python:0.11.3:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-47-semantic-version",
+      "name": "semantic-version",
+      "versionInfo": "2.10.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Raphael Barrois",
+      "downloadLocation": "https://pypi.org/project/semantic-version/2.10.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/rbarrois/python-semanticversion",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e49b5b065b845cd7798c0219e0fa8986c75f6a4a"
+        }
+      ],
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "semantic-version declares BSD which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "A library implementing the 'SemVer' scheme.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/semantic-version@2.10.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:raphael_barrois:semantic-version:2.10.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-48-six",
+      "name": "six",
+      "versionInfo": "1.16.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Benjamin Peterson",
+      "downloadLocation": "https://pypi.org/project/six/1.16.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/benjaminp/six",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "65486e4383f9f411da95937451205d3c7b61b9e1"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "Python 2 and 3 compatibility utilities",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/six@1.16.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:benjamin_peterson:six:1.16.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-49-smo",
+      "name": "smo",
+      "versionInfo": "0.1.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Mauro Silberberg",
+      "downloadLocation": "https://pypi.org/project/smo/0.1.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/maurosilber/smo",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "Implementation of the Silver Mountain Operator (SMO) for the estimation of background distributions.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/smo@0.1.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:mauro_silberberg:smo:0.1.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-50-sqlalchemy",
+      "name": "sqlalchemy",
+      "versionInfo": "2.0.36",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: SQLAlchemy",
+      "downloadLocation": "https://pypi.org/project/sqlalchemy/2.0.36/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://www.sqlalchemy.org",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "summary": "Database Abstraction Library",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/sqlalchemy@2.0.36"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:sqlalchemy:sqlalchemy:2.0.36:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-51-typing-extensions",
+      "name": "typing-extensions",
+      "versionInfo": "4.12.2",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Python",
+      "downloadLocation": "https://pypi.org/project/typing-extensions/4.12.2/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/python/typing_extensions",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e1250ff869e7ee5ad05170d8a4b65469f13801c3"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "typing-extensions declares Python Software Foundation License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "Backported and Experimental Type Hints for Python 3.8+",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/typing-extensions@4.12.2"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:python:typing-extensions:4.12.2:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-52-urllib3",
+      "name": "urllib3",
+      "versionInfo": "2.2.3",
+      "primaryPackagePurpose": "APPLICATION",
+      "downloadLocation": "https://pypi.org/project/urllib3/2.2.3/#files",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "2458bfcd3dacdf6c196e98d077fc6bb02a5fc1df"
+        }
+      ],
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "urllib3 declares MIT License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "HTTP library with thread-safe connection pooling, file post, and more.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/urllib3@2.2.3"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a::urllib3:2.2.3:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-53-websocket-client",
+      "name": "websocket-client",
+      "versionInfo": "1.8.0",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: client",
+      "downloadLocation": "https://pypi.org/project/websocket-client/1.8.0/#files",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/websocket-client/websocket-client.git",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "summary": "WebSocket client for Python with low level API options",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/websocket-client@1.8.0"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:client:websocket-client:1.8.0:*:*:*:*:*:*:*"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-54-werkzeug",
+      "name": "werkzeug",
+      "versionInfo": "3.1.3",
+      "primaryPackagePurpose": "APPLICATION",
+      "supplier": "Person: Pallets (contact@palletsprojects.com)",
+      "downloadLocation": "https://pypi.org/project/werkzeug/3.1.3/#files",
+      "filesAnalyzed": false,
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "licenseComments": "werkzeug declares BSD License which is not currently a valid SPDX License identifier or expression.",
+      "copyrightText": "NOASSERTION",
+      "summary": "The comprehensive WSGI web application library.",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE_MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/werkzeug@3.1.3"
+        },
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:pallets:werkzeug:3.1.3:*:*:*:*:*:*:*"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-1-alembic",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-10-devtools",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-11-durationpy",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-12-executing",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-13-flasgger",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-14-flask",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-15-flask-sqlalchemy",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-16-google-auth",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-17-gurobipy",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-18-idna",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-19-itsdangerous",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-2-asttokens",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-20-jinja2",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-21-jsonschema",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-22-jsonschema-specifications",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-23-kubernetes",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-24-lib4package",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-25-lib4sbom",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-26-mako",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-27-markupsafe",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-28-mistune",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-29-oauthlib",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-3-attrs",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-30-packaging",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-31-psycopg2-binary",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-32-pyasn1",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-33-pyasn1-modules",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-34-pygments",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-35-python-dateutil",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-36-python-dotenv",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-37-python-magic",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-38-pyyaml",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-39-referencing",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-4-blinker",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-40-requests",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-41-requests-oauthlib",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-42-rpds-py",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-43-rsa",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-44-sbom2dot",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-45-sbom4files",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-46-sbom4python",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-47-semantic-version",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-48-six",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-49-smo",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-5-cachetools",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-50-sqlalchemy",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-51-typing-extensions",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-52-urllib3",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-53-websocket-client",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-54-werkzeug",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-6-certifi",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-7-charset-normalizer",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-8-click",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-9-defusedxml",
+      "relationshipType": "DESCRIBES"
+    }
+  ]
+}
