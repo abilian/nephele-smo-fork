@@ -203,6 +203,7 @@ vagrant ssh
 - [x] Add support for local development with **Vagrant**.
 - [x] Enable easy integration and deployment with **Heroku**.
 - [x] Implement a basic CLI for interacting with the SMO API.
+- [x] Generate a SBOM.
 
 ### Roadmap / Started
 
@@ -221,14 +222,24 @@ vagrant ssh
 - [ ] feature: Implement a proper configuration management.
 - [ ] feature: Implement a dependency injection mechanism.
 - [ ] feature: Implement an extension mechanism (e.g. `pluggy` or similar).
-- [ ] refact: Replace the Gurobi Optimizer with an [open-source alternative](https://lab.abilian.com/Tech/Programming%20Techniques/Optimization/) (and/or make the optimizer pluggable).
+- [ ] refact: Replace the Gurobi Optimizer with an [open-source alternative](https://lab.abilian.com/Tech/Programming%20Techniques/Optimization/)
 - [ ] lint: Fix / suppress all linting issues (ruff, flake8).
 - [ ] lint: Resolve all type-checking issues (mypy, pyright, typeguard, beartype).
 - [ ] doc: Introduce a Changelog (and tools to manage it, like `towncryer` or similar).
 - [ ] doc: Create a proper documentation site using Portray or MkDocs (cf. <https://lab.abilian.com/Tech/Python/Tooling/Documentation/>)
 - [ ] doc: Describe python API using a formalized format (cf. <https://lab.abilian.com/Tech/Python/Tooling/Documenting%20a%20Python%20API/>)
 - [ ] chore: Add a license compliance report (and double-check REUSE config).
+
+### Roadmap / Long-term
+
+- [ ] refact: make the optimizer pluggable.
+- [ ] feat: make the orchestration backend-end (current, Kubernetes) pluggable.
+- [ ] refact: make the orchestrator pluggable.
+- [ ] feat: create plugins for other orchestrators: Nomad, Docker Swarm, OpenNebula, Hop3 (when it's ready), etc.
 - [ ] feat: Make a Web UI.
+- [ ] refact: Make the optimisation algorithm pluggable.
+- [ ] feat: Create and benchmark alternative optimisation algorithms.
+- ...
 
 ## Contributing
 
