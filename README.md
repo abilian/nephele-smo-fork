@@ -25,6 +25,7 @@ Build status: [![builds.sr.ht status](https://builds.sr.ht/~sfermigier/smo.svg)]
     + [DONE](#done)
     + [Roadmap / Started](#roadmap--started)
     + [Roadmap / TODO](#roadmap--todo)
+    + [Roadmap / Long-term](#roadmap--long-term)
   * [Contributing](#contributing)
     + [Setting up the development environment](#setting-up-the-development-environment)
       - [Prerequisite: `uv`](#prerequisite-uv)
@@ -92,7 +93,7 @@ commands:
 
 ## Current Status and Issues
 
-The current version of the SMO project is a **work in progress**, with several planned enhancements and improvements. The following are some of the key areas that we are actively working on:
+The current version of this fork is a **work in progress**, with several planned enhancements and improvements. The following are some of the key areas that we are actively working on:
 
 - **Dependency Issue**: The current deployment mechanism relies on `hdarctl`, which is not universally compatible. We are exploring alternative solutions to address this dependency issue and ensure broader compatibility.
 - **Test Coverage**: While we have added a few basic unit tests, current coverage rate is only 48%, which is quite low. We are working to expand test coverage to include integration tests and end-to-end tests to validate the functionality of the application more comprehensively.
@@ -103,7 +104,7 @@ The current version of the SMO project is a **work in progress**, with several p
 - **Type Annotations**: We are adding type hints to all functions and methods to improve code readability and maintainability.
 - **Linting and Formatting**: We are addressing all linting and type-checking issues to ensure consistent code quality and adherence to coding standards.
 - **Documentation Improvements**: We are updating the documentation to include a changelog, improve readability, and provide more comprehensive information on the project.
-- **Changelog**: We are introducing a changelog to track changes and updates to the project more effectively.
+- **Changelog**: We need to introduce a changelog to track changes and updates to the project more effectively.
 - **CI/CD Pipeline**: We are enhancing the CI/CD pipeline to automate testing, linting, and formatting processes more efficiently.
 - **Deployment Options**: We are exploring deployment options on various platforms, including Hop3, Heroku, and Docker Swarm, to provide more flexibility and scalability.
 - **Contributions**: We welcome contributions from the community to help us address these issues and improve the SMO project further.
@@ -136,7 +137,7 @@ Congratulations! Your project is compliant with version 3.3 of the REUSE Specifi
 
 Note that third party libraries used in this project may have different licenses. Please refer to the respective libraries' documentation for details. We will provide a more detailed assessment of third-party licenses in the future.
 
-This is especially relevant for the Gurobi Optimizer, which is a mathematical optimization software library for solving mixed-integer linear and quadratic optimization problems. This package comes with a trial license that allows to solve problems of limited size. As stated elswhere, we need to replace it with an open-source alternative to avoid licensing issues.
+This is especially relevant for the Gurobi Optimizer, which is a mathematical optimization software library for solving mixed-integer linear and quadratic optimization problems. This package comes with a trial license that allows to solve problems of limited size. As stated elsewhere, we need to replace it with an open-source alternative to avoid licensing issues.
 
 
 ## Getting started
@@ -203,7 +204,7 @@ vagrant ssh
 - [x] Add support for local development with **Vagrant**.
 - [x] Enable easy integration and deployment with **Heroku**.
 - [x] Implement a basic CLI for interacting with the SMO API.
-- [x] Generate a SBOM.
+- [x] Generate a SBOM for the project.
 
 ### Roadmap / Started
 
