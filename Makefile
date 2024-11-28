@@ -6,7 +6,7 @@ PKG:=smo
 all:
 	# Start with ruff because it's so fast
 	uv run ruff check
-	@make test 
+	@make test
 	@make lint
 
 #
@@ -25,6 +25,7 @@ install-deps:
 update-deps:
 	@echo "--> Updating dependencies"
 	uv sync -U
+	uv pip list --format=freeze > requirements.txt
 	uv pip list --outdated
 
 ## Activate pre-commit hook
