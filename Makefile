@@ -25,8 +25,18 @@ install-deps:
 update-deps:
 	@echo "--> Updating dependencies"
 	uv sync -U
-	uv pip list --format=freeze > requirements.txt
 	uv pip list --outdated
+	uv pip list --format=freeze > compliance/requirements-full.txt
+
+## Generate SBOM
+generate-sbom:
+	@echo "--> Generating SBOM"
+	uv sync --no-dev
+	uv pip list --format=freeze > compliance/requirements-prod.txt
+	uv sync
+	uv run cyclonedx-py requirements \
+		--pyproject pyproject.toml -o compliance/sbom-cyclonedx.json \
+		compliance/requirements-prod.txt
 
 ## Activate pre-commit hook
 activate-pre-commit:
