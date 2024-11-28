@@ -395,7 +395,7 @@ To ensure a smooth review process:
 
 This project adheres to the [PSF Code of Conduct](https://policies.python.org/python.org/code-of-conduct/). By participating, you agree to abide by its terms. Please be respectful and collaborative in all interactions.
 
-For further details, see the `[CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)` file in the repository.
+For further details, see the `[CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)` file in the main repository.
 
 
 ## Deployment
