@@ -6,12 +6,12 @@
     "creators": [
       "Tool: sbom4python-0.11.3"
     ],
-    "created": "2024-11-28T09:31:18Z",
+    "created": "2024-11-28T10:53:00Z",
     "licenseListVersion": "3.22"
   },
   "name": "Python-compliance/requirements-prod.txt",
   "dataLicense": "CC0-1.0",
-  "documentNamespace": "http://spdx.org/spdxdocs/Python-compliance/requirements-prod.txt-95fffcd6-ed24-471d-9a77-f0d87b611240",
+  "documentNamespace": "http://spdx.org/spdxdocs/Python-compliance/requirements-prod.txt-c4288057-f960-4d0d-b500-2b38d13f305e",
   "packages": [
     {
       "SPDXID": "SPDXRef-1-alembic",
@@ -235,40 +235,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-9-defusedxml",
-      "name": "defusedxml",
-      "versionInfo": "0.7.1",
-      "primaryPackagePurpose": "APPLICATION",
-      "supplier": "Person: Christian Heimes",
-      "downloadLocation": "https://pypi.org/project/defusedxml/0.7.1/#files",
-      "filesAnalyzed": false,
-      "homepage": "https://github.com/tiran/defusedxml",
-      "checksums": [
-        {
-          "algorithm": "SHA1",
-          "checksumValue": "ebff1b493751e2f0775314bdd4188d64f07ea184"
-        }
-      ],
-      "licenseConcluded": "PSF-2.0",
-      "licenseDeclared": "NOASSERTION",
-      "licenseComments": "defusedxml declares PSFL which is not currently a valid SPDX License identifier or expression.",
-      "copyrightText": "NOASSERTION",
-      "summary": "XML bomb protection for Python stdlib modules",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE_MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/defusedxml@0.7.1"
-        },
-        {
-          "referenceCategory": "SECURITY",
-          "referenceType": "cpe23Type",
-          "referenceLocator": "cpe:2.3:a:christian_heimes:defusedxml:0.7.1:*:*:*:*:*:*:*"
-        }
-      ]
-    },
-    {
-      "SPDXID": "SPDXRef-10-devtools",
+      "SPDXID": "SPDXRef-9-devtools",
       "name": "devtools",
       "versionInfo": "0.12.2",
       "primaryPackagePurpose": "APPLICATION",
@@ -301,7 +268,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-11-durationpy",
+      "SPDXID": "SPDXRef-10-durationpy",
       "name": "durationpy",
       "versionInfo": "0.9",
       "primaryPackagePurpose": "APPLICATION",
@@ -333,7 +300,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-12-executing",
+      "SPDXID": "SPDXRef-11-executing",
       "name": "executing",
       "versionInfo": "2.1.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -359,7 +326,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-13-flasgger",
+      "SPDXID": "SPDXRef-12-flasgger",
       "name": "flasgger",
       "versionInfo": "0.9.7.1",
       "primaryPackagePurpose": "APPLICATION",
@@ -391,7 +358,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-14-flask",
+      "SPDXID": "SPDXRef-13-flask",
       "name": "flask",
       "versionInfo": "3.1.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -417,7 +384,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-15-flask-sqlalchemy",
+      "SPDXID": "SPDXRef-14-flask-sqlalchemy",
       "name": "flask-sqlalchemy",
       "versionInfo": "3.1.1",
       "primaryPackagePurpose": "APPLICATION",
@@ -449,7 +416,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-16-google-auth",
+      "SPDXID": "SPDXRef-15-google-auth",
       "name": "google-auth",
       "versionInfo": "2.36.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -482,7 +449,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-17-gurobipy",
+      "SPDXID": "SPDXRef-16-gurobipy",
       "name": "gurobipy",
       "versionInfo": "12.0.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -504,7 +471,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-18-idna",
+      "SPDXID": "SPDXRef-17-idna",
       "name": "idna",
       "versionInfo": "3.10",
       "primaryPackagePurpose": "APPLICATION",
@@ -530,7 +497,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-19-itsdangerous",
+      "SPDXID": "SPDXRef-18-itsdangerous",
       "name": "itsdangerous",
       "versionInfo": "2.2.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -562,7 +529,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-20-jinja2",
+      "SPDXID": "SPDXRef-19-jinja2",
       "name": "jinja2",
       "versionInfo": "3.1.4",
       "primaryPackagePurpose": "APPLICATION",
@@ -594,7 +561,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-21-jsonschema",
+      "SPDXID": "SPDXRef-20-jsonschema",
       "name": "jsonschema",
       "versionInfo": "4.23.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -620,7 +587,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-22-jsonschema-specifications",
+      "SPDXID": "SPDXRef-21-jsonschema-specifications",
       "name": "jsonschema-specifications",
       "versionInfo": "2024.10.1",
       "primaryPackagePurpose": "APPLICATION",
@@ -653,7 +620,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-23-kubernetes",
+      "SPDXID": "SPDXRef-22-kubernetes",
       "name": "kubernetes",
       "versionInfo": "31.0.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -686,65 +653,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-24-lib4package",
-      "name": "lib4package",
-      "versionInfo": "0.2.0",
-      "primaryPackagePurpose": "APPLICATION",
-      "supplier": "Person: anthonyharrison",
-      "downloadLocation": "https://pypi.org/project/lib4package/0.2.0/#files",
-      "filesAnalyzed": false,
-      "homepage": "https://github.com/anthonyharrison/lib4package",
-      "checksums": [
-        {
-          "algorithm": "SHA1",
-          "checksumValue": "f8803087245c5d2283cec0a8c5b63f186910ea75"
-        }
-      ],
-      "licenseConcluded": "Apache-2.0",
-      "licenseDeclared": "Apache-2.0",
-      "copyrightText": "NOASSERTION",
-      "summary": "Utility for handling package metadata to include in Software Bill of Materials (SBOMs)",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE_MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/lib4package@0.2.0"
-        },
-        {
-          "referenceCategory": "SECURITY",
-          "referenceType": "cpe23Type",
-          "referenceLocator": "cpe:2.3:a:anthonyharrison:lib4package:0.2.0:*:*:*:*:*:*:*"
-        }
-      ]
-    },
-    {
-      "SPDXID": "SPDXRef-25-lib4sbom",
-      "name": "lib4sbom",
-      "versionInfo": "0.7.5",
-      "primaryPackagePurpose": "APPLICATION",
-      "supplier": "Person: anthonyharrison",
-      "downloadLocation": "https://pypi.org/project/lib4sbom/0.7.5/#files",
-      "filesAnalyzed": false,
-      "homepage": "https://github.com/anthonyharrison/lib4sbom",
-      "licenseConcluded": "Apache-2.0",
-      "licenseDeclared": "Apache-2.0",
-      "copyrightText": "NOASSERTION",
-      "summary": "Software Bill of Material (SBOM) generator and consumer library",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE_MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/lib4sbom@0.7.5"
-        },
-        {
-          "referenceCategory": "SECURITY",
-          "referenceType": "cpe23Type",
-          "referenceLocator": "cpe:2.3:a:anthonyharrison:lib4sbom:0.7.5:*:*:*:*:*:*:*"
-        }
-      ]
-    },
-    {
-      "SPDXID": "SPDXRef-26-mako",
+      "SPDXID": "SPDXRef-23-mako",
       "name": "mako",
       "versionInfo": "1.3.6",
       "primaryPackagePurpose": "APPLICATION",
@@ -770,7 +679,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-27-markupsafe",
+      "SPDXID": "SPDXRef-24-markupsafe",
       "name": "markupsafe",
       "versionInfo": "3.0.2",
       "primaryPackagePurpose": "APPLICATION",
@@ -802,7 +711,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-28-mistune",
+      "SPDXID": "SPDXRef-25-mistune",
       "name": "mistune",
       "versionInfo": "3.0.2",
       "primaryPackagePurpose": "APPLICATION",
@@ -833,7 +742,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-29-oauthlib",
+      "SPDXID": "SPDXRef-26-oauthlib",
       "name": "oauthlib",
       "versionInfo": "3.2.2",
       "primaryPackagePurpose": "APPLICATION",
@@ -866,7 +775,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-30-packaging",
+      "SPDXID": "SPDXRef-27-packaging",
       "name": "packaging",
       "versionInfo": "24.2",
       "primaryPackagePurpose": "APPLICATION",
@@ -898,7 +807,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-31-psycopg2-binary",
+      "SPDXID": "SPDXRef-28-psycopg2-binary",
       "name": "psycopg2-binary",
       "versionInfo": "2.9.10",
       "primaryPackagePurpose": "APPLICATION",
@@ -925,7 +834,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-32-pyasn1",
+      "SPDXID": "SPDXRef-29-pyasn1",
       "name": "pyasn1",
       "versionInfo": "0.6.1",
       "primaryPackagePurpose": "APPLICATION",
@@ -951,7 +860,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-33-pyasn1-modules",
+      "SPDXID": "SPDXRef-30-pyasn1-modules",
       "name": "pyasn1-modules",
       "versionInfo": "0.4.1",
       "primaryPackagePurpose": "APPLICATION",
@@ -978,7 +887,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-34-pygments",
+      "SPDXID": "SPDXRef-31-pygments",
       "name": "pygments",
       "versionInfo": "2.18.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -1010,7 +919,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-35-python-dateutil",
+      "SPDXID": "SPDXRef-32-python-dateutil",
       "name": "python-dateutil",
       "versionInfo": "2.9.0.post0",
       "primaryPackagePurpose": "APPLICATION",
@@ -1043,7 +952,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-36-python-dotenv",
+      "SPDXID": "SPDXRef-33-python-dotenv",
       "name": "python-dotenv",
       "versionInfo": "1.0.1",
       "primaryPackagePurpose": "APPLICATION",
@@ -1075,39 +984,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-37-python-magic",
-      "name": "python-magic",
-      "versionInfo": "0.4.27",
-      "primaryPackagePurpose": "APPLICATION",
-      "supplier": "Person: Adam Hupp",
-      "downloadLocation": "https://pypi.org/project/python-magic/0.4.27/#files",
-      "filesAnalyzed": false,
-      "homepage": "http://github.com/ahupp/python-magic",
-      "checksums": [
-        {
-          "algorithm": "SHA1",
-          "checksumValue": "b443195104d89363b93a547584c1a12fce3b57ec"
-        }
-      ],
-      "licenseConcluded": "MIT",
-      "licenseDeclared": "MIT",
-      "copyrightText": "NOASSERTION",
-      "summary": "File type identification using libmagic",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE_MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/python-magic@0.4.27"
-        },
-        {
-          "referenceCategory": "SECURITY",
-          "referenceType": "cpe23Type",
-          "referenceLocator": "cpe:2.3:a:adam_hupp:python-magic:0.4.27:*:*:*:*:*:*:*"
-        }
-      ]
-    },
-    {
-      "SPDXID": "SPDXRef-38-pyyaml",
+      "SPDXID": "SPDXRef-34-pyyaml",
       "name": "pyyaml",
       "versionInfo": "6.0.2",
       "primaryPackagePurpose": "APPLICATION",
@@ -1133,7 +1010,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-39-referencing",
+      "SPDXID": "SPDXRef-35-referencing",
       "name": "referencing",
       "versionInfo": "0.35.1",
       "primaryPackagePurpose": "APPLICATION",
@@ -1166,7 +1043,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-40-requests",
+      "SPDXID": "SPDXRef-36-requests",
       "name": "requests",
       "versionInfo": "2.32.3",
       "primaryPackagePurpose": "APPLICATION",
@@ -1198,7 +1075,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-41-requests-oauthlib",
+      "SPDXID": "SPDXRef-37-requests-oauthlib",
       "name": "requests-oauthlib",
       "versionInfo": "2.0.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -1230,7 +1107,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-42-rpds-py",
+      "SPDXID": "SPDXRef-38-rpds-py",
       "name": "rpds-py",
       "versionInfo": "0.21.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -1263,7 +1140,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-43-rsa",
+      "SPDXID": "SPDXRef-39-rsa",
       "name": "rsa",
       "versionInfo": "4.9",
       "primaryPackagePurpose": "APPLICATION",
@@ -1295,118 +1172,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-44-sbom2dot",
-      "name": "sbom2dot",
-      "versionInfo": "0.3.1",
-      "primaryPackagePurpose": "APPLICATION",
-      "supplier": "Person: anthonyharrison",
-      "downloadLocation": "https://pypi.org/project/sbom2dot/0.3.1/#files",
-      "filesAnalyzed": false,
-      "homepage": "https://github.com/anthonyharrison/sbom2dot",
-      "licenseConcluded": "Apache-2.0",
-      "licenseDeclared": "Apache-2.0",
-      "copyrightText": "NOASSERTION",
-      "summary": "Create a dependency graph of the components within a SBOM",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE_MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/sbom2dot@0.3.1"
-        },
-        {
-          "referenceCategory": "SECURITY",
-          "referenceType": "cpe23Type",
-          "referenceLocator": "cpe:2.3:a:anthonyharrison:sbom2dot:0.3.1:*:*:*:*:*:*:*"
-        }
-      ]
-    },
-    {
-      "SPDXID": "SPDXRef-45-sbom4files",
-      "name": "sbom4files",
-      "versionInfo": "0.4.4",
-      "primaryPackagePurpose": "APPLICATION",
-      "supplier": "Person: anthonyharrison",
-      "downloadLocation": "https://pypi.org/project/sbom4files/0.4.4/#files",
-      "filesAnalyzed": false,
-      "homepage": "https://github.com/anthonyharrison/sbom4files",
-      "licenseConcluded": "Apache-2.0",
-      "licenseDeclared": "Apache-2.0",
-      "copyrightText": "NOASSERTION",
-      "summary": "SBOM generator for files in a directory",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE_MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/sbom4files@0.4.4"
-        },
-        {
-          "referenceCategory": "SECURITY",
-          "referenceType": "cpe23Type",
-          "referenceLocator": "cpe:2.3:a:anthonyharrison:sbom4files:0.4.4:*:*:*:*:*:*:*"
-        }
-      ]
-    },
-    {
-      "SPDXID": "SPDXRef-46-sbom4python",
-      "name": "sbom4python",
-      "versionInfo": "0.11.3",
-      "primaryPackagePurpose": "APPLICATION",
-      "supplier": "Person: anthonyharrison",
-      "downloadLocation": "https://pypi.org/project/sbom4python/0.11.3/#files",
-      "filesAnalyzed": false,
-      "homepage": "https://github.com/anthonyharrison/sbom4python",
-      "licenseConcluded": "Apache-2.0",
-      "licenseDeclared": "Apache-2.0",
-      "copyrightText": "NOASSERTION",
-      "summary": "SBOM generator for Python modules",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE_MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/sbom4python@0.11.3"
-        },
-        {
-          "referenceCategory": "SECURITY",
-          "referenceType": "cpe23Type",
-          "referenceLocator": "cpe:2.3:a:anthonyharrison:sbom4python:0.11.3:*:*:*:*:*:*:*"
-        }
-      ]
-    },
-    {
-      "SPDXID": "SPDXRef-47-semantic-version",
-      "name": "semantic-version",
-      "versionInfo": "2.10.0",
-      "primaryPackagePurpose": "APPLICATION",
-      "supplier": "Person: Raphael Barrois",
-      "downloadLocation": "https://pypi.org/project/semantic-version/2.10.0/#files",
-      "filesAnalyzed": false,
-      "homepage": "https://github.com/rbarrois/python-semanticversion",
-      "checksums": [
-        {
-          "algorithm": "SHA1",
-          "checksumValue": "e49b5b065b845cd7798c0219e0fa8986c75f6a4a"
-        }
-      ],
-      "licenseConcluded": "BSD-3-Clause",
-      "licenseDeclared": "NOASSERTION",
-      "licenseComments": "semantic-version declares BSD which is not currently a valid SPDX License identifier or expression.",
-      "copyrightText": "NOASSERTION",
-      "summary": "A library implementing the 'SemVer' scheme.",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE_MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:pypi/semantic-version@2.10.0"
-        },
-        {
-          "referenceCategory": "SECURITY",
-          "referenceType": "cpe23Type",
-          "referenceLocator": "cpe:2.3:a:raphael_barrois:semantic-version:2.10.0:*:*:*:*:*:*:*"
-        }
-      ]
-    },
-    {
-      "SPDXID": "SPDXRef-48-six",
+      "SPDXID": "SPDXRef-40-six",
       "name": "six",
       "versionInfo": "1.16.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -1438,7 +1204,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-49-smo",
+      "SPDXID": "SPDXRef-41-smo",
       "name": "smo",
       "versionInfo": "0.1.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -1464,7 +1230,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-50-sqlalchemy",
+      "SPDXID": "SPDXRef-42-sqlalchemy",
       "name": "sqlalchemy",
       "versionInfo": "2.0.36",
       "primaryPackagePurpose": "APPLICATION",
@@ -1490,7 +1256,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-51-typing-extensions",
+      "SPDXID": "SPDXRef-43-typing-extensions",
       "name": "typing-extensions",
       "versionInfo": "4.12.2",
       "primaryPackagePurpose": "APPLICATION",
@@ -1523,7 +1289,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-52-urllib3",
+      "SPDXID": "SPDXRef-44-urllib3",
       "name": "urllib3",
       "versionInfo": "2.2.3",
       "primaryPackagePurpose": "APPLICATION",
@@ -1554,7 +1320,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-53-websocket-client",
+      "SPDXID": "SPDXRef-45-websocket-client",
       "name": "websocket-client",
       "versionInfo": "1.8.0",
       "primaryPackagePurpose": "APPLICATION",
@@ -1580,7 +1346,7 @@
       ]
     },
     {
-      "SPDXID": "SPDXRef-54-werkzeug",
+      "SPDXID": "SPDXRef-46-werkzeug",
       "name": "werkzeug",
       "versionInfo": "3.1.3",
       "primaryPackagePurpose": "APPLICATION",
@@ -1614,52 +1380,52 @@
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-10-devtools",
+      "relatedSpdxElement": "SPDXRef-10-durationpy",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-11-durationpy",
+      "relatedSpdxElement": "SPDXRef-11-executing",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-12-executing",
+      "relatedSpdxElement": "SPDXRef-12-flasgger",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-13-flasgger",
+      "relatedSpdxElement": "SPDXRef-13-flask",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-14-flask",
+      "relatedSpdxElement": "SPDXRef-14-flask-sqlalchemy",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-15-flask-sqlalchemy",
+      "relatedSpdxElement": "SPDXRef-15-google-auth",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-16-google-auth",
+      "relatedSpdxElement": "SPDXRef-16-gurobipy",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-17-gurobipy",
+      "relatedSpdxElement": "SPDXRef-17-idna",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-18-idna",
+      "relatedSpdxElement": "SPDXRef-18-itsdangerous",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-19-itsdangerous",
+      "relatedSpdxElement": "SPDXRef-19-jinja2",
       "relationshipType": "DESCRIBES"
     },
     {
@@ -1669,52 +1435,52 @@
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-20-jinja2",
+      "relatedSpdxElement": "SPDXRef-20-jsonschema",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-21-jsonschema",
+      "relatedSpdxElement": "SPDXRef-21-jsonschema-specifications",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-22-jsonschema-specifications",
+      "relatedSpdxElement": "SPDXRef-22-kubernetes",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-23-kubernetes",
+      "relatedSpdxElement": "SPDXRef-23-mako",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-24-lib4package",
+      "relatedSpdxElement": "SPDXRef-24-markupsafe",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-25-lib4sbom",
+      "relatedSpdxElement": "SPDXRef-25-mistune",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-26-mako",
+      "relatedSpdxElement": "SPDXRef-26-oauthlib",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-27-markupsafe",
+      "relatedSpdxElement": "SPDXRef-27-packaging",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-28-mistune",
+      "relatedSpdxElement": "SPDXRef-28-psycopg2-binary",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-29-oauthlib",
+      "relatedSpdxElement": "SPDXRef-29-pyasn1",
       "relationshipType": "DESCRIBES"
     },
     {
@@ -1724,52 +1490,52 @@
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-30-packaging",
+      "relatedSpdxElement": "SPDXRef-30-pyasn1-modules",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-31-psycopg2-binary",
+      "relatedSpdxElement": "SPDXRef-31-pygments",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-32-pyasn1",
+      "relatedSpdxElement": "SPDXRef-32-python-dateutil",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-33-pyasn1-modules",
+      "relatedSpdxElement": "SPDXRef-33-python-dotenv",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-34-pygments",
+      "relatedSpdxElement": "SPDXRef-34-pyyaml",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-35-python-dateutil",
+      "relatedSpdxElement": "SPDXRef-35-referencing",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-36-python-dotenv",
+      "relatedSpdxElement": "SPDXRef-36-requests",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-37-python-magic",
+      "relatedSpdxElement": "SPDXRef-37-requests-oauthlib",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-38-pyyaml",
+      "relatedSpdxElement": "SPDXRef-38-rpds-py",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-39-referencing",
+      "relatedSpdxElement": "SPDXRef-39-rsa",
       "relationshipType": "DESCRIBES"
     },
     {
@@ -1779,82 +1545,42 @@
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-40-requests",
+      "relatedSpdxElement": "SPDXRef-40-six",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-41-requests-oauthlib",
+      "relatedSpdxElement": "SPDXRef-41-smo",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-42-rpds-py",
+      "relatedSpdxElement": "SPDXRef-42-sqlalchemy",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-43-rsa",
+      "relatedSpdxElement": "SPDXRef-43-typing-extensions",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-44-sbom2dot",
+      "relatedSpdxElement": "SPDXRef-44-urllib3",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-45-sbom4files",
+      "relatedSpdxElement": "SPDXRef-45-websocket-client",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-46-sbom4python",
-      "relationshipType": "DESCRIBES"
-    },
-    {
-      "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-47-semantic-version",
-      "relationshipType": "DESCRIBES"
-    },
-    {
-      "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-48-six",
-      "relationshipType": "DESCRIBES"
-    },
-    {
-      "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-49-smo",
+      "relatedSpdxElement": "SPDXRef-46-werkzeug",
       "relationshipType": "DESCRIBES"
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
       "relatedSpdxElement": "SPDXRef-5-cachetools",
-      "relationshipType": "DESCRIBES"
-    },
-    {
-      "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-50-sqlalchemy",
-      "relationshipType": "DESCRIBES"
-    },
-    {
-      "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-51-typing-extensions",
-      "relationshipType": "DESCRIBES"
-    },
-    {
-      "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-52-urllib3",
-      "relationshipType": "DESCRIBES"
-    },
-    {
-      "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-53-websocket-client",
-      "relationshipType": "DESCRIBES"
-    },
-    {
-      "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-54-werkzeug",
       "relationshipType": "DESCRIBES"
     },
     {
@@ -1874,7 +1600,7 @@
     },
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
-      "relatedSpdxElement": "SPDXRef-9-defusedxml",
+      "relatedSpdxElement": "SPDXRef-9-devtools",
       "relationshipType": "DESCRIBES"
     }
   ]

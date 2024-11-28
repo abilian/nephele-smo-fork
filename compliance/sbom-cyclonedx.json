@@ -178,29 +178,7 @@
     },
     {
       "bom-ref": "requirements-L9",
-      "description": "requirements line 9: defusedxml==0.7.1",
-      "externalReferences": [
-        {
-          "comment": "implicit dist url",
-          "type": "distribution",
-          "url": "https://pypi.org/simple/defusedxml/"
-        }
-      ],
-      "name": "defusedxml",
-      "purl": "pkg:pypi/defusedxml@0.7.1",
-      "type": "library",
-      "version": "0.7.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "PSF-2.0"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "requirements-L10",
-      "description": "requirements line 10: devtools==0.12.2",
+      "description": "requirements line 9: devtools==0.12.2",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -221,8 +199,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L11",
-      "description": "requirements line 11: durationpy==0.9",
+      "bom-ref": "requirements-L10",
+      "description": "requirements line 10: durationpy==0.9",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -243,8 +221,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L12",
-      "description": "requirements line 12: executing==2.1.0",
+      "bom-ref": "requirements-L11",
+      "description": "requirements line 11: executing==2.1.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -265,8 +243,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L13",
-      "description": "requirements line 13: flasgger==0.9.7.1",
+      "bom-ref": "requirements-L12",
+      "description": "requirements line 12: flasgger==0.9.7.1",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -287,8 +265,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L14",
-      "description": "requirements line 14: flask==3.1.0",
+      "bom-ref": "requirements-L13",
+      "description": "requirements line 13: flask==3.1.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -309,8 +287,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L15",
-      "description": "requirements line 15: flask-sqlalchemy==3.1.1",
+      "bom-ref": "requirements-L14",
+      "description": "requirements line 14: flask-sqlalchemy==3.1.1",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -331,8 +309,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L16",
-      "description": "requirements line 16: google-auth==2.36.0",
+      "bom-ref": "requirements-L15",
+      "description": "requirements line 15: google-auth==2.36.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -353,8 +331,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L17",
-      "description": "requirements line 17: gurobipy==12.0.0",
+      "bom-ref": "requirements-L16",
+      "description": "requirements line 16: gurobipy==12.0.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -368,8 +346,8 @@
       "version": "12.0.0"
     },
     {
-      "bom-ref": "requirements-L18",
-      "description": "requirements line 18: idna==3.10",
+      "bom-ref": "requirements-L17",
+      "description": "requirements line 17: idna==3.10",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -390,8 +368,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L19",
-      "description": "requirements line 19: itsdangerous==2.2.0",
+      "bom-ref": "requirements-L18",
+      "description": "requirements line 18: itsdangerous==2.2.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -412,8 +390,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L20",
-      "description": "requirements line 20: jinja2==3.1.4",
+      "bom-ref": "requirements-L19",
+      "description": "requirements line 19: jinja2==3.1.4",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -434,8 +412,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L21",
-      "description": "requirements line 21: jsonschema==4.23.0",
+      "bom-ref": "requirements-L20",
+      "description": "requirements line 20: jsonschema==4.23.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -456,8 +434,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L22",
-      "description": "requirements line 22: jsonschema-specifications==2024.10.1",
+      "bom-ref": "requirements-L21",
+      "description": "requirements line 21: jsonschema-specifications==2024.10.1",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -478,8 +456,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L23",
-      "description": "requirements line 23: kubernetes==31.0.0",
+      "bom-ref": "requirements-L22",
+      "description": "requirements line 22: kubernetes==31.0.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -500,38 +478,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L24",
-      "description": "requirements line 24: lib4package==0.2.0",
-      "externalReferences": [
-        {
-          "comment": "implicit dist url",
-          "type": "distribution",
-          "url": "https://pypi.org/simple/lib4package/"
-        }
-      ],
-      "name": "lib4package",
-      "purl": "pkg:pypi/lib4package@0.2.0",
-      "type": "library",
-      "version": "0.2.0"
-    },
-    {
-      "bom-ref": "requirements-L25",
-      "description": "requirements line 25: lib4sbom==0.7.5",
-      "externalReferences": [
-        {
-          "comment": "implicit dist url",
-          "type": "distribution",
-          "url": "https://pypi.org/simple/lib4sbom/"
-        }
-      ],
-      "name": "lib4sbom",
-      "purl": "pkg:pypi/lib4sbom@0.7.5",
-      "type": "library",
-      "version": "0.7.5"
-    },
-    {
-      "bom-ref": "requirements-L26",
-      "description": "requirements line 26: mako==1.3.6",
+      "bom-ref": "requirements-L23",
+      "description": "requirements line 23: mako==1.3.6",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -552,8 +500,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L27",
-      "description": "requirements line 27: markupsafe==3.0.2",
+      "bom-ref": "requirements-L24",
+      "description": "requirements line 24: markupsafe==3.0.2",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -574,8 +522,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L28",
-      "description": "requirements line 28: mistune==3.0.2",
+      "bom-ref": "requirements-L25",
+      "description": "requirements line 25: mistune==3.0.2",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -596,8 +544,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L29",
-      "description": "requirements line 29: oauthlib==3.2.2",
+      "bom-ref": "requirements-L26",
+      "description": "requirements line 26: oauthlib==3.2.2",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -618,8 +566,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L30",
-      "description": "requirements line 30: packaging==24.2",
+      "bom-ref": "requirements-L27",
+      "description": "requirements line 27: packaging==24.2",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -640,8 +588,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L31",
-      "description": "requirements line 31: psycopg2-binary==2.9.10",
+      "bom-ref": "requirements-L28",
+      "description": "requirements line 28: psycopg2-binary==2.9.10",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -662,8 +610,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L32",
-      "description": "requirements line 32: pyasn1==0.6.1",
+      "bom-ref": "requirements-L29",
+      "description": "requirements line 29: pyasn1==0.6.1",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -684,8 +632,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L33",
-      "description": "requirements line 33: pyasn1-modules==0.4.1",
+      "bom-ref": "requirements-L30",
+      "description": "requirements line 30: pyasn1-modules==0.4.1",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -706,8 +654,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L34",
-      "description": "requirements line 34: pygments==2.18.0",
+      "bom-ref": "requirements-L31",
+      "description": "requirements line 31: pygments==2.18.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -728,8 +676,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L35",
-      "description": "requirements line 35: python-dateutil==2.9.0.post0",
+      "bom-ref": "requirements-L32",
+      "description": "requirements line 32: python-dateutil==2.9.0.post0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -750,8 +698,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L36",
-      "description": "requirements line 36: python-dotenv==1.0.1",
+      "bom-ref": "requirements-L33",
+      "description": "requirements line 33: python-dotenv==1.0.1",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -772,30 +720,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L37",
-      "description": "requirements line 37: python-magic==0.4.27",
-      "externalReferences": [
-        {
-          "comment": "implicit dist url",
-          "type": "distribution",
-          "url": "https://pypi.org/simple/python-magic/"
-        }
-      ],
-      "name": "python-magic",
-      "purl": "pkg:pypi/python-magic@0.4.27",
-      "type": "library",
-      "version": "0.4.27",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "requirements-L38",
-      "description": "requirements line 38: pyyaml==6.0.2",
+      "bom-ref": "requirements-L34",
+      "description": "requirements line 34: pyyaml==6.0.2",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -816,8 +742,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L39",
-      "description": "requirements line 39: referencing==0.35.1",
+      "bom-ref": "requirements-L35",
+      "description": "requirements line 35: referencing==0.35.1",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -838,8 +764,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L40",
-      "description": "requirements line 40: requests==2.32.3",
+      "bom-ref": "requirements-L36",
+      "description": "requirements line 36: requests==2.32.3",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -860,8 +786,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L41",
-      "description": "requirements line 41: requests-oauthlib==2.0.0",
+      "bom-ref": "requirements-L37",
+      "description": "requirements line 37: requests-oauthlib==2.0.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -882,8 +808,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L42",
-      "description": "requirements line 42: rpds-py==0.21.0",
+      "bom-ref": "requirements-L38",
+      "description": "requirements line 38: rpds-py==0.21.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -904,8 +830,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L43",
-      "description": "requirements line 43: rsa==4.9",
+      "bom-ref": "requirements-L39",
+      "description": "requirements line 39: rsa==4.9",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -926,75 +852,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L44",
-      "description": "requirements line 44: sbom2dot==0.3.1",
-      "externalReferences": [
-        {
-          "comment": "implicit dist url",
-          "type": "distribution",
-          "url": "https://pypi.org/simple/sbom2dot/"
-        }
-      ],
-      "name": "sbom2dot",
-      "purl": "pkg:pypi/sbom2dot@0.3.1",
-      "type": "library",
-      "version": "0.3.1"
-    },
-    {
-      "bom-ref": "requirements-L45",
-      "description": "requirements line 45: sbom4files==0.4.4",
-      "externalReferences": [
-        {
-          "comment": "implicit dist url",
-          "type": "distribution",
-          "url": "https://pypi.org/simple/sbom4files/"
-        }
-      ],
-      "name": "sbom4files",
-      "purl": "pkg:pypi/sbom4files@0.4.4",
-      "type": "library",
-      "version": "0.4.4"
-    },
-    {
-      "bom-ref": "requirements-L46",
-      "description": "requirements line 46: sbom4python==0.11.3",
-      "externalReferences": [
-        {
-          "comment": "implicit dist url",
-          "type": "distribution",
-          "url": "https://pypi.org/simple/sbom4python/"
-        }
-      ],
-      "name": "sbom4python",
-      "purl": "pkg:pypi/sbom4python@0.11.3",
-      "type": "library",
-      "version": "0.11.3"
-    },
-    {
-      "bom-ref": "requirements-L47",
-      "description": "requirements line 47: semantic-version==2.10.0",
-      "externalReferences": [
-        {
-          "comment": "implicit dist url",
-          "type": "distribution",
-          "url": "https://pypi.org/simple/semantic-version/"
-        }
-      ],
-      "name": "semantic-version",
-      "purl": "pkg:pypi/semantic-version@2.10.0",
-      "type": "library",
-      "version": "2.10.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "BSD-2-Clause"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "requirements-L48",
-      "description": "requirements line 48: six==1.16.0",
+      "bom-ref": "requirements-L40",
+      "description": "requirements line 40: six==1.16.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -1015,8 +874,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L49",
-      "description": "requirements line 49: smo==0.1.0",
+      "bom-ref": "requirements-L41",
+      "description": "requirements line 41: smo==0.1.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -1030,8 +889,8 @@
       "version": "0.1.0"
     },
     {
-      "bom-ref": "requirements-L50",
-      "description": "requirements line 50: sqlalchemy==2.0.36",
+      "bom-ref": "requirements-L42",
+      "description": "requirements line 42: sqlalchemy==2.0.36",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -1052,8 +911,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L51",
-      "description": "requirements line 51: typing-extensions==4.12.2",
+      "bom-ref": "requirements-L43",
+      "description": "requirements line 43: typing-extensions==4.12.2",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -1074,8 +933,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L52",
-      "description": "requirements line 52: urllib3==2.2.3",
+      "bom-ref": "requirements-L44",
+      "description": "requirements line 44: urllib3==2.2.3",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -1096,8 +955,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L53",
-      "description": "requirements line 53: websocket-client==1.8.0",
+      "bom-ref": "requirements-L45",
+      "description": "requirements line 45: websocket-client==1.8.0",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -1118,8 +977,8 @@
       ]
     },
     {
-      "bom-ref": "requirements-L54",
-      "description": "requirements line 54: werkzeug==3.1.3",
+      "bom-ref": "requirements-L46",
+      "description": "requirements line 46: werkzeug==3.1.3",
       "externalReferences": [
         {
           "comment": "implicit dist url",
@@ -1265,31 +1124,7 @@
       "ref": "requirements-L46"
     },
     {
-      "ref": "requirements-L47"
-    },
-    {
-      "ref": "requirements-L48"
-    },
-    {
-      "ref": "requirements-L49"
-    },
-    {
       "ref": "requirements-L5"
-    },
-    {
-      "ref": "requirements-L50"
-    },
-    {
-      "ref": "requirements-L51"
-    },
-    {
-      "ref": "requirements-L52"
-    },
-    {
-      "ref": "requirements-L53"
-    },
-    {
-      "ref": "requirements-L54"
     },
     {
       "ref": "requirements-L6"
@@ -1315,89 +1150,109 @@
       "type": "application",
       "version": "0.1.0"
     },
-    "timestamp": "2024-11-28T08:31:11.825413+00:00",
-    "tools": [
-      {
-        "externalReferences": [
-          {
-            "type": "build-system",
-            "url": "https://github.com/CycloneDX/cyclonedx-python/actions"
-          },
-          {
-            "type": "distribution",
-            "url": "https://pypi.org/project/cyclonedx-bom/"
-          },
-          {
-            "type": "documentation",
-            "url": "https://cyclonedx-bom-tool.readthedocs.io/"
-          },
-          {
-            "type": "issue-tracker",
-            "url": "https://github.com/CycloneDX/cyclonedx-python/issues"
-          },
-          {
-            "type": "license",
-            "url": "https://github.com/CycloneDX/cyclonedx-python/blob/main/LICENSE"
-          },
-          {
-            "type": "release-notes",
-            "url": "https://github.com/CycloneDX/cyclonedx-python/blob/main/CHANGELOG.md"
-          },
-          {
-            "type": "vcs",
-            "url": "https://github.com/CycloneDX/cyclonedx-python/"
-          },
-          {
-            "type": "website",
-            "url": "https://github.com/CycloneDX/cyclonedx-python/#readme"
-          }
-        ],
-        "name": "cyclonedx-bom",
-        "vendor": "CycloneDX",
-        "version": "4.6.1"
-      },
-      {
-        "externalReferences": [
-          {
-            "type": "build-system",
-            "url": "https://github.com/CycloneDX/cyclonedx-python-lib/actions"
-          },
-          {
-            "type": "distribution",
-            "url": "https://pypi.org/project/cyclonedx-python-lib/"
-          },
-          {
-            "type": "documentation",
-            "url": "https://cyclonedx-python-library.readthedocs.io/"
-          },
-          {
-            "type": "issue-tracker",
-            "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
-          },
-          {
-            "type": "license",
-            "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE"
-          },
-          {
-            "type": "release-notes",
-            "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md"
-          },
-          {
-            "type": "vcs",
-            "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
-          },
-          {
-            "type": "website",
-            "url": "https://github.com/CycloneDX/cyclonedx-python-lib/#readme"
-          }
-        ],
-        "name": "cyclonedx-python-lib",
-        "vendor": "CycloneDX",
-        "version": "7.6.2"
-      }
-    ]
+    "timestamp": "2024-11-28T09:52:02.474604+00:00",
+    "tools": {
+      "components": [
+        {
+          "description": "CycloneDX Software Bill of Materials (SBOM) generator for Python projects and environments",
+          "externalReferences": [
+            {
+              "type": "build-system",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/actions"
+            },
+            {
+              "type": "distribution",
+              "url": "https://pypi.org/project/cyclonedx-bom/"
+            },
+            {
+              "type": "documentation",
+              "url": "https://cyclonedx-bom-tool.readthedocs.io/"
+            },
+            {
+              "type": "issue-tracker",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/issues"
+            },
+            {
+              "type": "license",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/blob/main/LICENSE"
+            },
+            {
+              "type": "release-notes",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/blob/main/CHANGELOG.md"
+            },
+            {
+              "type": "vcs",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/"
+            },
+            {
+              "type": "website",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/#readme"
+            }
+          ],
+          "group": "CycloneDX",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "name": "cyclonedx-py",
+          "type": "application",
+          "version": "5.1.1"
+        },
+        {
+          "description": "Python library for CycloneDX",
+          "externalReferences": [
+            {
+              "type": "build-system",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/actions"
+            },
+            {
+              "type": "distribution",
+              "url": "https://pypi.org/project/cyclonedx-python-lib/"
+            },
+            {
+              "type": "documentation",
+              "url": "https://cyclonedx-python-library.readthedocs.io/"
+            },
+            {
+              "type": "issue-tracker",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
+            },
+            {
+              "type": "license",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE"
+            },
+            {
+              "type": "release-notes",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md"
+            },
+            {
+              "type": "vcs",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
+            },
+            {
+              "type": "website",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/#readme"
+            }
+          ],
+          "group": "CycloneDX",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "name": "cyclonedx-python-lib",
+          "type": "library",
+          "version": "8.5.0"
+        }
+      ]
+    }
   },
-  "serialNumber": "urn:uuid:e97e6caa-2cea-4c2b-9f84-b0e1bd6117aa",
+  "serialNumber": "urn:uuid:ef6009cb-630f-45f6-a749-fe1827d6d290",
   "version": 1,
   "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
   "bomFormat": "CycloneDX",
