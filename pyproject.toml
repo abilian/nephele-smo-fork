@@ -8,13 +8,15 @@ authors = [
 ]
 requires-python = ">=3.10"
 dependencies = [
+    # Flask and related
     "flask>=3.1.0",
     "werkzeug>=3.1.3",
     "flasgger>=0.9.7.1",
-    # Persistence
+    # Persistence / database
     "sqlalchemy>=2.0.36",
     "flask-sqlalchemy>=3.1.1",
     "psycopg2-binary>=2.9.10",
+    "alembic>=1.14.0",
     # Other libraries
     "gurobipy>=12.0.0",
     "kubernetes>=31.0.0",
@@ -29,7 +31,6 @@ dependencies = [
     # "websocket-client>=1.8.0",
     # Temp
     "devtools>=0.12.2",
-    "alembic>=1.14.0",
 ]
 
 [project.scripts]
